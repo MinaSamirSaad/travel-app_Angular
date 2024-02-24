@@ -1,3 +1,9 @@
+.navbar {
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
 .navbar-brand {
   font-weight: 500;
   color: var(--main-color);
@@ -35,6 +41,7 @@
   color: var(--grey-color);
   font-weight: 500;
   position: relative;
+  font-size: 19px;
 }
 
 .nav-link:hover .nav-link.active {
