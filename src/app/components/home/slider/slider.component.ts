@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CarouselModule,ButtonModule, RatingModule,FormsModule],
   templateUrl: './slider.component.html',
-  styleUrl: './slider.component.css'
+  styleUrl: './slider.component.css',
+  encapsulation: ViewEncapsulation.None
+
 })
 export class SliderComponent {
 

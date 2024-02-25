@@ -1,8 +1,10 @@
-<h1 class=" popular text-center  " >Our Popular Tours</h1>
-<p-carousel class="carousel_images " [value]="products" [numVisible]="3" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
-    <ng-template  class="product-item-content" let-product pTemplate="item">
-        <div class=" element border-1 surface-border border-round m-2  py-5 px-3">
-            <div class="mb-3 text-center  ">
+<div class="slider">
+
+    <h1 class=" popular text-center  " >Our Popular Trips</h1>
+    <p-carousel class="carousel_images " [value]="products" [numVisible]="3" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <ng-template  class="product-item-content" let-product pTemplate="item">
+            <div class=" element border-1 surface-border border-round m-2  py-5 px-3">
+                <div class="mb-3 text-center  ">
                 <img  calss="product-image" src="../../../assets/images/home/slider/{{ product.image }}" [alt]="product.name" class="w-6 shadow-2" />
             </div>
             <div class="details">
@@ -15,3 +17,4 @@
         </div>
     </ng-template>
 </p-carousel>
+            </div>
