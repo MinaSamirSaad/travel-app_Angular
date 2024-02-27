@@ -1,0 +1,242 @@
+.trip-details-page {
+  background-color: var(--bg-secondary-color);
+}
+section.trip-details {
+  /* background; */
+  height: 65vh;
+  position: relative;
+  background-color: grey;
+}
+section.trip-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: url("https://www.ansonika.com/panagea/img/hero_in_tours_detail.jpg")
+    center center/cover no-repeat;
+}
+section.trip-details::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.trip-details .caption {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 20px;
+}
+.trip-details .caption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gold;
+  height: 4px;
+  width: 20%;
+}
+.overview {
+  font-size: 15px;
+}
+main h3 {
+  color: var(--thm-black);
+}
+main ul li {
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+main ul li i {
+  margin-right: 10px;
+}
+main ul li i.bi-check-lg {
+  color: var(--main-color);
+  font-size: 18px;
+}
+main ul li i.bi-x-lg {
+  font-size: 14px;
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+}
+.review input,
+.review input:focus,
+textarea:focus,
+textarea {
+  background-color: var(--bg-primary-color);
+}
+.review .form-control,
+textarea {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none;
+  width: 100%;
+}
+.review .form-control:focus {
+  outline: none !important;
+  border: none !important;
+}
+.custom-rating {
+  background-color: #f1c40f;
+  color: #f1c40f;
+}
+textarea {
+  height: 185px;
+}
+/* Booking Section */
+.booking {
+  background-color: #f9f4ed;
+}
+.booking .form-control {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none;
+  width: 100%;
+}
+
+.booking .form-control:focus {
+  outline: none !important;
+  border: none !important;
+}
+/* === */
+.p-rating-icon-active {
+  color: #f1c40f;
+}
+
+/* Dropdown */
+
+.p-dropdown {
+  width: 100%;
+  padding: 24px;
+}
+
+.p-inputwrapper-focus {
+  box-shadow: none;
+  border: none;
+}
+
+.p-dropdown-items {
+  padding: 0px;
+}
+.p-dropdown-items li {
+  padding: 15px;
+}
+.p-dropdown-items li:hover:not(.p-highlight) {
+  background-color: var(--bg-secondary-color);
+  color: #66606b;
+}
+.p-highlight {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.p-dropdown-clear-icon {
+  width: 17px;
+  height: 18px;
+}
+.p-dropdown-clear-icon {
+  right: 5rem;
+  transform: translateY(-50%);
+  color: var(--main-color);
+}
+
+.p-dropdown-trigger-icon {
+  width: 25px;
+  height: 21px;
+}
+/* booking-btn */
+.booking-btn {
+  /* font-size: 15px; */
+  /* padding: 17px 87px; */
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: none;
+  outline: none !important;
+  background-color: var(--main-color);
+  color: var(--bg-primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: all 0.3s linear;
+  overflow: hidden;
+  letter-spacing: 0.1em;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .booking-btn {
+    font-size: 0.7rem !important;
+  }
+}
+.booking-btn::after {
+  content: "";
+  background-color: #313041;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 100%;
+  transition: 0.4s all ease;
+}
+.booking-btn:hover::after {
+  top: 0;
+}
+/* accordion */
+
+.accordion-item {
+  /* background-color: var(--main-color); */
+  border-radius: 8px;
+}
+.accordion-header {
+  /* padding: 20px; */
+  padding: 23px 27px 24px 40px;
+  transition: all 0.15s ease-in-out;
+  border-radius: 8px;
+}
+.accordion-item:has(.show) .accordion-header {
+  background-color: var(--main-color);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+/* .accordion-header, */
+.accordion-button {
+  font-size: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+.accordion-item:has(.show) .accordion-button {
+  color: var(--bg-primary-color) !important;
+}
+
+.accordion-button:not(.collapsed),
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-day {
+  font-size: 22px;
+  /* line-height: ; */
+  color: var(--main-color);
+  transition: all 0.15s ease-in-out;
+  margin-right: 5px;
+}
+.accordion-item:has(.show) .accordion-day {
+  color: var(--bg-secondary-color);
+}
+.accordion-collapse {
+  transition-property: alls;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+}
