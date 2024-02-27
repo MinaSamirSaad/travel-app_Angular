@@ -1,0 +1,21 @@
+a {
+  text-decoration: none !important;
+  opacity: 0.8 !important;
+  color: white !important;
+}
+a:hover {
+  color: #fc5b62 !important;
+}
+button {
+  background-color: #fc5b62 !important;
+  border: none !important;
+}
+p {
+  opacity: 0.8 !important;
+}
+footer {
+  background-color: #121921 !important;
+}
+:host {
+  background-color: #121921 !important;
+}
