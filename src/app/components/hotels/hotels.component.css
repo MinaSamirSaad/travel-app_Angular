@@ -1,32 +1,3 @@
-@font-face {
-  font-family: ElegantIcons;
-  src: url("https://www.ansonika.com/panagea/icon_fonts/font/ElegantIcons.eot");
-  src: url("https://www.ansonika.com/panagea/icon_fonts/font/ElegantIcons.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://www.ansonika.com/panagea/icon_fonts/font/ElegantIcons.woff")
-      format("woff"),
-    url("https://www.ansonika.com/panagea/icon_fonts/font/ElegantIcons.ttf")
-      format("truetype"),
-    url("https://www.ansonika.com/panagea/icon_fonts/font/ElegantIcons.svg#ElegantIcons")
-      format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
-@font-face {
-  font-family: ElegantIcons;
-  src: url("https://www.ansonika.com/panagea/css/icon_fonts/font/ElegantIcons.eot");
-  src: url("https://www.ansonika.com/panagea/css/icon_fonts/font/ElegantIcons.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://www.ansonika.com/panagea/css/icon_fonts/font/ElegantIcons.woff")
-      format("woff"),
-    url("https://www.ansonika.com/panagea/css/icon_fonts/font/ElegantIcons.ttf")
-      format("truetype"),
-    url("https://www.ansonika.com/panagea/css/icon_fonts/font/ElegantIcons.svg#ElegantIcons")
-      format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
 body {
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
