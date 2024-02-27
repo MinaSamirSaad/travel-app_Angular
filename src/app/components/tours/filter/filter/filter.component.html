@@ -1,0 +1,10 @@
+<div class="cover-img">
+    <div class="overlay w-100"></div>
+    <img src="../../../../assets/images/tours/wang-xi-RTrZvGlvlQc-unsplash.jpg" class="w-100">
+
+    <div class="search d-flex flex-column flex-sm-row flex-wrap justify-content-evenly" id="search" >
+        <p-autoComplete placeholder="Where" id="where" [(ngModel)]="selectedCountry" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)" field="name"></p-autoComplete>
+        <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" optionLabel="name" [showClear]="true" placeholder="Select a Category"></p-dropdown>
+        <button class="search-btn">Search</button>
+    </div>
+</div>
