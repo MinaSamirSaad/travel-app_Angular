@@ -4,7 +4,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { FooterComponent } from "./components/app-footer2/footer/footer.component";
 import { OfferComponent } from "./components/offer/offer.component";
 import { ReviewsComponent } from "./components/reviews/reviews.component";
-
+import { HotelsComponent } from "./components/hotels/hotels.component";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -14,6 +14,7 @@ import { ReviewsComponent } from "./components/reviews/reviews.component";
     FooterComponent,
     OfferComponent,
     ReviewsComponent,
+    HotelsComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
