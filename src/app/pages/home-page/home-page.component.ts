@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 import {
   CarouselComponent,
@@ -15,6 +15,7 @@ import { SliderComponent } from '../../components/home/slider/slider.component';
 @Component({
   selector: "app-home-page",
   standalone: true,
+ "./home-page.component.css",
   imports: [HeaderComponent, CarouselComponent , ExoticPlacesComponent , WhyChooseUsComponent , SliderComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
