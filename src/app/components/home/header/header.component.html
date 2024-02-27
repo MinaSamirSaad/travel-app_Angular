@@ -24,10 +24,12 @@
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
           <li class="nav-item">
             <a
-              class="nav-link mx-lg-2 active"
+              class="nav-link mx-lg-2"
               [ngClass]="{ 'nav-link-color': isScrolled }"
               aria-current="page"
-              href="#"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLinkActive="active"
+              routerLink="home"
               >Home</a
             >
           </li>
@@ -35,7 +37,8 @@
             <a
               [ngClass]="{ 'nav-link-color': isScrolled }"
               class="nav-link mx-lg-2"
-              href="#"
+              routerLinkActive="active"
+              routerLink="tours"
               >Tours</a
             >
           </li>
@@ -43,7 +46,17 @@
             <a
               [ngClass]="{ 'nav-link-color': isScrolled }"
               class="nav-link mx-lg-2"
-              href="#"
+              routerLinkActive="active"
+              routerLink="countries"
+              >Countries</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="nav-link mx-lg-2"
+              routerLinkActive="active"
+              routerLink="offer"
               >Offers</a
             >
           </li>
@@ -67,7 +80,7 @@
       </div>
     </div>
 
-    <a href="#" class="login-button">Login/Register</a>
+    <a routerLink="login" class="login-button">Login/Register</a>
 
     <button
       class="navbar-toggler pe-0"

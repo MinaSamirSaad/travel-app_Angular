@@ -1,10 +1,42 @@
 <div class="cover-img">
-    <div class="overlay w-100"></div>
-    <img src="../../../../assets/images/tours/wang-xi-RTrZvGlvlQc-unsplash.jpg" class="w-100">
-
-    <div class="search d-flex flex-column flex-sm-row flex-wrap justify-content-evenly" id="search" >
-        <p-autoComplete placeholder="Where" id="where" [(ngModel)]="selectedCountry" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)" field="name"></p-autoComplete>
-        <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" optionLabel="name" [showClear]="true" placeholder="Select a Category"></p-dropdown>
-        <button class="search-btn">Search</button>
+  <div class="overlay w-100"></div>
+  <img
+    src="../../../../assets/images/tours/wang-xi-RTrZvGlvlQc-unsplash.jpg"
+    class="w-100"
+  />
+</div>
+<div class="container bg- my-5">
+  <div class="row">
+    <div class="mb-2 mb-md-0 col-md-4 p-0">
+      <div class="position-relative">
+        <input type="text" placeholder="where" class="form-control" />
+        <i class="bi bi-search icon-location text-secondary"></i>
+      </div>
     </div>
+    <div class="mb-2 mb-md-0 col-md-3 p-0">
+      <div class="position-relative">
+        <input
+          type="text"
+          placeholder="where"
+          class="form-control where-input"
+        />
+        <i class="bi bi-geo-alt-fill icon-location text-secondary"></i>
+      </div>
+    </div>
+    <div class="mb-2 mb-md-0 col-md-3 p-0">
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        [showClear]="false"
+        placeholder="Select a trip category"
+        class="h-100"
+      ></p-dropdown>
+    </div>
+    <div class="mb-2 mb-md-0 col-md-2 p-0 bg-">
+      <div class="btn-search w-100 text-center text-white fw-semibold">
+        search
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="containerr">
+<!-- <div class="containerr ">
     <div class="trips">
         <div class="caards d-flex flex-wrap gap-4  justify-content-center">
             <p-card class="" header="Cyprus" subheader="Flamingo Beach Hotel." [ngStyle]="{ width: '360px', 'color': '#ed8e7e' , 'box-shadow' : 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px' }">
@@ -266,4 +266,351 @@
         </div>
         <button class="load-more">Load More</button>
     </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="item">
+        <p-card
+          class=""
+          header="Cyprus"
+          subheader="Flamingo Beach Hotel."
+          [ngStyle]="{
+            width: '360px',
+            color: '#ed8e7e',
+            'box-shadow': 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px'
+          }"
+        >
+          <ng-template pTemplate="header">
+            <div class="card-img">
+              <span class="fav">
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-heart-fill': isClicked,
+                    'bi-heart': !isClicked,
+                    hovered: isHovered
+                  }"
+                  (click)="toggleFavourite()"
+                  (mouseenter)="isHovered = true"
+                  (mouseleave)="isHovered = false"
+                >
+                </i>
+              </span>
+              <span class="category">Honeymoon</span>
+              <button class="read-more">Read More</button>
+              <img
+                alt="Card"
+                src="https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
+              />
+            </div>
+          </ng-template>
+          <div
+            class="details d-flex justify-content-between align-items-end mb-4 text-dark"
+          >
+            <div class="price-duration">
+              <p class="duration mt-3 mb-0">6 days / 5 nights</p>
+              <p class="price mt-0 mb-0">48180 LE</p>
+            </div>
+            <div class="card flex justify-content-center stars border-0">
+              <p-rating
+                [(ngModel)]="value"
+                [cancel]="false"
+                [readonly]="true"
+              ></p-rating>
+            </div>
+          </div>
+          <ng-template pTemplate="footer" id="footer">
+            <p-button label="Book" class="book-button"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+  </div>
 </div>
