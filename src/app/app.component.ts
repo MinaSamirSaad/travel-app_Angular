@@ -5,16 +5,18 @@ import { FooterComponent } from "./components/app-footer2/footer/footer.componen
 import { OfferComponent } from "./components/offer/offer.component";
 import { ReviewsComponent } from "./components/reviews/reviews.component";
 import { HotelsComponent } from "./components/hotels/hotels.component";
+import { HeaderComponent } from "./components/home/header/header.component";
 @Component({
   selector: "app-root",
   standalone: true,
   imports: [
     RouterOutlet,
+    HeaderComponent,
     HomePageComponent,
     FooterComponent,
     OfferComponent,
     ReviewsComponent,
-    HotelsComponent
+    HotelsComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
