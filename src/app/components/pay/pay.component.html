@@ -1,92 +1,83 @@
-<div class="container">
-
-    <div class="center">
-        <div class="logos">
-            <img alt="Credit visaLogo " title="Credit Card Logos" src="assets/images/logos/visa.png" width="60" height="auto"/>
-            <img alt="Credit masterLogo" title="Credit Card Logos" src="assets/images/logos/masterCard.png" width="50" height="auto"/>
-            <img alt="Credit payoalLogo" title="Credit Card Logos" src="assets/images/logos/paypal.png" width="90" height="auto"/>
-    
+<div class="container-fluid container_all  ">
+    <div class="row">
+        <div class="center  col-12  ">
+            <div class="logos text-center d-flex align-items-center justify-content-center  gap-3 col-12 ">
+                <img alt="Credit visaLogo " title="Credit Card Logos" src="../../../assets/images/logos/visa.png" width="60" height="auto"/>
+                <img alt="Credit masterLogo" title="Credit Card Logos" src="../../../assets/images/logos/masterCard.png" width="50" height="auto"/>
+                <img alt="Credit payoalLogo" title="Credit Card Logos" src="../../../assets/images/logos/paypal.png" width="90" height="auto"/>
+            </div>
+            <hr class="col-12 " style="border:1px solid #ccc;">
         </div>
-        <hr style="border:1px solid #ccc; margin: 0 15px;">
     
-        <div class="card-details">
-            <form  [formGroup]="myRegForm" >
-           
-                <div class="label-input">
-                    <label for="cNumber" >Card number</label>
-                    <input formControlName="cNumber" pattern="^4[0-9]{10}(?:[0-9]{3})?$" placeholder="Card Number" class="form-control" id="cNumber" type="text">
-                    <div id="emailHelp" class="form-text">    
-                    @if(!cNumberValid.valid&&cNumberValid.value){
-                        <div>
-                            <p > <i class="pi pi-times-circle" ></i>  Card Number not valid</p>
-                        </div>
-                    } @if(cNumberValid.valid&&cNumberValid.value){<div><span class="m-5 " ></span></div>} </div>
-                </div>
     
-                <div class="c-details d-flex  ">
-    
+    </div>
+    <div class="row">
+        
+                 <div class="form-container col-lg-7 col-12  " >
+        
+                
+                <form  [formGroup]="myRegForm" >
                     <div class="label-input">
-                        <label for="ccExp" >Expiry date</label>
-                        <input formControlName="ccExp" pattern="^[1-9]{2}/[1-9]{2}?$" placeholder="MM/YY" class="form-control" id="ccExp" type="text">
-                        <div id="emailHelp" class="form-text">    @if (!ccExpValid.value) {
-                            <div>
-                                <p>Expiry date Required</p>
-                            </div>
-                        }
-                        @if(!ccExpValid.valid&&ccExpValid.value){
-                            <div>
-                                <p > <i class="pi pi-times-circle" ></i>Expiry date not valid</p>
-                            </div>
-                        } @if(ccExpValid.valid&&ccExpValid.value){<div><span class="m-5 " ></span></div>} </div>
-                    </div>
-                    <div class="label-input" >
-                        <div class="cvv-box label-input"id="cvv-box" >
-                            <label for="ccv" >CCV</label>
-                            <input formControlName="ccv" pattern="^[0-9]{3}?$" placeholder="CCV" class="cc-cvv" id="ccv" type="text">
-                            <div id="emailHelp" class="form-text">    @if (!ccvValid.value) {
-                                <div>
-                                    <p>Expiry date Required</p>
-                                </div>
+                        <label for="cNumber" >Card number</label>
+                        <input formControlName="cNumber" pattern="^4[0-9]{10}(?:[0-9]{3})?$" placeholder="Card Number" class="form-control" id="cNumber" type="text">
+                        <div id="emailHelp" class="form-text">    
+                            @if(!cNumberValid.valid&&!cNumberValid.value){
+                                <span class="m-20" ></span>
                             }
-                            @if(!ccvValid.valid&&ccvValid.value){
+                            @if(!cNumberValid.valid&&cNumberValid.value){
                                 <div>
-                                    <p > <i class="pi pi-times-circle" ></i>Expiry date not valid</p>
+                                    <p > <i class="pi pi-times-circle" ></i>  Card Number not valid</p>
                                 </div>
-                            } @if(ccvValid.valid&&ccvValid.value){<div><span class="m-5 " ></span></div>} </div>
+                            } @if(cNumberValid.valid&&cNumberValid.value){<div><span class="m-5 " ></span></div>} </div>
                         </div>
+                        
+        <div class="card_details d-flex gap-4  " >
+            <div class="label-input">
+                <label for="ccExp" >Expiry date</label>
+                <input formControlName="ccExp" pattern="^[1-9]{2}/[1-9]{2}?$" placeholder="MM/YY" class="form-control input_exp" id="ccExp" type="text">
+                <div id="emailHelp" class="form-text">    
+                    @if(!ccExpValid.valid&&ccExpValid.value){
+                        <div>
+                            <p > <i class="pi pi-times-circle" ></i>  Expiry date not valid</p>
+                        </div>
+                    } @if(ccExpValid.valid&&ccExpValid.value){<div><span class="m-5 " ></span></div>} </div>
+                </div>
+                <div class="label-input">
+                    <label for="ccv" >CCV</label>
+                    <input formControlName="ccv" pattern="^[0-9]{3}?$" placeholder="CCV Number" class="form-control input_ccv " id="ccv" type="text">
+                    <div id="emailHelp" class="form-text">    
+                        @if(!ccvValid.valid&&ccvValid.value){
+                            <div>
+                                <p > <i class="pi pi-times-circle" ></i>  CCV Number not valid</p>
+                            </div>
+                        } @if(ccvValid.valid&&ccvValid.value){<div><span class="m-5 " ></span></div>} </div>
                     </div>
-                </div>
-      
-                <div class="email">
-                    <label for="email" >Email</label>
-                    <input formControlName="email" class="form-control" placeholder="Email address"  id="email" type="text">
-                    <div id="emailHelp" class="form-text">  @if (!emailValid.value) {
-                        <div>
-                            <p>Email Required</p>
-                        </div>
-                    }
-                    @if(!emailValid.valid&&emailValid.value){
-                        <div>
-                            <p ><i class="pi pi-times-circle" ></i>  Email not valid</p>
-                        </div>
-                    }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
-                </div>
-                </div>
-                <input (click)="getData()" class="btn-submit" type="submit" value="Pay Now">
-            </form>
+                    
+        
         </div>
-    </div>
-    
-    
-    <div class="right">
-        <p>Order information</p>
-        <hr style="border:1px solid #ccc; margin: 0 15px;">
-        <div class="details">
-            <div style="font-weight: bold; padding: 3px 0;">Order discription</div>
-            <div style="padding: 3px 0;">Test payment</div>
-        </div>
-        <hr style="border:1px solid #ccc; margin: 0 15px;">
-        <a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos" title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png" width="100%" height="auto" /></a>
-    </div>
+                        
+                        
+                        <div class="email">
+                            <label for="email" >Email</label>
+                            <input formControlName="email" class="form-control" placeholder="Email address"  id="email" type="text">
+                            <div id="emailHelp" class="form-text">  
+                            @if(!emailValid.valid&&emailValid.value){
+                                <div>
+                                    <p ><i class="pi pi-times-circle" ></i>  Email not valid</p>
+                                </div>
+                            }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
+                        </div>
+                        </div>
+                    <input (click)="getData()" class="btn-submit" type="submit" value="Pay Now">
+        
+                </form>
+
+            </div>
+            <div class="col-lg-5 col-12  ">
+                <div class="details d-flex   d-flex    align-items-center ">
+            <app-card></app-card>
+            </div>
+              </div>  
+                 </div>
     </div>
     
