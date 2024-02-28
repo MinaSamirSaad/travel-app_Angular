@@ -1,0 +1,59 @@
+
+<div class="container-fluid  " >
+
+    <div class="row ">
+    
+        <div class="col-5  d-none d-lg-block "   >
+    
+            <img  class="img-fluid   w-100 " src="https://images.unsplash.com/photo-1502301197179-65228ab57f78?q=80&w=1885&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="log in iamge">
+        </div>
+    <div class=" form-all-countainer col-lg-7 col-12  " >
+    
+        <div class="form-container  " >
+            <h2>Register</h2>
+            
+        <form   [formGroup]="myRegForm"  >
+            <div class="label-input mb-3    ">
+                <label for="exampleInputName" >Full Name</label>
+                <input formControlName="name" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
+            </div>
+            <div class="label-input">
+                <label for="exampleInputEmail1" >Email</label>
+                <input formControlName="email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
+                <div id="emailHelp" class="form-text">  @if (!emailValid.value) {
+                    <div>
+                        <p>Email Required</p>
+                    </div>
+                }
+                @if(!emailValid.valid&&emailValid.value){
+                    <div>
+                        <p class="m-9 "  ><i class="pi pi-times-circle" ></i>  Email not valid</p>
+                    </div>
+                }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
+            </div>
+            </div>
+            <div class="label-input">
+                <label for="exampleInputPassword1" >Password</label>
+                <input formControlName="pass" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
+                <div id="emailHelp" class="form-text">    @if (!passValid.value) {
+                    <div>
+                        <p>Password Required</p>
+                    </div>
+                }
+                @if(!passValid.valid&&passValid.value){
+                    <div>
+                        <p class="m-9 " > <i class="pi pi-times-circle" ></i>  Password must be at least 8 charecters</p>
+                    </div>
+                } @if(passValid.valid&&passValid.value){<div><span class="m-5 " ></span></div>} </div>
+            </div>
+            <input (click)="getData()" class="btn-submit" type="submit" value="Sign up">
+        </form>
+
+        <p class="text-end " >Already have an Account? <span  >Login</span>  </p>
+    
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    
