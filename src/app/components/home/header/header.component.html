@@ -3,7 +3,9 @@
   class="navbar navbar-expand-lg bg-main fixed-top"
 >
   <div class="container-fluid">
-    <a class="navbar-brand me-auto" href="#">Journeyize</a>
+    <div class="logo-div mt-3">
+      <img class="logo" src="../../../../assets/images/Logo.png">
+    </div>
 
     <div
       class="offcanvas offcanvas-end bg-main"
@@ -12,7 +14,7 @@
       aria-labelledby="offcanvasNavbarLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Journeyize</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../../../../assets/images/Logo.png"></h5>
         <button
           type="button"
           class="btn-close"
@@ -79,17 +81,19 @@
         </ul>
       </div>
     </div>
+    <div class="right-nav-bar d-flex">
 
-    <a routerLink="login" class="login-button">Login/Register</a>
+      <a routerLink="login" class="login-button"><i class="bi bi-person-circle"></i></a>
 
-    <button
-      class="navbar-toggler pe-0"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-    >
+      <button
+        class="navbar-toggler pe-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+      >
       <span class="navbar-toggler-icon"></span>
     </button>
+    </div>
   </div>
 </nav>

@@ -1,22 +1,24 @@
 .navbar {
-  height: 80px;
-  /* margin: 20px; */
-  /* border-radius: 16px; */
-  padding: 0.5rem;
+  height: 81px;
+  padding : 20px 50px 20px !important;
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
-.navbar-brand {
+/* .navbar-brand {
   font-weight: 500;
   color: var(--main-color);
   font-size: 24px;
   transition: 0.3s color;
+} */
+
+.logo{
+  width: 200px;
 }
 .bg-main {
   background-color: var(--bg-secondary-color);
 }
 .login-button {
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   color: var(--bg-primary-color) !important;
   font-size: 14px;
   padding: 8px 20px;
@@ -25,8 +27,15 @@
   transition: 0.3s background-color;
 }
 
-.login-button:hover {
-  background-color: var(--main-color-hover);
+.login-button i {
+  font-size: 30px;
+  transition: 0.3s all ease-in-out;
+}
+
+
+
+.login-button:hover  i {
+  color: var(--main-color-hover);
 }
 
 .navbar-toggler {
@@ -40,15 +49,23 @@
 }
 
 .nav-link {
-  font-weight: 500;
   position: relative;
-  font-size: 17px;
+  font-family: 'Cabin', sans-serif;
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+text-decoration: none solid rgb(182, 142, 94);
+text-align: left;
+line-height: 33.15px;
+vertical-align: baseline;
+
 }
 .nav-link-color {
   color: var(--grey-color) !important;
 }
 .nav-link {
-  padding: 26px !important;
+  padding: 24px !important;
 }
 .nav-link:hover,
 .nav-link.active {
@@ -57,6 +74,16 @@
   /* color: red; */
 }
 @media (min-width: 991px) {
+
+}
+
+@media (min-width: 576px) {
+  /* Add styles for small devices here */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
   .nav-link {
     color: var(--bg-primary-color);
   }
@@ -67,7 +94,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 0%;
-    height: 3px;
+    height: 2px;
     background-color: var(--main-color);
     visibility: hidden;
     transition: 0.3s ease-in-out;
@@ -77,4 +104,32 @@
     visibility: visible;
     width: 100%;
   }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 768px) {
+  .navbar{
+    padding: 20px !important;
+  }
+}
+@media (min-width: 992px) {
+  /* Add styles for large devices here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+  /* Add styles for extra large devices here */
+  .nav-link{
+    padding: 24px 12px !important;
+  }
+  .login-button{
+    padding: 8px 0px;
+  }
+  .navbar-nav{
+    padding: 0px !important;
+  }
+  .right-nav-bar{
+    gap: 4px;
+  }
+
 }

@@ -1,8 +1,12 @@
-.carousel-section {
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+/* .carousel-section {
   background: url(../../../../assets/images/home/carousel/carousel1.jpeg)
     no-repeat center;
   background-size: cover;
-  width: 100%;
+   width: 100%;
   height: 100vh;
 }
 .carousel-section::before {
@@ -13,28 +17,140 @@
   top: 0;
   left: 0;
   right: 0;
-}
-.carousel-section .contaier {
+} */
+/* .carousel-section .contaier {
   height: 100%;
   position: relative;
   z-index: 1;
-}
-.carousel-section h1 {
+} */
+/* .carousel-section h1 {
   font-size: 1.5em;
 }
 .carousel-section h2 {
   font-size: 1.3em;
-}
+} */
 
 .carousel-section {
   position: relative;
 }
 .carousel-caption {
   position: absolute;
-  top: 60%;
+  top : 60%;
+  animation-name: upText;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+
 }
 .slide-right {
   width: 80px;
   height: 50px;
   background-color: red;
+}
+
+
+@keyframes upText {
+    0% {
+      top : 75%;
+      opacity: 0;
+    }
+    100% {
+      top : 60%;
+      opacity : 1;
+    }
+}
+
+
+.next-country{
+font-family: 'Cabin', sans-serif;
+font-size: 13px;
+font-weight: 400;
+font-style: normal;
+letter-spacing: 2px;
+text-transform: uppercase;
+line-height: 13px;
+vertical-align: baseline;
+margin-bottom: 40px;
+}
+
+.country-slider{
+  color: #FFFFFF;
+
+/* Font */
+font-family: 'Cabin', sans-serif;
+font-size: 85px !important;
+font-weight: 400;
+font-style: normal;
+letter-spacing: -3px;
+
+/* Spacing */
+line-height: 77px;
+vertical-align: baseline;
+
+/* Decoration */
+text-transform: none;
+text-decoration: none solid rgb(255, 255, 255);
+text-indent: 0px;
+}
+
+
+.book-carousel {
+  margin-top: 40px !important;
+  background-color: var(--main-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 32px;
+  font-family: 'Cabin', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s all ease-in-out;
+}
+
+.book-carousel:hover {
+  background-color: #e8604c;
+}
+
+@media (max-width: 1200px) {
+  /* Add styles for extra large devices here */
+  .country-slider {
+    font-size: 70px !important;
+  }
+}
+@media (max-width: 992px) {
+  /* Add styles for extra large devices here */
+  .country-slider {
+    font-size: 55px !important;
+  }
+  p.next-country {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  /* Add styles for extra large devices here */
+  .country-slider {
+    font-size: 45px !important;
+  }
+  p.next-country {
+    margin-bottom: 10px;
+  }
+
+  .book-carousel{
+    margin-top: 20px !important;
+  }
+}
+@media (max-width: 676px) {
+  /* Add styles for extra large devices here */
+  .country-slider {
+    font-size: 30px !important;
+    letter-spacing: 0;
+  }
+  p.next-country {
+    margin-bottom: 0px;
+  }
+
+  .book-carousel{
+    margin-top: 0px !important;
+  }
 }
