@@ -1,34 +1,37 @@
-import {
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { RatingModule } from 'primeng/rating';
-
+import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { RatingModule } from "primeng/rating";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-card',
+  selector: "app-card",
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule ,FormsModule , ButtonModule , CardModule , RatingModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.css',
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    CardModule,
+    RatingModule,
+  ],
+  templateUrl: "./card.component.html",
+  styleUrl: "./card.component.css",
   encapsulation: ViewEncapsulation.None,
-
 })
 export class CardComponent {
-  trip: any = {
-    name:"Honeymoon",
-    price: "48180 LE",
-    rate:3,
-    details:"Flamingo Beach Hotel.",
-    duration:"6 days / 5 nights",
-    favorite: false,
-    img:"https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
-
+  @Input() trip!: any;
+  @Input() isTrip!: boolean;
+  constructor(private router: Router) {}
+  ngOnInit(): void {
+    console.log("Trip", this.trip);
   }
+  showDetails(id: any) {
+    this.router.navigate([`trip/${id}`]);
+  }
+
   isHovered: boolean = false;
   isClicked: boolean = false;
 
@@ -40,5 +43,4 @@ export class CardComponent {
     this.trip.favorite = !this.trip.favorite;
     this.trip.favorite;
   }
-
 }
