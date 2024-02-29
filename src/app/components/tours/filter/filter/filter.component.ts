@@ -3,11 +3,13 @@ import { FormsModule } from "@angular/forms";
 
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
+import { FilterService } from "../../../../services/trips/filter.service";
 
 @Component({
   selector: "app-filter",
   standalone: true,
   imports: [AutoCompleteModule, FormsModule, DropdownModule],
+  providers: [FilterService],
   templateUrl: "./filter.component.html",
   styleUrl: "./filter.component.css",
   encapsulation: ViewEncapsulation.None,
@@ -31,5 +33,13 @@ export class FilterComponent implements OnInit {
       { name: "Honeymoon", code: "honeymoon" },
       { name: "Nile cruise", code: "nileCruise" },
     ];
+  }
+
+  // search functionality
+
+  searchTerm: string = "";
+  constructor(private _FilterService: FilterService) {}
+  sendSearch() {
+    this._FilterService.sendSearch(this.searchTerm);
   }
 }

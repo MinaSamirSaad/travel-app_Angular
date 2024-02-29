@@ -1,19 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class TripsService {
-
-  constructor(private http: HttpClient) { }
-  private readonly URL_DB = "https://travel-app-8glz.onrender.com/trips";
-
-  getTrips() {
-    return this.http.get(this.URL_DB);
+  constructor(private http: HttpClient) {}
+  getTrips(): Observable<any> {
+    return this.http.get<any>("https://travel-app-8glz.onrender.com/trips");
   }
-
-  getTrip(id: number) {
-    return this.http.get(`${this.URL_DB}/${id}`);
+  getTripById(id: string): Observable<any> {
+    return this.http.get<any>(
+      `https://travel-app-8glz.onrender.com/trips/${id}`
+    );
+  }
+  getHotels(): Observable<any> {
+    return this.http.get<any>("https://travel-app-8glz.onrender.com/hotels");
+  }
+  getCountries(): Observable<any> {
+    return this.http.get<any>("https://travel-app-8glz.onrender.com/hotels");
   }
 }

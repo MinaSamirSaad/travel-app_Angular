@@ -1,6 +1,6 @@
 .cover-img {
   position: relative;
-  height: 600px;
+  height: 450px;
 }
 .container .row {
   padding-left: 12px;
@@ -146,7 +146,7 @@ div.p-inputwrapper {
 /* where input */
 .icon-location {
   position: absolute;
-  right: 0.7rem;
+  right: 1.7rem;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -167,4 +167,7 @@ div.p-inputwrapper {
   background-color: var(--main-color);
   padding: 0.5rem;
   font-size: 20px;
+}
+.btn-search:hover {
+  background-color: var(--main-color-hover);
 }
