@@ -46,15 +46,10 @@
 >
   <ng-template pTemplate="header">
     <div class="card-img">
-      <span class="fav">
+      <span class="fav" (click)="toggleFavourite()">
         <i
           class="bi"
-          [ngClass]="{
-            'bi-heart-fill': isClicked,
-            'bi-heart': !isClicked,
-            hovered: isHovered
-          }"
-          (click)="toggleFavourite()"
+          [ngClass]="trip.isFavourite ? 'bi-heart-fill' : 'bi-heart'"
           (mouseenter)="isHovered = true"
           (mouseleave)="isHovered = false"
         >

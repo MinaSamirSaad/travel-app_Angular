@@ -3,13 +3,27 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none !important;
+  font-family: "Cabin", sans-serif;
 }
+
 :root {
   --main-color: #ed8e7e;
-  --main-color-hover: rgb(232, 159, 148);
+  --main-color-hover: #e8604c;
   --bg-primary-color: #fff;
-  --bg-secondary-color: #faf5ee;
+  --bg-secondary-color: #fcfaf6;
+
   --dark-grey-color: #595a5a;
   --grey-color: #5b5a65;
   --thm-black: #313041;
+
+  --bg-footer-color: #121921;
+  --font-header1-color: #2d2d2d;
+  --font-header2-color: #313041;
+  --font-body-color: #979a9e;
+}
+.color-main {
+  color: var(--main-color);
+}
+.color-title {
+  color: var(--font-header1-color);
 }

@@ -1,15 +1,13 @@
+import { TripsService } from "./../../../../services/trips/trips.service";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
-import { FilterService } from "../../../../services/trips/filter.service";
-
 @Component({
   selector: "app-filter",
   standalone: true,
   imports: [AutoCompleteModule, FormsModule, DropdownModule],
-  providers: [FilterService],
   templateUrl: "./filter.component.html",
   styleUrl: "./filter.component.css",
   encapsulation: ViewEncapsulation.None,
@@ -38,8 +36,8 @@ export class FilterComponent implements OnInit {
   // search functionality
 
   searchTerm: string = "";
-  constructor(private _FilterService: FilterService) {}
+  constructor(private _TripsService: TripsService) {}
   sendSearch() {
-    this._FilterService.sendSearch(this.searchTerm);
+    this._TripsService.search.next(this.searchTerm);
   }
 }

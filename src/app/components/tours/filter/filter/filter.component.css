@@ -1,3 +1,52 @@
+.trip-details-page {
+  background-color: var(--bg-secondary-color);
+}
+section.trip-details {
+  /* background; */
+  height: 65vh;
+  position: relative;
+  background-color: grey;
+}
+section.trip-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: url("../../../../../assets/images/home/carousel/carousel1.jpeg")
+    center center/cover no-repeat;
+  background-position: 50% 70%;
+}
+section.trip-details::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.trip-details .caption {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 20px;
+}
+.trip-details .caption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gold;
+  height: 4px;
+  width: 20%;
+}
+
 .cover-img {
   position: relative;
   height: 450px;

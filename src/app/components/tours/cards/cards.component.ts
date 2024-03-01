@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { ButtonModule } from "primeng/button";
@@ -14,59 +14,36 @@ import { CardComponent } from "../../card/card.component";
 @Component({
   selector: "app-cards",
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonModule,
-    CardComponent,
-    RatingModule,
-    HttpClientModule,
-    FilterPipe,
-  ],
-  providers: [FilterService, TripsService],
+  imports: [CommonModule, CardComponent, HttpClientModule, FilterPipe],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.css",
   encapsulation: ViewEncapsulation.None,
 })
-export class CardsComponent {
+export class CardsComponent implements OnInit {
   // search functionality
   trips: any;
   searchTerm: string = "";
   private subscription!: Subscription;
-  constructor(
-    private _FilterService: FilterService,
-    private _TripsService: TripsService
-  ) {
-    this.subscription = this._FilterService.search$.subscribe({
+  constructor(private _TripsService: TripsService) {}
+
+  ngOnInit(): void {
+    if (!localStorage.getItem("favouriteTrips"))
+      localStorage.setItem("favouriteTrips", "[]");
+    this.subscription = this._TripsService.search.subscribe({
       next: (term) => {
+        console.log({ term });
         this.searchTerm = term;
       },
     });
-  }
-  ngOnInit(): void {
+    // ------------------
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
-        this.trips = data;
-        console.log(data);
+        this.trips = data.slice(0, 9);
       },
     });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-  }
-  //end search functionality
-  value: number = 3;
-  isHovered: boolean = false;
-  isClicked: boolean = false;
-
-  addedToFav() {
-    console.log("added to fav");
-  }
-
-  toggleFavourite() {
-    this.isClicked = !this.isClicked;
-    // Call addedToFav() method if you want to execute the function on click
-    this.addedToFav();
   }
 }
