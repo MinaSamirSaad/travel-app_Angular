@@ -1,6 +1,11 @@
+<section class="trip-details">
+  <dir class="caption">
+    <h2 class="h1">Our Trips</h2>
+  </dir>
+</section>
 <div class="container-lg">
   <div class="row px-0">
-    @for (item of trips | filter:searchTerm; track $index) {
+    @for (item of trips ; track $index) {
 
     <div class="col-sm-6 col-md-4 p-3">
       <div class="item">
@@ -11,10 +16,8 @@
     <div class="container-lg">
       <div class="row px-0">
         <div class="col-12 text-center d-flex flex-column p-5">
-          <div class="spinner-border color-main m-auto p-3" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p class="fs-3 fw-semibold color-title">Loading....</p>
+          <i class="bi bi-heartbreak fs-1 color-main"></i>
+          <p class="fs-3 fw-semibold color-title">No trips selected</p>
         </div>
       </div>
     </div>

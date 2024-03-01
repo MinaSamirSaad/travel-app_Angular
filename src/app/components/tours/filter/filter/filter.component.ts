@@ -1,9 +1,9 @@
+import { TripsService } from "./../../../../services/trips/trips.service";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
-
 @Component({
   selector: "app-filter",
   standalone: true,
@@ -31,5 +31,13 @@ export class FilterComponent implements OnInit {
       { name: "Honeymoon", code: "honeymoon" },
       { name: "Nile cruise", code: "nileCruise" },
     ];
+  }
+
+  // search functionality
+
+  searchTerm: string = "";
+  constructor(private _TripsService: TripsService) {}
+  sendSearch() {
+    this._TripsService.search.next(this.searchTerm);
   }
 }

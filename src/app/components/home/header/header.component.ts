@@ -1,6 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component, HostListener } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import {
+  IsActiveMatchOptions,
+  NavigationEnd,
+  Router,
+  RouterModule,
+} from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -11,9 +16,24 @@ import { RouterModule } from "@angular/router";
 })
 export class HeaderComponent {
   isScrolled: boolean = false;
-
+  isFavouriteActive: boolean = false;
+  constructor(private router: Router) {}
   @HostListener("window:scroll", [])
   onScroll(): void {
     this.isScrolled = window.scrollY > 300;
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const options: IsActiveMatchOptions = {
+          paths: "exact",
+          queryParams: "exact",
+          fragment: "ignored",
+          matrixParams: "ignored",
+        };
+        this.isFavouriteActive = this.router.isActive("favourite", options);
+      }
+    });
   }
 }

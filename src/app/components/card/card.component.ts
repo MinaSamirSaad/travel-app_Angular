@@ -1,34 +1,41 @@
-import {
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { RatingModule } from 'primeng/rating';
-
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { RatingModule } from "primeng/rating";
+import { Router } from "@angular/router";
+import { TripsService } from "../../services/trips/trips.service";
 
 @Component({
-  selector: 'app-card',
+  selector: "app-card",
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule ,FormsModule , ButtonModule , CardModule , RatingModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.css',
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    CardModule,
+    RatingModule,
+  ],
+  templateUrl: "./card.component.html",
+  styleUrl: "./card.component.css",
   encapsulation: ViewEncapsulation.None,
-
 })
-export class CardComponent {
-  trip: any = {
-    name:"Honeymoon",
-    price: "48180 LE",
-    rate:3,
-    details:"Flamingo Beach Hotel.",
-    duration:"6 days / 5 nights",
-    favorite: false,
-    img:"https://www.skyegtours.com/en/admin/uploaded/offers/shutterstock_2064277223-1-1-1-800x534.jpg"
-
+export class CardComponent implements OnInit {
+  @Input() trip!: any;
+  @Input() isTrip!: boolean;
+  constructor(private router: Router, private _TripsService: TripsService) {}
+  ngOnInit(): void {
+    let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
+    let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
+    // console.log(findTrip);
+    if (findTrip) this.trip = findTrip;
   }
+  showDetails(id: any) {
+    this.router.navigate([`trip/${id}`]);
+  }
+
   isHovered: boolean = false;
   isClicked: boolean = false;
 
@@ -37,8 +44,25 @@ export class CardComponent {
   }
 
   toggleFavourite() {
-    this.trip.favorite = !this.trip.favorite;
-    this.trip.favorite;
-  }
+    // get from local
+    let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
+    // find
+    let foundTripInLocalStrg = locStrg.find(
+      (favTrip: any) => this.trip._id == favTrip._id
+    );
 
+    if (!foundTripInLocalStrg) {
+      this.trip.isFavourite = true;
+      locStrg.push(this.trip);
+      localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
+    } else {
+      this.trip.isFavourite = false;
+      locStrg = locStrg.filter((fav: any) => {
+        return fav._id != this.trip._id;
+      });
+
+      localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
+      this._TripsService.toggleFavoriteEvent.emit(this.trip);
+    }
+  }
 }
