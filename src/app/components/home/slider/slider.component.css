@@ -29,7 +29,7 @@ gap: 10px;
     transition: all 0.3s ease-in-out;
 }
 .p-carousel-container,.p-carousel-indicators{
-    background-color:#FAF5EE ;
+    /* background-color:#FAF5EE ; */
     padding: 20px 0;
     
 }
@@ -50,7 +50,7 @@ border-radius: 50%
 
 .popular{
     font-family: sans-serif;
-    background-color:#FAF5EE ;
+    /* background-color:#FAF5EE ; */
 margin-bottom: -4px;
 margin-top: 10px;
     padding: 20px;
@@ -59,4 +59,16 @@ color: #595A5A;
 }
 .slider{
     margin-top: -50px;
+    transform: scale(0.9);
+    font-family: sans-serif;
+
+}
+.product-item-content{
+transform: scale(0.9);
+
+}
+
+.p-carousel-indicator.p-highlight button {
+background-color: #ed8e7e;
+
 }
