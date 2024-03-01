@@ -3,20 +3,24 @@
   width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: hsla(0, 15%, 96%, 0.537);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
   color: #595A5A;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 
 .form-all-countainer{
-  background-color: #FAF5EE;
-  padding: 50px;
+  background-image: url('../../../assets/images/2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  padding: 50px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -36,7 +40,7 @@
 
 /* Error message styles */
 .form-text {
-  color: rgb(165, 46, 46);
+  color: rgb(255 0 0);
   margin-top: 4px;
   font-size: 14px;
   margin-left: 6px ;
@@ -53,7 +57,7 @@
   transition: background-color 0.3s;
   width: 120px;
   height: 40px;
-  border-radius: 60px;
+  border-radius: 5px;
 font-size: 20px;
   margin: 20px 0 20px 66px;
 }
@@ -65,10 +69,8 @@ font-size: 20px;
 .row > * {
     padding: 0px;
   }
-  img{
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      height: 100vh;
-  }
+
+
   h2{
       text-align: center;
       font-family: sans-serif;
@@ -95,4 +97,9 @@ font-size: 20px;
 .m-9{
 margin-left: -9px;
 
+}
+img{
+  position: absolute;
+height: 110px;
+z-index: 5;
 }

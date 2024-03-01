@@ -12,6 +12,9 @@ import {
   CountriesComponent,
 } from './pages/countries-page/countries/countries.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { PayPageComponent } from './pages/pay-page/pay-page.component';
 
 @Component({
   selector: "app-root",
@@ -25,6 +28,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     ReviewsComponent,
     HotelsComponent,
     CountriesComponent,
+    RegisterPageComponent,
+    PayPageComponent
+
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

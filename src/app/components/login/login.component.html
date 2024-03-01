@@ -1,27 +1,18 @@
 
-<div class="container-fluid  " >
+<div class="container-fluid position-relative   " >
+    
+    <img class="logoImg" src="../../../assets/images/Logo (1).png" alt="logo image">
 
     <div class="row ">
-    
-        <div class="col-5  d-none d-lg-block "   >
-    
-            <img  class="img-fluid   w-100 " src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="log in iamge">
-        </div>
-    <div class=" form-all-countainer col-lg-7 col-12  " >
-    
+        <div class=" form-all-countainer  col-12   " >
         <div class="form-container  " >
             <h2>Login</h2>
             
-        <form   [formGroup]="myRegForm"  >
+        <form   [formGroup]="LoginForm"  >
             <div class="label-input">
                 <label for="exampleInputEmail1" >Email</label>
                 <input formControlName="email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
                 <div id="emailHelp" class="form-text">
-                      <!-- @if (!emailValid.value) {
-                    <div>
-                        <p>Email Required</p>
-                    </div>
-                } -->
                 @if(!emailValid.valid&&emailValid.value){
                     <div>
                         <p ><i class="pi pi-times-circle" ></i>  Email not valid</p>
@@ -33,11 +24,7 @@
                 <label for="exampleInputPassword1" >Password</label>
                 <input formControlName="pass" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
                 <div id="emailHelp" class="form-text">   
-                     <!-- @if (!passValid.value) {
-                    <div>
-                        <p>Password Required</p>
-                    </div>
-                } -->
+        
                 @if(!passValid.valid&&passValid.value){
                     <div>
                         <p > <i class="pi pi-times-circle" ></i>  Password not valid</p>
@@ -50,8 +37,6 @@
     
     
         <p class=" m-0 " id="google-btn" ></p>
-        <!-- <p class=" m-0 " > <i class="pi pi-google  google" ></i> Continue with <span  >Google</span> </p> -->
-        <!-- <p  > <i class="pi pi-facebook" ></i> Continue with Facebook </p> -->
         <p  class="m-0 "  >Or</p>
         <p  >Don't have an Account? <span  >Register</span>  </p>
     
