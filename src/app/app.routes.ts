@@ -9,6 +9,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import {
   ToursPageComponent,
 } from './pages/tours-page/tours-page/tours-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { PayPageComponent } from './pages/pay-page/pay-page.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -17,5 +19,7 @@ export const routes: Routes = [
   { path: "offer", component: OfferComponent },
   { path: "countries", component: CountriesComponent },
   { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterPageComponent },
+  { path: "pay", component: PayPageComponent },
   { path: "home", component: HomePageComponent },
 ];
