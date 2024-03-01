@@ -4,7 +4,7 @@
 >
   <div class="container-fluid">
     <div class="logo-div mt-3">
-      <img class="logo" src="../../../../assets/images/Logo.png">
+      <img class="logo" src="../../../../assets/images/Logo.png" />
     </div>
 
     <div
@@ -14,7 +14,9 @@
       aria-labelledby="offcanvasNavbarLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img class="logo" src="../../../../assets/images/Logo.png"></h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <img class="logo" src="../../../../assets/images/Logo.png" />
+        </h5>
         <button
           type="button"
           class="btn-close"
@@ -82,8 +84,17 @@
       </div>
     </div>
     <div class="right-nav-bar d-flex">
-
-      <a routerLink="login" class="login-button"><i class="bi bi-person-circle"></i></a>
+      <a routerLink="login" class="login-button"
+        ><i class="bi bi-person-circle"></i
+      ></a>
+      <a
+        routerLink="favourite"
+        class="login-button"
+        [class.active]="isFavouriteActive"
+      >
+        <i class="bi bi-heart" *ngIf="!isFavouriteActive"></i>
+        <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
+      </a>
 
       <button
         class="navbar-toggler pe-0"
@@ -92,8 +103,8 @@
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
       >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </div>
 </nav>
