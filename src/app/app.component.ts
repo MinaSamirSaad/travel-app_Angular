@@ -1,8 +1,6 @@
 import { Component } from "@angular/core";
 import { Router, RouterOutlet } from "@angular/router";
 
-import { FooterComponent } from "./components/app-footer2/footer/footer.component";
-import { HeaderComponent } from "./components/home/header/header.component";
 import { HotelsComponent } from "./components/hotels/hotels.component";
 import { OfferComponent } from "./components/offer/offer.component";
 import { ReviewsComponent } from "./components/reviews/reviews.component";
@@ -13,6 +11,8 @@ import { RegisterPageComponent } from "./pages/register-page/register-page.compo
 import { PayPageComponent } from "./pages/pay-page/pay-page.component";
 import { AuthLayoutComponent } from "./layout/auth-layout/auth-layout.component";
 import { SystemLayoutComponent } from "./layout/system-layout/system-layout.component";
+import { HeaderComponent } from "./components/home/header/header.component";
+import { FooterComponent } from "./components/app-footer2/footer/footer.component";
 
 @Component({
   selector: "app-root",
@@ -20,8 +20,8 @@ import { SystemLayoutComponent } from "./layout/system-layout/system-layout.comp
   imports: [
     RouterOutlet,
     HeaderComponent,
-    HomePageComponent,
     FooterComponent,
+    HomePageComponent,
     OfferComponent,
     ReviewsComponent,
     HotelsComponent,
