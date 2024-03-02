@@ -5,7 +5,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
 import { CardComponent } from '../card/card.component';
-
+import { HttpClient } from '@angular/common/http';
+import { render } from 'creditcardpayments/creditCardPayments';
 @Component({
   selector: 'app-pay',
   standalone: true,
@@ -16,6 +17,56 @@ import { CardComponent } from '../card/card.component';
 
 })
 export class PayComponent {
+
+
+  constructor(){
+    render({
+      id:"#myPaymentButtons",
+      currency:"USD",
+      value:"100.00",
+      onApprove:(details)=>{
+        
+        alert("Transaction successfull");
+
+      }
+    });
+  
+  }
+
+
+  
+//initialize payment stripe
+/*
+amount?:number;
+token?:string;
+
+ stripePromise=loadStripe("pk_test_51MU8ssDftpBp1rw3lUGy6Fsy5RRyhLyfds091voLDxi6LRfmV51TKhtb449c2IEBFnDynaPBZzF54pBJTJf60bzx00OP8oAFXF")
+
+
+ constructor(private http:HttpClient) { }
+
+ async handleSumit(){
+  const stripe=await this.stripePromise;
+  const {token,error}=await stripe?.createToken("card");
+
+  if(error){
+    console.log("error",error);
+    return;
+ }
+this.http.post("/api/payment",{amount:this.amount,token:token.id}).subscribe((res)=>{
+
+  if(res==="success"){
+    console.log("payment was successful");}else{
+      console.log("payment failed");
+    } 
+
+ })
+}
+*/
+
+
+
+
 // card component
 value: number = 3;
   isHovered: boolean = false;
