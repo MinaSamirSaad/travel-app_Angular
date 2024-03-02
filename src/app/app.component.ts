@@ -39,7 +39,7 @@ export class AppComponent {
   constructor(private router: Router) {}
   isLoginOrRegisterRoute(): boolean {
     return (
-      this.router.url.includes("login") ||
+      // this.router.url.includes("login") ||
       this.router.url.includes("register") ||
       this.router.url.includes("pay")
     );
