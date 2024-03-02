@@ -14,12 +14,13 @@
 
   --dark-grey-color: #595a5a;
   --grey-color: #5b5a65;
-  --thm-black: #313041;
+  --thm-black: #09090a;
 
   --bg-footer-color: #121921;
   --font-header1-color: #2d2d2d;
   --font-header2-color: #313041;
   --font-body-color: #979a9e;
+  --font-body2-color: #595a5a;
 }
 .color-main {
   color: var(--main-color);

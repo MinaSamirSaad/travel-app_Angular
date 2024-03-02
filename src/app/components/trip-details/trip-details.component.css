@@ -1,6 +1,7 @@
-.trip-details-page {
-  background-color: var(--bg-secondary-color);
+.trip-details-page main {
+  margin-top: 120px;
 }
+
 section.trip-details {
   /* background; */
   height: 65vh;
@@ -94,11 +95,11 @@ textarea {
 }
 /* Booking Section */
 .booking {
-  background-color: #f9f4ed;
 }
 .booking .form-control {
   outline: none !important;
   border: none !important;
+  background-color: #f9f4ed;
   box-shadow: none;
   width: 100%;
 }
@@ -239,4 +240,151 @@ textarea {
   transition-property: alls;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
+}
+
+.list-group-item-striped {
+  background-color: #f9f4ed;
+}
+/* Test days */
+
+.outer {
+  height: 100vh;
+  min-width: 20vw;
+  flex: 1;
+}
+
+.progress {
+  display: inline-flex;
+  height: 100%;
+  padding: 5vh 10%;
+  background-color: var(--bg-secondary-color);
+}
+
+.progress > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress > div.left {
+  padding-right: 20px;
+  text-align: right;
+}
+
+.progress > div.left div:last-of-type::after {
+  display: none;
+}
+
+.progress > div.left div::after {
+  content: "";
+  background: var(--main-color);
+  border-radius: 2px;
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  height: 101%;
+  width: 1px;
+  transform: translateX(50%);
+}
+
+.progress > div.right {
+  padding-left: 20px;
+}
+
+.progress > div.right div.prev::after {
+  transition: none;
+}
+
+.progress > div.right div.current {
+  color: var(--font-body2-color);
+  font-size: 14px;
+}
+
+.progress > div.right div.current::before {
+  background: var(--main-color-hover);
+  padding: 10px;
+  transition: all 0.2s 0.15s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+
+.progress > div.right div.current::after {
+  height: 0%;
+  transition: height 0.2s ease-out;
+}
+/* 
+.progress > div.right div.current ~ div {
+  color: #666;
+} */
+
+.progress > div.right div::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  transform: translateX(-50%) translateY(-50%);
+  transition: padding 0.2s ease;
+}
+
+.progress > div.right div::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  height: 101%;
+  width: 2px;
+  transform: translateX(-50%);
+  transition: height 0.2s ease;
+}
+
+.progress > div div {
+  flex: 1;
+  position: relative;
+  line-height: 20px;
+  cursor: default;
+  min-height: 30px;
+  color: var(--font-header1-color);
+}
+
+.progress > div div:last-of-type {
+  flex: 0;
+}
+
+.list-group-item-striped:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.progress.dark {
+  background: #333;
+}
+
+.progress.dark > div {
+  color: #ccc;
+}
+
+.progress.dark > div.left div::after {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.progress.dark > div.right div.prev::after {
+  transition: none;
+}
+
+.progress.dark > div.right div.current {
+  color: white;
+  font-weight: bold;
+}
+
+.progress.dark > div.right div.current::before {
+  background: white;
+}
+
+.progress.dark > div.right div.current::after {
+  height: 0%;
+}
+
+.progress.dark > div.right div.current ~ div {
+  color: #666;
 }
