@@ -1,15 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+
 .navbar {
   height: 81px;
   padding : 20px 50px 20px !important;
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
-/* .navbar-brand {
-  font-weight: 500;
-  color: var(--main-color);
-  font-size: 24px;
-  transition: 0.3s color;
-} */
+
 
 .logo{
   width: 200px;
