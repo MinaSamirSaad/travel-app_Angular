@@ -9,15 +9,15 @@
   justify-content: center;
   align-items: center;
   height: 600px;
-  color: #595A5A;
+  color: #595a5a;
   background: transparent;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   color: #fff;
 }
 
-.form-all-countainer{
-  background-image: url('../../../assets/images/3.jpg');
+.form-all-countainer {
+  background-image: url("../../../assets/images/3.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,9 +27,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
 }
-
 
 /* Input styles */
 .form-control {
@@ -40,7 +38,6 @@
   height: 40px;
   width: 250px;
   margin-bottom: -30px;
-
 }
 
 /* Error message styles */
@@ -48,15 +45,14 @@
   color: rgb(255 0 0);
   margin-top: 40px;
   font-size: 14px;
-  margin-left: 6px ;
-
+  margin-left: 6px;
 }
 
 /* Button styles */
 .btn-submit {
   font-size: 16px;
   border: none;
-  background-color: #ED8E7E;
+  background-color: #ed8e7e;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -72,41 +68,42 @@
 }
 
 .row > * {
-    padding: 0px;
-  }
-
-  h2{
-      text-align: center;
-      font-family: sans-serif;
-      font-weight: 500;
-      font-size: 2.2rem;
-      padding-block: 40px;
-      margin-top: -40px;
-
-  }
- 
-  label{
-      margin-bottom: 8px;
-      margin-left: 3px;
-  }
-  span{
-      cursor: pointer;
-      font-weight: 500;
-  }
-  .google{
-      margin: 0 5px ;
-      cursor: pointer;
-
-}
-.nsm7Bb-HzV7m-LgbsSe-MJoBVe{
-background-color: #595A5A;
+  padding: 0px;
 }
 
-img{
-position: absolute;
-height: 110px;
-z-index: 5;
+h2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  padding-block: 40px;
+  margin-top: -40px;
 }
 
+label {
+  margin-bottom: 8px;
+  margin-left: 3px;
+}
+span {
+  cursor: pointer;
+  font-weight: 500;
+}
+.google {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+  background-color: #595a5a;
+}
 
+img {
+  position: absolute;
+  /* height: 110px; */
+  z-index: 5;
+}
 
+.logoImg {
+  cursor: pointer;
+  width: 200px;
+  margin-top: 1rem;
+}

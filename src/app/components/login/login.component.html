@@ -1,48 +1,68 @@
+<div class="container-fluid position-relative">
+  <img
+    (click)="navigateToHome()"
+    class="logoImg"
+    src="assets/images/Logo.png"
+    alt="logo image"
+  />
 
-<div class="container-fluid position-relative   " >
-    
-    <img class="logoImg" src="../../../assets/images/Logo.png" alt="logo image">
+  <div class="row">
+    <div class="form-all-countainer col-12">
+      <div class="form-container">
+        <h2>Login</h2>
 
-    <div class="row ">
-        <div class=" form-all-countainer  col-12   " >
-        <div class="form-container  " >
-            <h2>Login</h2>
-            
-        <form   [formGroup]="LoginForm"  >
-            <div class="label-input">
-                <label for="exampleInputEmail1" >Email</label>
-                <input formControlName="email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
-                <div id="emailHelp" class="form-text">
-                @if(!emailValid.valid&&emailValid.value){
-                    <div>
-                        <p ><i class="pi pi-times-circle" ></i>  Email not valid</p>
-                    </div>
-                }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
+        <form [formGroup]="LoginForm">
+          <div class="label-input">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              formControlName="email"
+              class="form-control"
+              placeholder="Email address"
+              id="exampleInputEmail1"
+              type="text"
+            />
+            <div id="emailHelp" class="form-text">
+              @if(!emailValid.valid&&emailValid.value){
+              <div>
+                <p><i class="pi pi-times-circle"></i> Email not valid</p>
+              </div>
+              }@if(emailValid.valid&&emailValid.value){
+              <div><span class="m-4"></span></div>
+              }
             </div>
+          </div>
+          <div class="label-input">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              formControlName="pass"
+              placeholder="Password"
+              class="form-control"
+              id="exampleInputPassword1"
+              type="password"
+            />
+            <div id="emailHelp" class="form-text">
+              @if(!passValid.valid&&passValid.value){
+              <div>
+                <p><i class="pi pi-times-circle"></i> Password not valid</p>
+              </div>
+              } @if(passValid.valid&&passValid.value){
+              <div><span class="m-5"></span></div>
+              }
             </div>
-            <div class="label-input">
-                <label for="exampleInputPassword1" >Password</label>
-                <input formControlName="pass" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
-                <div id="emailHelp" class="form-text">   
-        
-                @if(!passValid.valid&&passValid.value){
-                    <div>
-                        <p > <i class="pi pi-times-circle" ></i>  Password not valid</p>
-                    </div>
-                } @if(passValid.valid&&passValid.value){<div><span class="m-5 " ></span></div>} </div>
-            </div>
-            <input (click)="getData()" class="btn-submit" type="submit" value="Login">
+          </div>
+          <input
+            (click)="getData()"
+            class="btn-submit"
+            type="submit"
+            value="Login"
+          />
         </form>
-        <hr class="w-100 " >
-    
-    
-        <p class=" m-0 " id="google-btn" ></p>
-        <p  class="m-0 "  >Or</p>
-        <p  >Don't have an Account? <span  >Register</span>  </p>
-    
+        <hr class="w-100" />
+
+        <p class="m-0" id="google-btn"></p>
+        <p class="m-0">Or</p>
+        <p>Don't have an Account? <span>Register</span></p>
+      </div>
     </div>
-    </div>
-    </div>
-    
-    </div>
-    
+  </div>
+</div>

@@ -1,3 +1,5 @@
+@if(trips) {
+
 <div class="container-lg">
   <div class="row px-0">
     @for (item of trips | filter:searchTerm; track $index) {
@@ -8,16 +10,28 @@
       </div>
     </div>
     }@empty {
+
     <div class="container-lg">
       <div class="row px-0">
         <div class="col-12 text-center d-flex flex-column p-5">
-          <div class="spinner-border color-main m-auto p-3" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p class="fs-3 fw-semibold color-title">Loading....</p>
+          <i class="bi bi-heartbreak fs-1 color-main"></i>
+          <p class="fs-4 fw-semibold color-title">No trips with this name</p>
         </div>
       </div>
     </div>
     }
   </div>
 </div>
+
+}@else {
+<div class="container-lg">
+  <div class="row px-0">
+    <div class="col-12 text-center d-flex flex-column p-5">
+      <div class="spinner-border color-main m-auto p-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="fs-3 fw-semibold color-title">Loading....</p>
+    </div>
+  </div>
+</div>
+}
