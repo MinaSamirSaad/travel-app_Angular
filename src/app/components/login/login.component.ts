@@ -1,13 +1,14 @@
 declare var google: any;
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../home/header/header.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,HeaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -47,25 +48,32 @@ handleLogin(respone:any){
 }
 
 
-// form validation
-myRegForm = new FormGroup({
-  email:new FormControl(null,[Validators.required,Validators.email]),
-  pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
+
+
+
+
+LoginForm = new FormGroup({
+  // email:new FormControl(null,[Validators.required,Validators.email]),
+  // pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
+  email: new FormControl('', [Validators.required, Validators.email]),
+  pass: new FormControl('', [
+    Validators.required,
+    Validators.pattern(/^\w{8,}$/)]),
 })
 
 get emailValid(){
-  return this.myRegForm.controls["email"];
+  return this.LoginForm.controls["email"];
 }
 get passValid(){
-  return this.myRegForm.controls["pass"];
+  return this.LoginForm.controls["pass"];
 }
 
 getData(){
-  if(this.myRegForm.valid){
+  if(this.LoginForm.valid){
     //push
   }
-    console.log("email: ",this.myRegForm.controls["email"].value);
-    console.log("pass: ",this.myRegForm.controls["pass"].value);
+    console.log("email: ",this.LoginForm.controls["email"].value);
+    console.log("pass: ",this.LoginForm.controls["pass"].value);
 }
 
 }

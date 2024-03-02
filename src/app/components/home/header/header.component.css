@@ -3,13 +3,13 @@
 
 .navbar {
   height: 81px;
-  padding : 20px 50px 20px !important;
+  padding: 20px 50px 20px !important;
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
 
 
-.logo{
+.logo {
   width: 200px;
 }
 .bg-main {
@@ -30,9 +30,7 @@
   transition: 0.3s all ease-in-out;
 }
 
-
-
-.login-button:hover  i {
+.login-button:hover i {
   color: var(--main-color-hover);
 }
 
@@ -48,16 +46,15 @@
 
 .nav-link {
   position: relative;
-  font-family: 'Cabin', sans-serif;
-font-size: 13px;
-font-weight: 500;
-letter-spacing: 1px;
-text-transform: uppercase;
-text-decoration: none solid rgb(182, 142, 94);
-text-align: left;
-line-height: 33.15px;
-vertical-align: baseline;
-
+  font-family: "Cabin", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none solid rgb(182, 142, 94);
+  text-align: left;
+  line-height: 33.15px;
+  vertical-align: baseline;
 }
 .nav-link-color {
   color: var(--grey-color) !important;
@@ -72,7 +69,6 @@ vertical-align: baseline;
   /* color: red; */
 }
 @media (min-width: 991px) {
-
 }
 
 @media (min-width: 576px) {
@@ -81,7 +77,6 @@ vertical-align: baseline;
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
   .nav-link {
     color: var(--bg-primary-color);
   }
@@ -106,7 +101,7 @@ vertical-align: baseline;
 
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 768px) {
-  .navbar{
+  .navbar {
     padding: 20px !important;
   }
 }
@@ -117,17 +112,23 @@ vertical-align: baseline;
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
   /* Add styles for extra large devices here */
-  .nav-link{
+  .nav-link {
     padding: 24px 12px !important;
   }
-  .login-button{
+  .login-button {
     padding: 8px 0px;
   }
-  .navbar-nav{
+  .navbar-nav {
     padding: 0px !important;
   }
-  .right-nav-bar{
+  .right-nav-bar {
     gap: 4px;
   }
+}
+.favourite-active i.bi-heart {
+  display: none;
+}
 
+.favourite-active i.bi-heart-fill {
+  display: inline;
 }

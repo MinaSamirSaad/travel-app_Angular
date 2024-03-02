@@ -1,7 +1,7 @@
 <div class="trip-details-page">
   <section class="trip-details">
     <dir class="caption">
-      <h2 class="h1">TOUR DETAIL PAGE</h2>
+      <h2 class="h1">{{ trip.name.toUpperCase() }} DETAILS</h2>
     </dir>
   </section>
 
@@ -12,15 +12,7 @@
           <div class="overview mb-4">
             <h3 class="h2 mb-5">Overview</h3>
             <p class="text-secondary fs-5">
-              Lorem ipsum available isn but the majority have suffered alteratin
-              in some or form injected simply free text used by copytyping
-              refreshing. Neque porro est qui dolorem ipsum quia quaed inventore
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-              Lorem ipsum is simply free text used by copytyping refreshing.
-              Neque porro est qui dolorem ipsum quia quaed inventore veritatis
-              et quasi architecto beatae vitae dicta sunt explicabo. Aelltes
-              port lacus quis enim var sed efficitur turpis gilla sed sit amet
-              finibus eros.
+              {{ trip.description }}
             </p>
           </div>
           <div class="inc-exc mb-4">
@@ -28,23 +20,35 @@
             <div class="row">
               <div class="col-lg-7">
                 <ul class="list-unstyled fw-semibold text-black-50 mb-4">
-                  <li><i class="bi bi-check-lg"></i> Pick and Drop Services</li>
-                  <li><i class="bi bi-check-lg"></i> 1 Meal Per Day</li>
-                  <li>
-                    <i class="bi bi-check-lg"></i> Cruise Dinner & Music Event
+                  @for (item of trip.include; track $index) {
+
+                  <li class="d-flex">
+                    <i class="bi bi-check-lg"></i> <span>{{ item }}</span>
                   </li>
-                  <li>
-                    <i class="bi bi-check-lg"></i> Visit 7 Best Places in the
-                    City With Group
-                  </li>
+                  <!-- <li><i class="bi bi-check-lg"></i> Pick and Drop Services</li>
+                    <li><i class="bi bi-check-lg"></i> 1 Meal Per Day</li>
+                    <li>
+                      <i class="bi bi-check-lg"></i> Cruise Dinner & Music Event
+                    </li>
+                    <li>
+                      <i class="bi bi-check-lg"></i> Visit 7 Best Places in the
+                      City With Group
+                    </li> -->
+                  }
                 </ul>
               </div>
               <div class="col-lg-5">
                 <ul class="list-unstyled fw-semibold text-black-50">
-                  <li><i class="bi bi-x-lg"></i> Additional Services</li>
+                  @for (item of trip.exclude; track $index) {
+
+                  <li class="d-flex">
+                    <i class="bi bi-x-lg"></i> <span>{{ item }}</span>
+                  </li>
+                  }
+                  <!-- <li><i class="bi bi-x-lg"></i> Additional Services</li>
                   <li><i class="bi bi-x-lg"></i> Insurance</li>
                   <li><i class="bi bi-x-lg"></i> Food & Drinks</li>
-                  <li><i class="bi bi-x-lg"></i> Tickets</li>
+                  <li><i class="bi bi-x-lg"></i> Tickets</li> -->
                 </ul>
               </div>
             </div>

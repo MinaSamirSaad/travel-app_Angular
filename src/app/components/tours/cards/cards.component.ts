@@ -1,34 +1,49 @@
-import { CommonModule } from '@angular/common';
-import {
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { RatingModule } from 'primeng/rating';
+import { ButtonModule } from "primeng/button";
+import { RatingModule } from "primeng/rating";
+import { Subscription } from "rxjs";
+import { FilterService } from "../../../services/trips/filter.service";
+import { TripsService } from "../../../services/trips/trips.service";
+import { HttpClientModule } from "@angular/common/http";
+import { FilterPipe } from "../../../pipes/filter.pipe";
+import { CardComponent } from "../../card/card.component";
 
 @Component({
-  selector: 'app-cards',
+  selector: "app-cards",
   standalone: true,
-  imports: [CommonModule ,FormsModule , ButtonModule , CardModule , RatingModule],
-  templateUrl: './cards.component.html',
-  styleUrl: './cards.component.css',
+  imports: [CommonModule, CardComponent, HttpClientModule, FilterPipe],
+  templateUrl: "./cards.component.html",
+  styleUrl: "./cards.component.css",
   encapsulation: ViewEncapsulation.None,
 })
-export class CardsComponent {
-  value: number = 3;
-  isHovered: boolean = false;
-  isClicked: boolean = false;
+export class CardsComponent implements OnInit {
+  // search functionality
+  trips: any;
+  searchTerm: string = "";
+  private subscription!: Subscription;
+  constructor(private _TripsService: TripsService) {}
 
-  addedToFav() {
-    console.log("added to fav");
+  ngOnInit(): void {
+    if (!localStorage.getItem("favouriteTrips"))
+      localStorage.setItem("favouriteTrips", "[]");
+    this.subscription = this._TripsService.search.subscribe({
+      next: (term) => {
+        console.log({ term });
+        this.searchTerm = term;
+      },
+    });
+    // ------------------
+    this._TripsService.getTrips().subscribe({
+      next: ({ data }) => {
+        this.trips = data.slice(0, 9);
+      },
+    });
   }
 
-  toggleFavourite() {
-    this.isClicked = !this.isClicked;
-    // Call addedToFav() method if you want to execute the function on click
-    this.addedToFav();
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

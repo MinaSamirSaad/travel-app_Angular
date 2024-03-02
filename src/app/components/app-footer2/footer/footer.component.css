@@ -2,9 +2,12 @@ a {
   text-decoration: none !important;
   opacity: 0.8 !important;
   color: white !important;
+  transition: transform 0.3s ease-in-out !important;
+  display: inline-block !important;
 }
 a:hover {
-  color: #fc5b62 !important;
+  color: #f19283 !important;
+  transform: translateX(4px) !important;
 }
 button {
   background-color: #fc5b62 !important;
@@ -18,4 +21,7 @@ footer {
 }
 :host {
   background-color: #121921 !important;
+}
+li {
+  padding: 4.5px 0px !important;
 }
