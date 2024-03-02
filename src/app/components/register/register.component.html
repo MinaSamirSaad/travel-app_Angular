@@ -12,7 +12,7 @@
         <form   [formGroup]="myRegForm"  >
             <div class="label-input mb-3    ">
                 <label for="exampleInputName" >Full Name</label>
-                <input formControlName="name" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
+                <input formControlName="userName" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
             </div>
             <div class="label-input">
                 <label for="exampleInputEmail1" >Email</label>
@@ -26,7 +26,7 @@
             </div>
             <div class="label-input">
                 <label for="exampleInputPassword1" >Password</label>
-                <input formControlName="pass" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
+                <input formControlName="password" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
                 <div id="emailHelp" class="form-text">  @if(!passValid.valid&&passValid.value){
                     <div>
                         <p class="m-9 " > <i class="pi pi-times-circle" ></i>  Password must be at least 8 charecters</p>

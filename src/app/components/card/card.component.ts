@@ -35,6 +35,12 @@ export class CardComponent implements OnInit {
   showDetails(id: any) {
     this.router.navigate([`trip/${id}`]);
   }
+  goToBookingPage(id: any) {
+    this.router.navigate([`pay/${id}`])
+  .then(() => {
+    window.location.reload();
+  });
+  }
 
   isHovered: boolean = false;
   isClicked: boolean = false;

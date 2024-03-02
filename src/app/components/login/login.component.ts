@@ -9,15 +9,18 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { HeaderComponent } from "../home/header/header.component";
+import { UserService } from "../../services/user/user.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent],
+  imports: [ReactiveFormsModule, HeaderComponent, HttpClientModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
 export class LoginComponent {
+  constructor(private user: UserService) { }
   private router = inject(Router);
   //google intialize
   ngOnInit(): void {
@@ -58,7 +61,7 @@ export class LoginComponent {
     email: new FormControl("", [Validators.required, Validators.email]),
     pass: new FormControl("", [
       Validators.required,
-      Validators.pattern(/^\w{8,}$/),
+      Validators.pattern(/^\w{4,}$/),
     ]),
   });
 
@@ -71,7 +74,17 @@ export class LoginComponent {
 
   getData() {
     if (this.LoginForm.valid) {
-      //push
+      this.user.login({ email: this.LoginForm.controls['email'].value || '', password: this.LoginForm.controls['pass'].value || '' }).subscribe({
+        next: (data:any) => {
+          console.log(data);
+          localStorage.setItem('token', data.data.token);
+          localStorage.setItem('user', JSON.stringify(data.data.user));
+          this.navigateToHome();
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
     }
     console.log("email: ", this.LoginForm.controls["email"].value);
     console.log("pass: ", this.LoginForm.controls["pass"].value);

@@ -79,6 +79,6 @@
     </div>
   </div>
   <ng-template pTemplate="footer" id="footer">
-    <p-button label="Book" class="book-button"></p-button>
+    <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
   </ng-template>
 </p-card>
