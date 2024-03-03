@@ -14,6 +14,7 @@ import { SystemLayoutComponent } from "./layout/system-layout/system-layout.comp
 import { HeaderComponent } from "./components/home/header/header.component";
 import { FooterComponent } from "./components/app-footer2/footer/footer.component";
 import { ContactComponent } from "./components/contact/contact.component";
+import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 
 @Component({
   selector: "app-root",
@@ -31,7 +32,8 @@ import { ContactComponent } from "./components/contact/contact.component";
     PayPageComponent,
     AuthLayoutComponent,
     SystemLayoutComponent,
-    ContactComponent
+    ContactComponent,
+    ErrorPageComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

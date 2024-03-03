@@ -9,6 +9,7 @@ import { FavoriteTripsComponent } from "./pages/favorite-trips/favorite-trips.co
 import { RegisterPageComponent } from "./pages/register-page/register-page.component";
 import { PayPageComponent } from "./pages/pay-page/pay-page.component";
 import { ContactComponent } from "./components/contact/contact.component";
+import { ErrorPageComponent } from "./pages/error-page/error-page.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -23,4 +24,5 @@ export const routes: Routes = [
   { path: "home", component: HomePageComponent },
   { path: "favourite", component: FavoriteTripsComponent },
   { path: "contact", component: ContactComponent },
+  { path: "**", component: ErrorPageComponent },
 ];
