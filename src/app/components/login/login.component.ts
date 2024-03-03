@@ -75,7 +75,7 @@ export class LoginComponent {
   LoginForm = new FormGroup({
     // email:new FormControl(null,[Validators.required,Validators.email]),
     // pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
-    email: new FormControl("", [Validators.required, Validators.email]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
     pass: new FormControl("", [
       Validators.required,
       Validators.pattern(/^\w{4,}$/),

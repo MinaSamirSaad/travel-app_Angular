@@ -1,72 +1,59 @@
-<div class="container-fluid">
-  <img
+<body >
+
+  <div class="login-box">
+    <img
     (click)="navigateToHome()"
     class="logoImg"
     src="assets/images/Logo.png"
     alt="logo image"
   />
+    <h2>Login</h2>
+  <form [formGroup]="LoginForm" >
+    <div class="user-box">
+      <input type="text" name="" required="" formControlName="email" >
+      <label>Email</label>
 
-  <div class="row">
-    <div class="form-all-countainer col-12">
-      <div class="form-container">
-        <h2>Login</h2>
-
-        <form [formGroup]="LoginForm">
-          <div class="label-input">
-            <label for="exampleInputEmail1">Email</label>
-            
-            <input
-            formControlName="email"
-            class="form-control position-relative  "
-            placeholder="Email address"
-            id="exampleInputEmail1"
-            type="text"
-            />
-            <i class="pi pi-user icon position-absolute  "></i>
-            <div id="emailHelp" class="form-text">
-              @if(!emailValid.valid&&emailValid.value){
-                <div>
-                  <p><i class="pi pi-times-circle"></i> Email not valid</p>
-                </div>
-              }@if(emailValid.valid&&emailValid.value){
-                <div><span class="m-4"></span></div>
-              }
-            </div>
+      <div id="emailHelp"   class="form-text"   >
+        @if(!emailValid.valid&&emailValid.value){
+          <div>
+            <p class="text-danger " ><i class="pi pi-times-circle mb-5  "></i> Email not valid</p>
           </div>
-          <div class="label-input">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-            formControlName="pass"
-            placeholder="Password"
-            class="form-control position-relative  "
-            id="exampleInputPassword1"
-            type="password"
-            />
-            <i class="pi pi-lock icon position-absolute  "></i>
-
-            <div id="emailHelp" class="form-text">
-              @if(!passValid.valid&&passValid.value){
-              <div>
-                <p><i class="pi pi-times-circle"></i> Password not valid</p>
-              </div>
-              } @if(passValid.valid&&passValid.value){
-              <div><span class="m-5"></span></div>
-              }
-            </div>
-          </div>
-          <input
-            (click)="getData()"
-            class="btn-submit"
-            type="submit"
-            value="Login"
-          />
-        </form>
-        <hr class="w-100" />
-
-        <p class="m-0" id="google-btn"></p>
-        <p class="my-2 ">Or</p>
-        <p>Don't have an Account? <span routerLink="/register"   >Register</span></p>
+        }
+        
+    </div>
+    <div class="user-box mt-4 ">
+      <input type="password" name=""   formControlName="pass"  required="">
+      <label>Password</label>
+      <div id="passHelp" class="form-text"  >
+        @if(!passValid.valid&&passValid.value){
+        <div>
+          <p class="text-danger " ><i class="pi pi-times-circle"></i> Password not valid</p>
+        </div>
+        } @if(passValid.valid&&passValid.value){
+        <div><span class="m-5"></span></div>
+        }
       </div>
     </div>
+
+    <div class="text-center  " >
+
+      <a  (click)="getData()"class='mb-3 ' >
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Login
+      </a>
+    </div>
   </div>
+  </form>
+<div class="  text-center " >
+
+  <p class="m-0" id="google-btn"></p>
+  <p class="my-3  text-white  ">Or</p>
+  <p class=" text-white  " >Don't have an Account? <span routerLink="/register"  class="btnReg"  >Register</span></p>
 </div>
+
+</div>
+
+      </body>
