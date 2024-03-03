@@ -3,23 +3,27 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {
   CountriesService,
 } from '../../../services/countries/countries.service';
 import { HotelsService } from '../../../services/hotels/hotels.service';
+import {
+  OneCountryComponent,
+} from '../../one-country/one-country/one-country.component';
 
 @Component({
   selector: 'app-countries',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule , OneCountryComponent],
   providers : [CountriesService , HotelsService],
   templateUrl: './countries.component.html',
   styleUrl: './countries.component.css',
 
 })
 export class CountriesComponent implements OnInit{
-  constructor(private countriesService : CountriesService , private hotelsService : HotelsService){}
+  constructor(private router : Router,private countriesService : CountriesService , private hotelsService : HotelsService){}
   countriesData : any;
   countries: any ;
   countrydiscription : any;
@@ -30,7 +34,15 @@ export class CountriesComponent implements OnInit{
       }
       }
     );
-    this.hotelsService.getHotels();
+
+  }
+
+  // showDetails(id: any) {
+  //   this.router.navigate([`trip/${id}`]);
+  // }
+  countryTrips(e:any){
+    this.router.navigate([`country/${e.countryName}`])
+    // console.log(e)
   }
 
 }

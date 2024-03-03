@@ -1,0 +1,30 @@
+<div class="cover">
+    <div class="overlay">
+        <h1>Explore {{countryName}}</h1>
+    </div>
+    <img src="../../../../assets/images/element5-digital-uE2T1tCFsn8-unsplash.jpg" alt="">
+</div>
+
+<div class="container-lg">
+    <div class="row px-0">
+      @for (trip of filterdTrips ; track filterdTrips._id) {
+
+      <div class="col-sm-6 col-md-4 p-3">
+        <div class="item">
+          <app-card [trip]="trip" [isTrip]="true"></app-card>
+        </div>
+      </div>
+      }@empty {
+      <div class="container-lg">
+        <div class="row px-0">
+          <div class="col-12 text-center d-flex flex-column p-5">
+            <div class="spinner-border color-main m-auto p-3" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="fs-3 fw-semibold color-title">Loading....</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
