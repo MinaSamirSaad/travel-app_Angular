@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
@@ -33,7 +34,9 @@ export const routes: Routes = [
   { path: "trip/:id", component: TripDetailsComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterPageComponent },
-  { path: "pay", component: PayPageComponent },
+  { path: "pay/:id", component: PayPageComponent },
   { path: "home", component: HomePageComponent },
   { path: "favourite", component: FavoriteTripsComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "**", component: ErrorPageComponent },
 ];

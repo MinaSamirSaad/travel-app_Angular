@@ -13,7 +13,7 @@ export class TripsService {
   getTrips(): Observable<any> {
     return this.http.get<any>("https://travel-app-8glz.onrender.com/trips");
   }
-  getTripById(id: string): Observable<any> {
+  getTripById(id: number): Observable<any> {
     return this.http.get<any>(
       `https://travel-app-8glz.onrender.com/trips/${id}`
     );
@@ -23,5 +23,8 @@ export class TripsService {
   }
   getCountries(): Observable<any> {
     return this.http.get<any>("https://travel-app-8glz.onrender.com/hotels");
+  }
+  bookTrip(id: number){
+    return this.http.get<any>(`https://travel-app-8glz.onrender.com/trips/book/${id}`)
   }
 }

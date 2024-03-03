@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component ,ViewEncapsulation } from '@angular/core';
+import { Component ,ViewEncapsulation, inject } from '@angular/core';
 import { FormControl,FormsModule, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
 import { CardComponent } from '../card/card.component';
-
+import { HttpClient } from '@angular/common/http';
+import { render } from 'creditcardpayments/creditCardPayments';
+import { TripsService } from '../../services/trips/trips.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-pay',
   standalone: true,
@@ -16,6 +19,34 @@ import { CardComponent } from '../card/card.component';
 
 })
 export class PayComponent {
+  private router = inject(Router);
+  id:any;
+  constructor(private trips:TripsService, private route: ActivatedRoute){
+    render({
+      id:"#myPaymentButtons",
+      currency:"USD",
+      value:"100.00",
+      onApprove:(details)=>{
+        this.route.params.subscribe(params => {
+          this.id = params['id'];
+        });
+        this.trips.bookTrip(this.id).subscribe({
+          next: (data:any) => {
+            this.router.navigate(["/home"]);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        })
+        alert("Transaction successfull");
+
+      }
+    });
+  
+  }
+
+
+
 // card component
 value: number = 3;
   isHovered: boolean = false;
@@ -63,6 +94,5 @@ value: number = 3;
       console.log("email: ",this.myRegForm.controls["email"].value);
       console.log("cNumber: ",this.myRegForm.controls["cNumber"].value);
   }
-
 
 }

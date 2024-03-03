@@ -1,9 +1,9 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation, inject } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RatingModule } from "primeng/rating";
 import { CommonModule } from "@angular/common";
 import { DropdownModule } from "primeng/dropdown";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TripsService } from "../../services/trips/trips.service";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -23,6 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
   encapsulation: ViewEncapsulation.None,
 })
 export class TripDetailsComponent {
+  private router = inject(Router);
   constructor(
     private route: ActivatedRoute,
     private _TripsService: TripsService
@@ -52,6 +53,11 @@ export class TripDetailsComponent {
         this.trip = data;
         console.log(this.trip);
       },
+    });
+  }
+  goToBookingPage(id: any) {
+    this.router.navigate([`pay/${id}`]).then(() => {
+      window.location.reload();
     });
   }
 }

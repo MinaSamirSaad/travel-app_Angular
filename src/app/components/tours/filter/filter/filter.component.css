@@ -207,7 +207,7 @@ div.p-inputwrapper {
 }
 
 @media (min-width: 768px) {
-  .where-input {
+  .select-input {
     border-right: 1px solid #d2d8dd !important;
     border-left: 1px solid #d2d8dd !important;
   }
