@@ -3,12 +3,13 @@
     margin: 0;
  }
 
+ a{
+    cursor: pointer;
+ }
 
  .container {
     margin: 0 auto;
     max-width: 1200px;
-    /* padding-left: 15px;
-    padding-right: 15px; */
  }
 
 

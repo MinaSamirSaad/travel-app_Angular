@@ -142,6 +142,10 @@ text-align: center;
 text-decoration: none solid rgb(109, 109, 109);
 }
 
+a {
+  cursor: pointer;
+}
+
 
 @media( max-width : 992px) {
   .card {

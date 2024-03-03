@@ -14,7 +14,7 @@
         @for(country of countries ; track country._id){
           <div class="card m-2">
             <img class="card-img-top" [src]="country.countryImg">
-            <a href="">
+            <a (click)="countryTrips(country)">
              <div class="card-body">
                 <div class="text  mt-5">
                   <h5 class="card-title">{{country.countryName}}</h5>
