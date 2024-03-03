@@ -20,10 +20,14 @@
             <div class="label-input mb-5    ">
                 <label for="exampleInputName" >Full Name</label>
                 <input formControlName="userName" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
+            <i class="pi pi-user icon position-absolute  "></i>
+
             </div>
             <div class="label-input  ">
                 <label for="exampleInputEmail1" >Email</label>
                 <input formControlName="email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
+               <i class="pi pi-user icon position-absolute  "></i>
+               
                 <div id="emailHelp" class="form-text">
               
                 @if(!emailValid.valid&&emailValid.value){
@@ -33,9 +37,10 @@
                 }@if(emailValid.valid&&emailValid.value){<div><span class="mt-1  " ></span></div>}
             </div>
             </div>
-            <div class="label-input  ">
-                <textarea formControlName="message" placeholder="Enter your message" id="exampleInputPassword1" name="myTextarea" rows="3" cols="30">
-                  </textarea>
+            <div class="label-input position-relative  ">
+                <textarea   formControlName="message" placeholder="Enter your message" id="exampleInputPassword1" name="myTextarea" rows="3" cols="30">
+                </textarea>
+                <i class="pi pi-envelope icon-1  position-absolute  "></i>
                   
                 <div id="emailHelp" class="form-text">   
                    
