@@ -103,7 +103,16 @@ font-size: 20px;
 .nsm7Bb-HzV7m-LgbsSe-MJoBVe{
   background-color: #595A5A;
 }
-img{
+.phoneImg{
     margin: 80px !important;
 
+}
+
+.logoImg {
+  position: absolute;
+  /* height: 110px; */
+  z-index: 5;
+  cursor: pointer;
+  width: 200px;
+  margin-top: 1rem;
 }
