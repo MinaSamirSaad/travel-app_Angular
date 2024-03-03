@@ -62,28 +62,33 @@
               routerLinkActive="active"
               routerLink="offer"
               >Offers</a
-              >
-            </li>
-            
-            <li class="nav-item">
-              <a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
               [ngClass]="{ 'nav-link-color': isScrolled }"
               class="nav-link mx-lg-2"
-              routerLink="/contact"           
+              routerLink="/contact"
               routerLinkActive="active"
-             >Contacts</a>
+              >Contacts</a
+            >
           </li>
         </ul>
       </div>
     </div>
     <div class="right-nav-bar d-flex">
-      <a routerLink="login" class="login-button"
+      <a
+        routerLink="login"
+        class="login-button"
+        [ngClass]="{ 'nav-link-color': isScrolled }"
         ><i class="bi bi-person-circle"></i
       ></a>
       <a
         routerLink="favourite"
         class="login-button"
         [class.active]="isFavouriteActive"
+        [ngClass]="{ 'nav-link-color': isScrolled }"
       >
         <i class="bi bi-heart" *ngIf="!isFavouriteActive"></i>
         <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
