@@ -1,17 +1,18 @@
+
 /* Form container */
 .form-container {
     width: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: hsla(0, 15%, 96%, 0.537);
+    /* background-color: hsla(0, 15%, 96%, 0.537); */
     border-radius: 8px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.03);
+    /* box-shadow: 0 0 7px rgba(0, 0, 0, 0.03); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 600px;
-    color: #595A5A;
+    color: #595a5a94;
 }
 .container-fluid{
     background-color: #FAF5EE;
@@ -36,17 +37,24 @@
     width: 290px;
     margin-bottom: -30px;
     padding: 0 27px;
+    box-shadow: none!important;
     
-}
-textarea{
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-top: 10px;
-      padding: 0 27px;
+  }
+  textarea{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 0 27px;
     width: 290px;
-
-
-    }
+    
+    
+  }
+  
+  
+  textarea:focus-visible{
+    box-shadow: none!important;
+    border: 1px solid #ED8E7E;
+  }
 
   /* Error message styles */
   .form-text {
@@ -117,7 +125,7 @@ font-size: 20px;
   z-index: 5;
   cursor: pointer;
   width: 200px;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 .icon {
   margin-left: 7px;
