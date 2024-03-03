@@ -49,9 +49,26 @@ export class LoginComponent {
       //deconde the token
       const payload = this.decodeToken(respone.credential);
       //store in session
-      sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
+      // sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
+      localStorage.setItem("user", JSON.stringify(payload))
+      const loginData = {
+        email: payload.email,
+        name:payload.name,
+        googleId: payload.sub,
+        image: payload.picture
+      }
+      this.user.loginWithGoogle(loginData).subscribe({
+        next: (data:any) => {
+          console.log(data);
+          localStorage.setItem('token', data.data.token);
+          localStorage.setItem('provider', 'google');
+          this.router.navigate(["/home"]);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      })
       //navigate to home
-      this.router.navigate(["/home"]);
     }
   }
 

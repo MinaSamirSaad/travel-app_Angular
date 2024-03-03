@@ -37,6 +37,6 @@ export const routes: Routes = [
   { path: "pay/:id", component: PayPageComponent },
   { path: "home", component: HomePageComponent },
   { path: "favourite", component: FavoriteTripsComponent },
-  { path: "contact", component: ContactComponent },
-  { path: "**", component: ErrorPageComponent },
+  // { path: "contact", component: ContactComponent },
+  // { path: "**", component: ErrorPageComponent },
 ];
