@@ -1,4 +1,4 @@
-<div class="container-fluid position-relative">
+<div class="container-fluid">
   <img
     (click)="navigateToHome()"
     class="logoImg"
@@ -14,32 +14,36 @@
         <form [formGroup]="LoginForm">
           <div class="label-input">
             <label for="exampleInputEmail1">Email</label>
+            
             <input
-              formControlName="email"
-              class="form-control"
-              placeholder="Email address"
-              id="exampleInputEmail1"
-              type="text"
+            formControlName="email"
+            class="form-control position-relative  "
+            placeholder="Email address"
+            id="exampleInputEmail1"
+            type="text"
             />
+            <i class="pi pi-user icon position-absolute  "></i>
             <div id="emailHelp" class="form-text">
               @if(!emailValid.valid&&emailValid.value){
-              <div>
-                <p><i class="pi pi-times-circle"></i> Email not valid</p>
-              </div>
+                <div>
+                  <p><i class="pi pi-times-circle"></i> Email not valid</p>
+                </div>
               }@if(emailValid.valid&&emailValid.value){
-              <div><span class="m-4"></span></div>
+                <div><span class="m-4"></span></div>
               }
             </div>
           </div>
           <div class="label-input">
             <label for="exampleInputPassword1">Password</label>
             <input
-              formControlName="pass"
-              placeholder="Password"
-              class="form-control"
-              id="exampleInputPassword1"
-              type="password"
+            formControlName="pass"
+            placeholder="Password"
+            class="form-control position-relative  "
+            id="exampleInputPassword1"
+            type="password"
             />
+            <i class="pi pi-lock icon position-absolute  "></i>
+
             <div id="emailHelp" class="form-text">
               @if(!passValid.valid&&passValid.value){
               <div>
@@ -60,8 +64,8 @@
         <hr class="w-100" />
 
         <p class="m-0" id="google-btn"></p>
-        <p class="m-0">Or</p>
-        <p>Don't have an Account? <span>Register</span></p>
+        <p class="my-2 ">Or</p>
+        <p>Don't have an Account? <span routerLink="/register"   >Register</span></p>
       </div>
     </div>
   </div>

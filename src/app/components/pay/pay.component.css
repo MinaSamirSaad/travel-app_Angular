@@ -1,21 +1,16 @@
 /* Form container */
 .form-container {
-  /* width: 100%; */
-  /* margin: 0 auto; */
   padding: 20px;
   border-radius: 8px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 600px; */
   color: #595A5A;
 }
 .container_all{
 
     background-color: hsla(0, 15%, 96%, 0.537);
-    /* background-color: #FAF5EE; */
 }
 
 .form-all-countainer{

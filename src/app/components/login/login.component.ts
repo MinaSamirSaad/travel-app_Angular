@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router ,RouterModule} from "@angular/router";
 import { HeaderComponent } from "../home/header/header.component";
 import { UserService } from "../../services/user/user.service";
 import { HttpClientModule } from "@angular/common/http";
@@ -15,7 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, HttpClientModule],
+  imports: [ReactiveFormsModule, HeaderComponent, HttpClientModule,RouterModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })

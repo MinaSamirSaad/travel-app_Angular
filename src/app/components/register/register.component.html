@@ -13,10 +13,18 @@
             <div class="label-input mb-3    ">
                 <label for="exampleInputName" >Full Name</label>
                 <input formControlName="userName" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
+                <i class="pi pi-user icon    "></i>
             </div>
-            <div class="label-input">
+            <div class="label-input   ">
                 <label for="exampleInputEmail1" >Email</label>
-                <input formControlName="email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
+                <input 
+                formControlName="email" 
+                class="form-control   " 
+                placeholder="Email address"  
+                id="exampleInputEmail1" 
+                type="text">
+                <i class="pi pi-user icon    "></i>
+                
                 <div id="emailHelp" class="form-text">  @if(!emailValid.valid&&emailValid.value){
                     <div>
                         <p class="m-9 "  ><i class="pi pi-times-circle" ></i>  Email not valid</p>
@@ -24,19 +32,21 @@
                 }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
             </div>
             </div>
-            <div class="label-input">
+            <div class="label-input ">
                 <label for="exampleInputPassword1" >Password</label>
                 <input formControlName="password" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
+            <i class="pi pi-lock icon   "></i>
+
                 <div id="emailHelp" class="form-text">  @if(!passValid.valid&&passValid.value){
                     <div>
-                        <p class="m-9 " > <i class="pi pi-times-circle" ></i>  Password must be at least 8 charecters</p>
+                        <p class="m-9 " > <i class="pi pi-times-circle" ></i>  Password not valid</p>
                     </div>
                 } @if(passValid.valid&&passValid.value){<div><span class="m-5 " ></span></div>} </div>
             </div>
             <input (click)="getData()" class="btn-submit" type="submit" value="Sign up">
         </form>
 
-        <p class="text-end " >Already have an Account? <span  >Login</span>  </p>
+        <p class="text-end " >Already have an Account? <span  routerLink="/login" >Login</span>  </p>
     
     </div>
     </div>
