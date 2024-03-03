@@ -23,6 +23,8 @@ import {
 import {
   ToursPageComponent,
 } from './pages/tours-page/tours-page/tours-page.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -37,6 +39,6 @@ export const routes: Routes = [
   { path: "pay/:id", component: PayPageComponent },
   { path: "home", component: HomePageComponent },
   { path: "favourite", component: FavoriteTripsComponent },
-  // { path: "contact", component: ContactComponent },
-  // { path: "**", component: ErrorPageComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "**", component: ErrorPageComponent },
 ];
