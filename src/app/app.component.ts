@@ -13,6 +13,7 @@ import { AuthLayoutComponent } from "./layout/auth-layout/auth-layout.component"
 import { SystemLayoutComponent } from "./layout/system-layout/system-layout.component";
 import { HeaderComponent } from "./components/home/header/header.component";
 import { FooterComponent } from "./components/app-footer2/footer/footer.component";
+import { ContactComponent } from "./components/contact/contact.component";
 
 @Component({
   selector: "app-root",
@@ -30,6 +31,7 @@ import { FooterComponent } from "./components/app-footer2/footer/footer.componen
     PayPageComponent,
     AuthLayoutComponent,
     SystemLayoutComponent,
+    ContactComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
