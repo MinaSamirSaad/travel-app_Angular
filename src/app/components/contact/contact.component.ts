@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +10,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+router = inject(Router);
+
 
   // form validation
 contact = new FormGroup({
@@ -31,6 +34,10 @@ getData(){
   this.contact.reset();
     console.log("email: ",this.contact.controls["email"].value);
     console.log("message: ",this.contact.controls["message"].value);
+}
+
+navigateToHome() {
+  this.router.navigate(["/home"]);
 }
 
 }
