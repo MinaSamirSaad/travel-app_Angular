@@ -1,39 +1,4 @@
-<!-- <div class="containerr">
-    <div class="trips">
-        <div class="caards d-flex flex-wrap gap-4  justify-content-center">
-            <p-card class="" header="Cyprus" subheader="{{trip.details}}" [ngStyle]="{ width: '360px', 'color': '#ed8e7e' , 'box-shadow' : 'rgba(0, 0, 0, 0.1) 5px 8px 10px 0px' }">
-                <ng-template pTemplate="header">
-                    <div class="card-img">
-                        <span class="fav">
-                            <i class="bi"
-                            [ngClass]="{'bi-heart-fill': isClicked, 'bi-heart': !isClicked, 'hovered': isHovered}"
-                            (click)="toggleFavourite()"
-                            (mouseenter)="isHovered = true"
-                            (mouseleave)="isHovered = false">
-                            </i>
-                        </span>
-                        <span class="category">{{trip.name}}</span>
-                        <button class="read-more">Read More</button>
-                        <img alt="Card" src="{{trip.img}}" />
-                    </div>
-                </ng-template>
-                <div class="details d-flex justify-content-between align-items-end mb-4 text-dark">
-                    <div class="price-duration">
-                        <p class="duration mt-3 mb-0">{{trip.duration}}</p>
-                        <p class="price mt-0 mb-0">48180 LE</p>
-                    </div>
-                    <div class="card flex justify-content-center stars border-0">
-                        <p-rating [(ngModel)]="trip.rate" [cancel]="false" [readonly]="true"></p-rating>
-                    </div>
-                </div>
-                <ng-template pTemplate="footer" id="footer">
-                    <p-button label="Book" class="book-button"></p-button>
-                </ng-template>
-            </p-card>
-        </div>
-    </div>
-</div> -->
-
+@if(trip){
 <p-card
   class=""
   header="{{ isTrip ? trip.name : 'Not Trip' }}"
@@ -79,6 +44,10 @@
     </div>
   </div>
   <ng-template pTemplate="footer" id="footer">
-    <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
+    @if(!isCardComponent(trip._id)){
+
+      <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
+    }
   </ng-template>
 </p-card>
+}
