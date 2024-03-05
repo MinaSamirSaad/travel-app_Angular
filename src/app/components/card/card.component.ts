@@ -39,10 +39,8 @@ export class CardComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log(this.trip.hotel.name);
     let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
     let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
-    // console.log(findTrip);
     if (findTrip) this.trip = findTrip;
   }
   showDetails(id: any) {
