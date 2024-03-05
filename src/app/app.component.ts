@@ -1,5 +1,10 @@
-import { Component } from "@angular/core";
-import { Router, RouterOutlet } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterOutlet,
+} from "@angular/router";
 
 import { HotelsComponent } from "./components/hotels/hotels.component";
 import { OfferComponent } from "./components/offer/offer.component";
@@ -15,6 +20,7 @@ import { HeaderComponent } from "./components/home/header/header.component";
 import { FooterComponent } from "./components/app-footer2/footer/footer.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { ErrorPageComponent } from "./pages/error-page/error-page.component";
+import { filter } from "rxjs";
 
 @Component({
   selector: "app-root",
@@ -33,19 +39,26 @@ import { ErrorPageComponent } from "./pages/error-page/error-page.component";
     AuthLayoutComponent,
     SystemLayoutComponent,
     ContactComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = "travel-app_Angular";
-  constructor(private router: Router) {}
-  isLoginOrRegisterRoute(): boolean {
-    return (
-      // this.router.url.includes("login") ||
-      this.router.url.includes("register") ||
-      this.router.url.includes("pay")
-    );
+  showNavbar: boolean = true;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showNavbar = !this.isNavbarHidden(this.activatedRoute);
+        console.log(this.showNavbar);
+      }
+    });
+  }
+
+  isNavbarHidden(activatedRoute: ActivatedRoute): boolean {
+    return activatedRoute.firstChild?.snapshot.data["hideNavbar"];
   }
 }

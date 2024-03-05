@@ -1,9 +1,8 @@
-@if (!isLoginOrRegisterRoute()) {
+@if (showNavbar) {
 
 <app-header></app-header>
+}
 <router-outlet></router-outlet>
+@if (showNavbar) {
 <app-footer></app-footer>
-
-}@else {
-<router-outlet></router-outlet>
 }
