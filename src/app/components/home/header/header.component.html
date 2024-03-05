@@ -78,12 +78,18 @@
       </div>
     </div>
     <div class="right-nav-bar d-flex">
-      <a
-        routerLink="login"
-        class="login-button"
-        [ngClass]="{ 'nav-link-color': isScrolled }"
-        ><i class="bi bi-person-circle"></i
-      ></a>
+      @if(userPicture){
+
+        <img class="userProfile" [src]="userPicture" />
+      }@else {
+        <a
+          routerLink="login"
+          class="login-button"
+          [ngClass]="{ 'nav-link-color': isScrolled }"
+          ><i class="bi bi-person-circle"></i
+        ></a>
+
+      }
       <a
         routerLink="favourite"
         class="login-button"
@@ -103,7 +109,10 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <button (click)="logout()">Logout</button>
+      @if (userPicture) {
+        <button [ngClass]="{ 'nav-link-color': isScrolled }" class="  logOut" (click)="logout()">Logout</button>
+      }
+
     </div>
   </div>
 </nav>

@@ -62,19 +62,16 @@ export class LoginComponent {
           console.log(data);
           localStorage.setItem('token', data.data.token);
           localStorage.setItem('provider', 'google');
-          this.router.navigate(["/home"]);
+          this.router.navigate(['home']);
         },
         error: (error) => {
           console.log(error);
         },
       })
-      //navigate to home
     }
   }
 
   LoginForm = new FormGroup({
-    // email:new FormControl(null,[Validators.required,Validators.email]),
-    // pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
     email: new FormControl(null, [Validators.required, Validators.email]),
     pass: new FormControl("", [
       Validators.required,
