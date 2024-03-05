@@ -17,7 +17,11 @@ import { UserService } from "../../../services/user/user.service";
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent {
-  constructor(private router: Router, private user:UserService, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private user: UserService,
+    private activatedRoute: ActivatedRoute
+  ) {}
   isScrolled: boolean = false;
   isFavouriteActive: boolean = false;
   bgNavbar: boolean = false;
@@ -52,14 +56,32 @@ export class HeaderComponent {
     });
   }
   logout() {
-    if(localStorage.getItem('provider') === 'google'){
-      // add logout from google here 
-      localStorage.removeItem('provider');
+    if (localStorage.getItem("provider") === "google") {
+      // add logout from google here
+      localStorage.removeItem("provider");
     }
-    this.user.logout().subscribe({
+    const favoriteTrips = JSON.parse(
+      localStorage.getItem("favouriteTrips") || "[]"
+    ).map((fav: any) => {
+      return {
+        tripId: fav._id,
+      };
+    });
+    console.log(JSON.parse(localStorage.getItem("favouriteTrips") || "[]"));
+    console.log(favoriteTrips);
+    this.user.addFavoriteTrips(favoriteTrips).subscribe({
       next: () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
+        this.user.logout().subscribe({
+          next: () => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            localStorage.removeItem("favouriteTrips");
+            localStorage.removeItem("bookedTrips");
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
       },
       error: (err) => {
         console.log(err);
