@@ -62,11 +62,7 @@ export class HeaderComponent {
     }
     const favoriteTrips = JSON.parse(
       localStorage.getItem("favouriteTrips") || "[]"
-    ).map((fav: any) => {
-      return {
-        tripId: fav._id,
-      };
-    });
+    ).map((fav: any) => {return {tripId:fav._id}});
     console.log(JSON.parse(localStorage.getItem("favouriteTrips") || "[]"));
     console.log(favoriteTrips);
     this.user.addFavoriteTrips(favoriteTrips).subscribe({
