@@ -44,7 +44,10 @@
     </div>
   </div>
   <ng-template pTemplate="footer" id="footer">
-    <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
+    @if(!isCardComponent(trip._id)){
+
+      <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
+    }
   </ng-template>
 </p-card>
 }

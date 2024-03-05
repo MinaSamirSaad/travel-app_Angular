@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {
+  FormControl,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -27,6 +28,7 @@ import { TripsService } from '../../services/trips/trips.service';
     ButtonModule,
     CardModule,
     RatingModule,
+
   ],
   templateUrl: "./card.component.html",
   styleUrl: "./card.component.css",
@@ -35,6 +37,7 @@ import { TripsService } from '../../services/trips/trips.service';
 export class CardComponent implements OnInit {
   @Input() trip!: any;
   @Input() isTrip!: boolean;
+
   constructor(private router: Router, private _TripsService: TripsService) {
 
   }
@@ -81,5 +84,11 @@ export class CardComponent implements OnInit {
       localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
       this._TripsService.toggleFavoriteEvent.emit(this.trip);
     }
+  }
+
+  isCardComponent(id:any):boolean {
+    console.log(this.trip.id)
+ return this.router.url===`/pay/${id}`
+
   }
 }
