@@ -24,6 +24,11 @@
   --font-body-color: #979a9e;
   --font-body2-color: #595a5a;
 }
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color) var(--bg-secondary-color);
+}
+
 .color-main {
   color: var(--main-color);
 }
