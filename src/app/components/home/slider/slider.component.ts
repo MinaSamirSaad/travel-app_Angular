@@ -1,45 +1,45 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from '../../card/card.component';
+import { TripsService } from '../../../services/trips/trips.service';
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [CarouselModule,ButtonModule, RatingModule,FormsModule],
+  imports: [CarouselModule,ButtonModule, RatingModule,FormsModule,CardComponent],
+  providers: [TripsService],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
   encapsulation: ViewEncapsulation.None
 
 })
-export class SliderComponent {
-
+export class SliderComponent implements OnInit{
+  isTrip:boolean=true;
+  trip:any;
   time:number=200;
-  products: any[]=[
-    
+  constructor(private trips:TripsService){}
 
-  {name: 'Trip 1', rate:4, price: 150, image: 'p2.jpg' , des: 'This is the best Trip'},
-  
-  {name: 'Trip 2', rate: 3, price: 200, image: 'p3.jpg' , des: 'This is the best Trip'},
-
-  {name: 'Trip 3', rate:4, price: 250, image: 'p4.jpg' , des: 'This is the best Trip'},
-
-    {name: 'Trip 4', rate: 5, price: 100, image: 'p5.jpg' , des: 'This is the best Trip'},
-
-  {name: 'Trip 5', rate: 3, price: 150, image: 'p6.jpg' , des: 'This is the best Trip'},
-  
-  {name: 'Trip 6', rate: 5, price: 200, image: 'p7.jpg' , des: 'This is the best Trip'},
-  {name: 'Trip 7', rate:4, price: 150, image: 'p2.jpg' , des: 'This is the best trip'},
+ngOnInit(): void {
+  this.trips.getTrips().subscribe((data)=>{
+    this.trip=data.data.slice(0,12);
+    console.log(this.trip);
 
 
-]
+  })
+
+}
+
+
+
 
 
 responsiveOptions = [
   {
       breakpoint: '1199px',
-      numVisible: 3,
+      numVisible: 2,
       numScroll: 1
   },
   {
