@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, HostListener } from "@angular/core";
 import {
+  ActivatedRoute,
   IsActiveMatchOptions,
   NavigationEnd,
   Router,
@@ -16,12 +17,22 @@ import { UserService } from "../../../services/user/user.service";
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent {
-  constructor(private router: Router, private user:UserService) {}
+  constructor(private router: Router, private user:UserService, private activatedRoute: ActivatedRoute) {}
   isScrolled: boolean = false;
   isFavouriteActive: boolean = false;
+  bgNavbar: boolean = false;
+
   @HostListener("window:scroll", [])
   onScroll(): void {
-    this.isScrolled = window.scrollY > 300;
+    // this.isScrolled = window.scrollY > 300;
+    if (this.activatedRoute.firstChild?.snapshot.data["bgNav"]) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = window.scrollY > 300;
+    }
+    // this.isScrolled = this.activatedRoute.firstChild?.snapshot.data["bgNav"]
+    //   ? window.scrollY > 0
+    //   : window.scrollY > 300;
   }
 
   ngOnInit() {
@@ -33,7 +44,10 @@ export class HeaderComponent {
           fragment: "ignored",
           matrixParams: "ignored",
         };
+        this.isScrolled =
+          this.activatedRoute.firstChild?.snapshot.data["bgNav"];
         this.isFavouriteActive = this.router.isActive("favourite", options);
+        this.bgNavbar = !this.activatedRoute.firstChild?.snapshot.data["bgNav"];
       }
     });
   }
