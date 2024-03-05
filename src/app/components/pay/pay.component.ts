@@ -9,15 +9,15 @@ import { render } from 'creditcardpayments/creditCardPayments';
 import { TripsService } from '../../services/trips/trips.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-pay',
+  selector: "app-pay",
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule ,FormsModule , ButtonModule , CardModule , RatingModule,CardComponent ],
   templateUrl: './pay.component.html',
   styleUrl: './pay.component.css',
   providers:[TripsService ],
   encapsulation: ViewEncapsulation.None,
-
 })
 export class PayComponent implements OnInit{
 trip:any
@@ -25,28 +25,28 @@ trip:any
   id:any;
   private router = inject(Router);
   constructor(private trips:TripsService, private route: ActivatedRoute){
+
     render({
-      id:"#myPaymentButtons",
-      currency:"USD",
-      value:"100.00",
-      onApprove:(details)=>{
-        this.route.params.subscribe(params => {
-          this.id = params['id'];
+      id: "#myPaymentButtons",
+      currency: "USD",
+      value: "100.00",
+      onApprove: (details: any) => {
+        this.route.params.subscribe((params) => {
+          this.id = params["id"];
         });
         this.trips.bookTrip(this.id).subscribe({
-          next: (data:any) => {
+          next: (data: any) => {
             this.router.navigate(["/home"]);
           },
           error: (err) => {
             console.log(err);
           },
-        })
+        });
         alert("Transaction successfull");
-
-      }
+      },
     });
-  
   }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -66,9 +66,10 @@ trip:any
 
 // card component
 value: number = 3;
+
   isHovered: boolean = false;
   isClicked: boolean = false;
-  
+
   addedToFav() {
     console.log("added to fav");
   }
@@ -79,37 +80,44 @@ value: number = 3;
     this.addedToFav();
   }
 
-
-
-
-
   // form component
   myRegForm = new FormGroup({
-    email:new FormControl(null,[Validators.required,Validators.email]),
-    cNumber:new FormControl(null,[Validators.required,Validators.maxLength(14) , Validators.minLength(14)]),
-    ccExp:new FormControl(null,[Validators.required,Validators.maxLength(5) , Validators.minLength(5)]),
-    ccv:new FormControl(null,[Validators.required,Validators.maxLength(3) , Validators.minLength(3)]),
-  })
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    cNumber: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(14),
+      Validators.minLength(14),
+    ]),
+    ccExp: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(5),
+      Validators.minLength(5),
+    ]),
+    ccv: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(3),
+      Validators.minLength(3),
+    ]),
+  });
 
-  get emailValid(){
+  get emailValid() {
     return this.myRegForm.controls["email"];
   }
-  get cNumberValid(){
+  get cNumberValid() {
     return this.myRegForm.controls["cNumber"];
   }
-  get ccExpValid(){
+  get ccExpValid() {
     return this.myRegForm.controls["ccExp"];
   }
-  get ccvValid(){
+  get ccvValid() {
     return this.myRegForm.controls["ccv"];
   }
 
-  getData(){
-    if(this.myRegForm.valid){
+  getData() {
+    if (this.myRegForm.valid) {
       //push
     }
-      console.log("email: ",this.myRegForm.controls["email"].value);
-      console.log("cNumber: ",this.myRegForm.controls["cNumber"].value);
+    console.log("email: ", this.myRegForm.controls["email"].value);
+    console.log("cNumber: ", this.myRegForm.controls["cNumber"].value);
   }
-
 }
