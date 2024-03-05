@@ -44,5 +44,7 @@ export class RegisterComponent {
       console.log("email: ",this.myRegForm.controls["email"].value);
       console.log("pass: ",this.myRegForm.controls["password"].value);
   }
-
+  navigateToHome() {
+    this.router.navigate(["/home"]);
+  }
 }

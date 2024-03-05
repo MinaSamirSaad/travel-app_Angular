@@ -49,16 +49,33 @@ export class LoginComponent {
       //deconde the token
       const payload = this.decodeToken(respone.credential);
       //store in session
-      sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
+      // sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
+      localStorage.setItem("user", JSON.stringify(payload))
+      const loginData = {
+        email: payload.email,
+        name:payload.name,
+        googleId: payload.sub,
+        image: payload.picture
+      }
+      this.user.loginWithGoogle(loginData).subscribe({
+        next: (data:any) => {
+          console.log(data);
+          localStorage.setItem('token', data.data.token);
+          localStorage.setItem('provider', 'google');
+          this.router.navigate(["/home"]);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      })
       //navigate to home
-      this.router.navigate(["/home"]);
     }
   }
 
   LoginForm = new FormGroup({
     // email:new FormControl(null,[Validators.required,Validators.email]),
     // pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
-    email: new FormControl("", [Validators.required, Validators.email]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
     pass: new FormControl("", [
       Validators.required,
       Validators.pattern(/^\w{4,}$/),

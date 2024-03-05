@@ -1,11 +1,21 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { ButtonModule } from "primeng/button";
-import { CardModule } from "primeng/card";
-import { RatingModule } from "primeng/rating";
-import { Router } from "@angular/router";
-import { TripsService } from "../../services/trips/trips.service";
+import { CommonModule } from '@angular/common';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { RatingModule } from 'primeng/rating';
+
+import { TripsService } from '../../services/trips/trips.service';
 
 @Component({
   selector: "app-card",
@@ -25,8 +35,11 @@ import { TripsService } from "../../services/trips/trips.service";
 export class CardComponent implements OnInit {
   @Input() trip!: any;
   @Input() isTrip!: boolean;
-  constructor(private router: Router, private _TripsService: TripsService) {}
+  constructor(private router: Router, private _TripsService: TripsService) {
+
+  }
   ngOnInit(): void {
+    console.log(this.trip.hotel.name);
     let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
     let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
     // console.log(findTrip);
