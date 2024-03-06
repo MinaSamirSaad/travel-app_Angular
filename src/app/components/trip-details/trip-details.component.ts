@@ -50,8 +50,7 @@ export class TripDetailsComponent {
     });
     this._TripsService.getTripById(this.id).subscribe({
       next: ({ data }) => {
-        this.trip = data;
-        console.log(this.trip);
+        this.trip = data.trip;
       },
     });
   }
