@@ -62,10 +62,10 @@ export class CardComponent implements OnInit {
   showBottomCenter() {
     this.messageService.add({
       key: "bc",
-      severity: "success",
-      summary: "Success",
+      severity: "Faild",
+      summary: "Faild",
       sticky: true,
-      detail: "Message Content",
+      detail: "You must login first to add this trip to your favourite list.",
     });
   }
   toggleFavourite() {

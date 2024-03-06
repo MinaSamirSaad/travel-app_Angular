@@ -144,3 +144,20 @@ button.p-ripple {
     width: 1rem;
   }
 }
+
+
+
+/* .ng-star-inserted{
+  
+  padding: 20px ;
+} */
+
+.p-toast-summary ,.ng-tns-c3020094734-88{
+  padding: 10px ;
+  
+}
+
+.p-toast-detail ,.ng-tns-c3020094734-90{
+  padding: 0 10px 10px 10px  ;
+
+}
