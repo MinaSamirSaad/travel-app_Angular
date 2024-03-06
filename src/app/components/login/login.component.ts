@@ -67,7 +67,10 @@ export class LoginComponent {
           console.log(data);
           localStorage.setItem("token", data.data.token);
           localStorage.setItem("provider", "google");
-
+          data.data.FavoriteTrips = data.data.FavoriteTrips.map((fav: any) => {
+            fav.isFavourite = true;
+            return fav;
+          });
           localStorage.setItem(
             "favouriteTrips",
             JSON.stringify(data.data.FavoriteTrips)
@@ -129,6 +132,7 @@ export class LoginComponent {
             );
             this.navigateToHome();
             this.user.isLoggedin = true;
+            console.log(this.user.isLoggedin);
           },
           error: (error) => {
             console.log(error);

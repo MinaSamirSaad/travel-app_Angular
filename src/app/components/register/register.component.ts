@@ -50,6 +50,7 @@ export class RegisterComponent {
             JSON.stringify(data.data.bookedTrips)
           );
           this.router.navigate(["/home"]);
+          this.user.isLoggedin = true;
         },
         error: (err) => {
           console.log(err);
