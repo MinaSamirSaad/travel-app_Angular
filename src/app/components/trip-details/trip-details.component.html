@@ -9,26 +9,21 @@
     <div class="container-lg">
       <div class="row">
         <div class="col-md-4">
-          <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-5" alt="" />
-          <div class="booking">
-            <input
-              type="text"
-              class="form-control mb-3 p-4"
-              placeholder="Where to"
-            />
-            <input
-              type="text"
-              class="form-control mb-3 p-4"
-              placeholder="when"
-            />
+          <h1 class="text-center">More About Hotel</h1>
+          <div class="hotel-imgs">
+            <div class="main-img">
+              <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-3" alt="" />
+            </div>
+            <div class="other-imgs d-flex justify-content-between">
+              @for(image of hotelData.hotelImages ; track hotelData.hotelImages){
+                <img [src]="image" class="rounded shadow mb-3" alt="" (click)="changeHotelImg(image)" />
+              }
+            </div>
+          </div>
 
-            <p-dropdown
-              [options]="cities"
-              [(ngModel)]="selectedCity"
-              optionLabel="name"
-              [showClear]="true"
-              placeholder="Select a trip category"
-            ></p-dropdown>
+          <p class="hotel-desc">{{hotelData.hotelDescription}}</p>
+          <div class="booking">
+
             <button
               class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-4 px-xl-3"
               (click)="goToBookingPage(trip._id)"
@@ -155,7 +150,7 @@
 </div> -->
 
 <!-- Accourdion -->
-<!-- 
+<!--
 <div class="accordion" id="accordionExample">
   <div class="accordion-item p-0 mb-2">
     <h2 class="accordion-header" id="headingOne">

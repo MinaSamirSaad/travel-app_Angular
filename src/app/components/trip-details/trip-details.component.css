@@ -140,6 +140,15 @@ textarea {
   color: #fff;
 }
 
+.hotel-desc {
+  color: #66606b;
+}
+
+.other-imgs img{
+  width: 80px;
+  cursor: pointer;
+}
+
 .p-dropdown-clear-icon {
   width: 17px;
   height: 18px;
@@ -309,7 +318,7 @@ textarea {
   height: 0%;
   transition: height 0.2s ease-out;
 }
-/* 
+/*
 .progress > div.right div.current ~ div {
   color: #666;
 } */
