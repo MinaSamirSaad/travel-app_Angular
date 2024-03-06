@@ -1,7 +1,6 @@
 @import "primeicons/primeicons.css";
 
 .body{
-    background-color: #faf5ee;
     padding-bottom: 50px;
 }
 @media screen and (max-width: 768px) {
