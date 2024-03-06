@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, HostListener } from "@angular/core";
+import { ChangeDetectorRef, Component, HostListener } from "@angular/core";
 import {
   ActivatedRoute,
   IsActiveMatchOptions,
@@ -20,7 +20,8 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private user: UserService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
   isScrolled: boolean = false;
   isFavouriteActive: boolean = false;
@@ -39,7 +40,7 @@ export class HeaderComponent {
     //   : window.scrollY > 300;
   }
 
-  userPicture:any;
+  userPicture: any;
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -55,30 +56,39 @@ export class HeaderComponent {
         this.bgNavbar = !this.activatedRoute.firstChild?.snapshot.data["bgNav"];
       }
     });
-    if(localStorage.getItem('user')){
-       this.userPicture = JSON.parse(localStorage.getItem('user')!).picture;
+    if (localStorage.getItem("user")) {
+      //  this.userPicture = JSON.parse(localStorage.getItem('user')!).picture;
+      if (
+        localStorage.getItem("provider") &&
+        localStorage.getItem("provider") === "google"
+      ) {
+        this.userPicture = JSON.parse(localStorage.getItem("user")!).picture;
+        console.log("=========> ", this.userPicture);
+      } else {
+        this.userPicture = JSON.parse(localStorage.getItem("user")!).image;
+      }
     }
   }
   logout() {
-    if(localStorage.getItem('provider') === 'google'){
-      // add logout from google here 
-      localStorage.removeItem('provider');
-      localStorage.clear()
-      // reload the page
-    }
+    console.log("logout mounir");
+    // if (localStorage.getItem("provider") === "google") {
+    //   // add logout from google here
+    //   localStorage.removeItem("provider");
+    //   // reload the page
+    // }
     const favoriteTrips = JSON.parse(
       localStorage.getItem("favouriteTrips") || "[]"
-    ).map((fav: any) => {return {tripId:fav._id}});
+    ).map((fav: any) => {
+      return { tripId: fav._id };
+    });
     console.log(JSON.parse(localStorage.getItem("favouriteTrips") || "[]"));
     console.log(favoriteTrips);
     this.user.addFavoriteTrips(favoriteTrips).subscribe({
       next: () => {
         this.user.logout().subscribe({
           next: () => {
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-            localStorage.removeItem("favouriteTrips");
-            localStorage.removeItem("bookedTrips");
+            localStorage.clear();
+            this.userPicture = null;
           },
           error: (err) => {
             console.log(err);
@@ -89,19 +99,14 @@ export class HeaderComponent {
         console.log(err);
       },
     });
-    window.location.reload();
   }
-// load session user data if there is a user in local storage
+  // load session user data if there is a user in local storage
 
+  // userPicture:any;
 
-// userPicture:any;
-
-// if(localStorage.getItem('user')){
-//   const userPicture = JSON.parse(localStorage.getItem('user')?).picture;
-// }
-// userPicture:any= JSON.parse(localStorage.getItem('user')!).picture;
-// name= JSON.parse(localStorage.getItem('user')!).name;
-
-
-
+  // if(localStorage.getItem('user')){
+  //   const userPicture = JSON.parse(localStorage.getItem('user')?).picture;
+  // }
+  // userPicture:any= JSON.parse(localStorage.getItem('user')!).picture;
+  // name= JSON.parse(localStorage.getItem('user')!).name;
 }

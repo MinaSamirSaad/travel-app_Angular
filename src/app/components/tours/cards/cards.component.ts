@@ -22,7 +22,7 @@ import { CardComponent } from "../../card/card.component";
 export class CardsComponent implements OnInit {
   // search functionality
   trips!: any;
-  isTrip: boolean=true;
+  isTrip: boolean = true;
 
   searchTerm: string = "";
   private subscription!: Subscription;
@@ -40,7 +40,7 @@ export class CardsComponent implements OnInit {
     // ------------------
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
-        this.trips = data.slice(0, 9);
+        this.trips = data;
       },
     });
   }
