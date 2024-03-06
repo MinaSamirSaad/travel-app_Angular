@@ -1,26 +1,23 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 type loginData = {
-  email: string,
-  password: string
-}
+  email: string;
+  password: string;
+};
 
 type loginWithGoogleData = {
-  name: string,
-  email: string,
-  googleId: string
-  image: string
-}
-
-
+  name: string;
+  email: string;
+  googleId: string;
+  image: string;
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   private readonly URL_DB = "https://travel-app-8glz.onrender.com/users";
 
   login(data: loginData) {
@@ -36,10 +33,13 @@ export class UserService {
   }
 
   logout() {
-    return this.http.post(`${this.URL_DB}/logout`, '');
+    return this.http.post(`${this.URL_DB}/logout`, "");
   }
 
   loginWithGoogle(data: loginWithGoogleData) {
     return this.http.post(`${this.URL_DB}/loginGoogle`, data);
+  }
+  addFavoriteTrips(data: any) {
+    return this.http.post(`${this.URL_DB}/addFavoriteTrips`, data);
   }
 }

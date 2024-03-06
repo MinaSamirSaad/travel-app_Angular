@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
-import { Router ,RouterModule} from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { HeaderComponent } from "../home/header/header.component";
 import { UserService } from "../../services/user/user.service";
 import { HttpClientModule } from "@angular/common/http";
@@ -15,12 +15,17 @@ import { HttpClientModule } from "@angular/common/http";
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, HttpClientModule,RouterModule],
+  imports: [
+    ReactiveFormsModule,
+    HeaderComponent,
+    HttpClientModule,
+    RouterModule,
+  ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
 export class LoginComponent {
-  constructor(private user: UserService) { }
+  constructor(private user: UserService) {}
   private router = inject(Router);
   //google intialize
   ngOnInit(): void {
@@ -50,24 +55,32 @@ export class LoginComponent {
       const payload = this.decodeToken(respone.credential);
       //store in session
       // sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
-      localStorage.setItem("user", JSON.stringify(payload))
+      localStorage.setItem("user", JSON.stringify(payload));
       const loginData = {
         email: payload.email,
-        name:payload.name,
+        name: payload.name,
         googleId: payload.sub,
-        image: payload.picture
-      }
+        image: payload.picture,
+      };
       this.user.loginWithGoogle(loginData).subscribe({
-        next: (data:any) => {
+        next: (data: any) => {
           console.log(data);
-          localStorage.setItem('token', data.data.token);
-          localStorage.setItem('provider', 'google');
-          this.router.navigate(['home']);
+          localStorage.setItem("token", data.data.token);
+          localStorage.setItem("provider", "google");
+          localStorage.setItem(
+            "favouriteTrips",
+            JSON.stringify(data.data.FavoriteTrips)
+          );
+          localStorage.setItem(
+            "bookedTrips",
+            JSON.stringify(data.data.bookedTrips)
+          );
+          this.router.navigate(["/home"]);
         },
         error: (error) => {
           console.log(error);
         },
-      })
+      });
     }
   }
 
@@ -88,20 +101,31 @@ export class LoginComponent {
 
   getData() {
     if (this.LoginForm.valid) {
-      this.user.login({ email: this.LoginForm.controls['email'].value || '', password: this.LoginForm.controls['pass'].value || '' }).subscribe({
-        next: (data:any) => {
-          console.log(data);
-          localStorage.setItem('token', data.data.token);
-          localStorage.setItem('user', JSON.stringify(data.data.user));
-          this.navigateToHome();
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
+      this.user
+        .login({
+          email: this.LoginForm.controls["email"].value || "",
+          password: this.LoginForm.controls["pass"].value || "",
+        })
+        .subscribe({
+          next: (data: any) => {
+            console.log(data);
+            localStorage.setItem("token", data.data.token);
+            localStorage.setItem("user", JSON.stringify(data.data.user));
+            localStorage.setItem(
+              "favouriteTrips",
+              JSON.stringify(data.data.FavoriteTrips)
+            );
+            localStorage.setItem(
+              "bookedTrips",
+              JSON.stringify(data.data.bookedTrips)
+            );
+            this.navigateToHome();
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
     }
-    console.log("email: ", this.LoginForm.controls["email"].value);
-    console.log("pass: ", this.LoginForm.controls["pass"].value);
   }
 
   navigateToHome() {
