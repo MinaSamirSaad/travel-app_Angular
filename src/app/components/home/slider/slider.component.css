@@ -1,50 +1,23 @@
-.element{
-    position: relative;
-    background-color: hsla(0, 0%, 100%, 0.365);
-    border-radius: 10px;
-    font-family: sans-serif;
-    cursor: pointer;
-}
-
-.details{
-    display: flex;
-    flex-direction: column;
-gap: 10px;
-}
-.name{
-    text-align: center;
-    color: #ed8e7e;
-}
-
-.p-rating{
-    padding-top: 20px;
-}
-.p-rating-icon-active{
-    color: rgba(250, 168, 15, 0.848);
-}
-
 .element:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     transform: scale(1.02);
     transition: all 0.3s ease-in-out;
 }
-.p-carousel-container,.p-carousel-indicators{
-    /* background-color:#FAF5EE ; */
-    padding: 20px 0;
-    
-}
+
 .p-carousel-prev ,.p-carousel-next {
-    margin: 20px;
+    margin: 20px !important;
 background-color: #fff;
-border-radius: 50%
+border-radius: 50% !important;
+width: 40px!important;
+height: 40px!important;
 }
 .p-carousel-next {
-    margin: 20px;
+    margin: 20px !important;
 
 }
 .p-carousel-prev:hover,.p-carousel-next:hover{
     background-color: rgb(232, 159, 148);
-    border-radius: 50%;
+    border-radius: 50% !important ;
     color: #fff;
 }
 

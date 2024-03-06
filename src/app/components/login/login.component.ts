@@ -81,13 +81,10 @@ export class LoginComponent {
           console.log(error);
         },
       });
-      //navigate to home
     }
   }
 
   LoginForm = new FormGroup({
-    // email:new FormControl(null,[Validators.required,Validators.email]),
-    // pass:new FormControl(null,[Validators.required,Validators.minLength(8)])
     email: new FormControl(null, [Validators.required, Validators.email]),
     pass: new FormControl("", [
       Validators.required,

@@ -21,7 +21,9 @@ import { CardComponent } from "../../card/card.component";
 })
 export class CardsComponent implements OnInit {
   // search functionality
-  trips: any;
+  trips!: any;
+  isTrip: boolean=true;
+
   searchTerm: string = "";
   private subscription!: Subscription;
   constructor(private _TripsService: TripsService) {}

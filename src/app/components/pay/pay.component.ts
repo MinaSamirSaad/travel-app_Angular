@@ -1,40 +1,31 @@
-import { CommonModule } from "@angular/common";
-import { Component, ViewEncapsulation, inject } from "@angular/core";
-import {
-  FormControl,
-  FormsModule,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from "@angular/forms";
-import { ButtonModule } from "primeng/button";
-import { CardModule } from "primeng/card";
-import { RatingModule } from "primeng/rating";
-import { CardComponent } from "../card/card.component";
-import { HttpClient } from "@angular/common/http";
-import { render } from "creditcardpayments/creditCardPayments";
-import { TripsService } from "../../services/trips/trips.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { CommonModule } from '@angular/common';
+import { Component ,OnInit,ViewEncapsulation, inject } from '@angular/core';
+import { FormControl,FormsModule, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { RatingModule } from 'primeng/rating';
+import { CardComponent } from '../card/card.component';
+import { render } from 'creditcardpayments/creditCardPayments';
+import { TripsService } from '../../services/trips/trips.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 @Component({
   selector: "app-pay",
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    FormsModule,
-    ButtonModule,
-    CardModule,
-    RatingModule,
-    CardComponent,
-  ],
-  templateUrl: "./pay.component.html",
-  styleUrl: "./pay.component.css",
+  imports: [ReactiveFormsModule,CommonModule ,FormsModule , ButtonModule , CardModule , RatingModule,CardComponent ],
+  templateUrl: './pay.component.html',
+  styleUrl: './pay.component.css',
+  providers:[TripsService ],
   encapsulation: ViewEncapsulation.None,
 })
-export class PayComponent {
+export class PayComponent implements OnInit{
+trip:any
+  isTrip: boolean = true;
+  id:any;
   private router = inject(Router);
-  id: any;
-  constructor(private trips: TripsService, private route: ActivatedRoute) {
+  constructor(private trips:TripsService, private route: ActivatedRoute){
+
     render({
       id: "#myPaymentButtons",
       currency: "USD",
@@ -56,8 +47,26 @@ export class PayComponent {
     });
   }
 
-  // card component
-  value: number = 3;
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+    console.log(this.id)
+    this.trips.getTripById(this.id).subscribe({
+      next: (data:any) => {
+        console.log(data)
+      this.trip = data.data;
+} ,
+    error: (err) => {
+    console.log(err);
+},
+    })
+}
+
+
+// card component
+value: number = 3;
+
   isHovered: boolean = false;
   isClicked: boolean = false;
 

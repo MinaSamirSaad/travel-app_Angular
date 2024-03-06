@@ -1,18 +1,11 @@
 <div class="slider">
 
     <h1 class=" popular text-center  " >Our Popular Trips</h1>
-    <p-carousel class="carousel_images " [value]="products" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
-        <ng-template  class="product-item-content" let-product pTemplate="item">
-            <div class=" element border-1 surface-border border-round m-2  py-5 px-3">
-                <div class="mb-3 text-center  ">
-                <img  calss="product-image" src="../../../assets/images/home/slider/{{ product.image }}" [alt]="product.name" class="w-6 shadow-2 w-100" />
-            </div>
-            <div class="details">
-                <h4 class="name">{{ product.name }}</h4>
-                <h6 class="">{{product.des }}</h6>
-                <h6 class="">Price: {{ product.price + ' $' }}</h6>
-                <p-rating [readonly]="true" [cancel]="false" [(ngModel)]="product.rate"></p-rating>
-       
+    <p-carousel class="carousel_images " [value]="trip" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <ng-template  class="product-item-content" let-trip pTemplate="item">
+            <div class="     m-2  py-5 px-3">
+                <div class="mb-3   ">
+       <app-card [trip]="trip"  [isTrip]="isTrip" ></app-card>
             </div>
         </div>
     </ng-template>

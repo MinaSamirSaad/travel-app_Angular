@@ -39,6 +39,7 @@ export class HeaderComponent {
     //   : window.scrollY > 300;
   }
 
+  userPicture:any;
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -54,11 +55,16 @@ export class HeaderComponent {
         this.bgNavbar = !this.activatedRoute.firstChild?.snapshot.data["bgNav"];
       }
     });
+    if(localStorage.getItem('user')){
+       this.userPicture = JSON.parse(localStorage.getItem('user')!).picture;
+    }
   }
   logout() {
-    if (localStorage.getItem("provider") === "google") {
-      // add logout from google here
-      localStorage.removeItem("provider");
+    if(localStorage.getItem('provider') === 'google'){
+      // add logout from google here 
+      localStorage.removeItem('provider');
+      localStorage.clear()
+      // reload the page
     }
     const favoriteTrips = JSON.parse(
       localStorage.getItem("favouriteTrips") || "[]"
@@ -83,5 +89,19 @@ export class HeaderComponent {
         console.log(err);
       },
     });
+    window.location.reload();
   }
+// load session user data if there is a user in local storage
+
+
+// userPicture:any;
+
+// if(localStorage.getItem('user')){
+//   const userPicture = JSON.parse(localStorage.getItem('user')?).picture;
+// }
+// userPicture:any= JSON.parse(localStorage.getItem('user')!).picture;
+// name= JSON.parse(localStorage.getItem('user')!).name;
+
+
+
 }

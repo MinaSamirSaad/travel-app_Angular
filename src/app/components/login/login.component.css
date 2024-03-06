@@ -168,6 +168,7 @@ body {
 }
 .btnReg{
   margin-left: 5px;
+  cursor: pointer;
 
 }
 .btnReg:hover {
@@ -191,4 +192,7 @@ cursor: pointer;
   50%,100% {
     bottom: 100%;
   }
+}
+a{
+  cursor: pointer;
 }
