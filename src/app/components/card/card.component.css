@@ -105,7 +105,7 @@ button.p-ripple {
   padding: 10px 25px !important;
 }
 
-button.p-ripple:hover {
+.card-img button.p-ripple:hover {
   background-color: #e8604c !important;
 }
 

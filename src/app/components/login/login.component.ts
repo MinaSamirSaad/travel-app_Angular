@@ -67,6 +67,7 @@ export class LoginComponent {
           console.log(data);
           localStorage.setItem("token", data.data.token);
           localStorage.setItem("provider", "google");
+
           localStorage.setItem(
             "favouriteTrips",
             JSON.stringify(data.data.FavoriteTrips)
@@ -75,6 +76,7 @@ export class LoginComponent {
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
+          this.user.isLoggedin = true;
           this.router.navigate(["/home"]);
         },
         error: (error) => {

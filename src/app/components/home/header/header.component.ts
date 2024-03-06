@@ -88,7 +88,9 @@ export class HeaderComponent {
         this.user.logout().subscribe({
           next: () => {
             localStorage.clear();
-            this.userPicture = null;
+            this.userPicture = null; //here
+            this.user.isLoggedin = false;
+            window.location.reload();
           },
           error: (err) => {
             console.log(err);

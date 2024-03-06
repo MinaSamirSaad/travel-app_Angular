@@ -2,7 +2,7 @@
 <p-card
   class=""
   header="{{ isTrip ? trip.name : 'Not Trip' }}"
-  subheader="{{ trip.hotel.name }}"
+  subheader="{{ trip.hotel?.name || trip.crusie.name }}"
   [ngStyle]="{
     width: '360px',
     color: '#ed8e7e',
@@ -27,7 +27,10 @@
       <img alt="Card" src="{{ trip.imgUrl }}" />
     </div>
   </ng-template>
-
+  <div class="card flex justify-content-center gap-2">
+    <!-- <p-toast position="top-left" key="tl"></p-toast> -->
+    <p-toast position="bottom-center" key="bc"></p-toast>
+  </div>
   <div
     class="details d-flex justify-content-between align-items-end mb-4 text-dark"
   >
