@@ -1,6 +1,6 @@
-
 import { Routes } from '@angular/router';
 
+import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { OfferComponent } from './components/offer/offer.component';
 import {
@@ -9,6 +9,7 @@ import {
 import {
   CountriesComponent,
 } from './pages/countries-page/countries/countries.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import {
   FavoriteTripsComponent,
 } from './pages/favorite-trips/favorite-trips.component';
@@ -23,8 +24,6 @@ import {
 import {
   ToursPageComponent,
 } from './pages/tours-page/tours-page/tours-page.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -54,6 +53,8 @@ export const routes: Routes = [
     component: FavoriteTripsComponent,
     data: { hideNavbar: false },
   },
+  { path: "countries/:id", component: OneCountryComponent},
+
   { path: "contact", component: ContactComponent, data: { hideNavbar: true } },
   { path: "**", component: ErrorPageComponent, data: { hideNavbar: true } }
 ];

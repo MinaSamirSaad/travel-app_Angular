@@ -13,18 +13,18 @@ export class ExoticPlacesComponent {
 
     }
     goMaldives() {
-      this.router.navigate([`country/Maldives`])
+      this.router.navigate([`countries/Maldives`])
     }
 
     goThailand(){
-      this.router.navigate([`country/Thailand`])
+      this.router.navigate([`countries/Thailand`])
     }
 
     goGermany(){
-      this.router.navigate([`country/Germany`])
+      this.router.navigate([`countries/Germany`])
     }
     goVietnam(){
-      this.router.navigate([`country/Vietnam`])
+      this.router.navigate([`countries/Vietnam`])
     }
 
     // goSeychelles(){
