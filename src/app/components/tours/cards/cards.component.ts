@@ -29,8 +29,8 @@ export class CardsComponent implements OnInit {
   constructor(private _TripsService: TripsService) {}
 
   ngOnInit(): void {
-    if (!localStorage.getItem("favouriteTrips"))
-      localStorage.setItem("favouriteTrips", "[]");
+    // if (!localStorage.getItem("favouriteTrips"))
+    //   localStorage.setItem("favouriteTrips", "[]");
     this.subscription = this._TripsService.search.subscribe({
       next: (term) => {
         console.log({ term });

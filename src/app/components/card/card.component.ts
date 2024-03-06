@@ -10,7 +10,7 @@ import { RatingModule } from "primeng/rating";
 
 import { TripsService } from "../../services/trips/trips.service";
 import { MessageService } from "primeng/api";
-
+import { ToastModule } from "primeng/toast";
 @Component({
   selector: "app-card",
   standalone: true,
@@ -21,6 +21,7 @@ import { MessageService } from "primeng/api";
     ButtonModule,
     CardModule,
     RatingModule,
+    ToastModule,
   ],
   providers: [MessageService],
   templateUrl: "./card.component.html",
@@ -42,7 +43,6 @@ export class CardComponent implements OnInit {
     let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
     let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
     if (findTrip) this.trip = findTrip;
-    console.log("first -<<<<<<<<<<<<< CArd", this.trip);
   }
   showDetails(id: any) {
     this.router.navigate([`trip/${id}`]);
@@ -59,16 +59,19 @@ export class CardComponent implements OnInit {
   addedToFav() {
     console.log("added to fav");
   }
-  showWarn() {
+  showBottomCenter() {
     this.messageService.add({
-      severity: "warn",
-      summary: "Warn",
+      key: "bc",
+      severity: "success",
+      summary: "Success",
+      sticky: true,
       detail: "Message Content",
     });
   }
   toggleFavourite() {
     // get from local
     if (this._UserService.isLoggedin) {
+      console.log("Logged in =====================");
       let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
       // find
       let foundTripInLocalStrg = locStrg.find(
@@ -89,7 +92,7 @@ export class CardComponent implements OnInit {
         this._TripsService.toggleFavoriteEvent.emit(this.trip);
       }
     } else {
-      // this.showWarn();
+      this.showBottomCenter();
     }
   }
 }
