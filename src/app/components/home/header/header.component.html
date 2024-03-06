@@ -77,17 +77,18 @@
         </ul>
       </div>
     </div>
-    <div class="right-nav-bar d-flex">
+    <div class="right-nav-bar d-flex justify-content-between">
       @if(userPicture){
-
+      <a class="userProfile-container">
         <img class="userProfile" [src]="userPicture" />
+      </a>
       }@else {
-        <a
-          routerLink="login"
-          class="login-button"
-          [ngClass]="{ 'nav-link-color': isScrolled }"
-          ><i class="bi bi-person-circle"></i
-        ></a>
+      <a
+        routerLink="login"
+        class="login-button"
+        [ngClass]="{ 'nav-link-color': isScrolled }"
+        ><i class="bi bi-person-circle"></i
+      ></a>
 
       }
       <a
@@ -100,6 +101,15 @@
         <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
       </a>
 
+      @if (userPicture) {
+      <a
+        [ngClass]="{ 'nav-link-color': isScrolled }"
+        class="login-button"
+        (click)="logout()"
+      >
+        <i class="bi bi-box-arrow-left"></i>
+      </a>
+      }
       <button
         class="navbar-toggler pe-0"
         type="button"
@@ -109,10 +119,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      @if (userPicture) {
-        <button [ngClass]="{ 'nav-link-color': isScrolled }" class="  logOut" (click)="logout()">Logout</button>
-      }
-
     </div>
   </div>
 </nav>

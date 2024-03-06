@@ -1,58 +1,60 @@
-<body >
-
+<body>
   <div class="login-box">
     <img
-    (click)="navigateToHome()"
-    class="logoImg"
-    src="assets/images/Logo.png"
-    alt="logo image"
-  />
+      (click)="navigateToHome()"
+      class="logoImg"
+      src="assets/images/Logo.png"
+      alt="logo image"
+    />
     <h2>Login</h2>
-  <form [formGroup]="LoginForm" >
-    <div class="user-box">
-      <input type="text" name="" required="" formControlName="email" >
-      <label>Email</label>
+    <form [formGroup]="LoginForm" (keyup.enter)="getData()">
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="email" />
+        <label>Email</label>
 
-      <div id="emailHelp"   class="form-text"   >
-        @if(!emailValid.valid&&emailValid.value){
+        <div id="emailHelp" class="form-text">
+          @if(!emailValid.valid&&emailValid.value){
           <div>
-            <p class="text-danger " ><i class="pi pi-times-circle mb-5  "></i> Email not valid</p>
+            <p class="text-danger">
+              <i class="pi pi-times-circle mb-5"></i> Email not valid
+            </p>
           </div>
-        }
-        
-    </div>
-    <div class="user-box mt-4 ">
-      <input type="password" name=""   formControlName="pass"  required="">
-      <label>Password</label>
-      <div id="passHelp" class="form-text"  >
-        @if(!passValid.valid&&passValid.value){
-        <div>
-          <p class="text-danger " ><i class="pi pi-times-circle"></i> Password not valid</p>
+          }
         </div>
-        } @if(passValid.valid&&passValid.value){
-        <div><span class="m-5"></span></div>
-        }
+        <div class="user-box mt-4">
+          <input type="password" name="" formControlName="pass" required="" />
+          <label>Password</label>
+          <div id="passHelp" class="form-text">
+            @if(!passValid.valid&&passValid.value){
+            <div>
+              <p class="text-danger">
+                <i class="pi pi-times-circle"></i> Password not valid
+              </p>
+            </div>
+            } @if(passValid.valid&&passValid.value){
+            <div><span class="m-5"></span></div>
+            }
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a (click)="getData()" class="mb-3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Login
+          </a>
+        </div>
       </div>
-    </div>
-
-    <div class="text-center  " >
-
-      <a  (click)="getData()"class='mb-3 ' >
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Login
-      </a>
+    </form>
+    <div class="text-center">
+      <p class="m-0" id="google-btn"></p>
+      <p class="my-3 text-white">Or</p>
+      <p class="text-white">
+        Don't have an Account?
+        <span routerLink="/register" class="btnReg">Register</span>
+      </p>
     </div>
   </div>
-  </form>
-<div class="  text-center " >
-
-  <p class="m-0" id="google-btn"></p>
-  <p class="my-3  text-white  ">Or</p>
-  <p class=" text-white  " >Don't have an Account? <span routerLink="/register"  class="btnReg"  >Register</span></p>
-</div>
-
-</div>
-      </body>
+</body>

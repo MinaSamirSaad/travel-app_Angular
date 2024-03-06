@@ -27,6 +27,7 @@
       <img alt="Card" src="{{ trip.imgUrl }}" />
     </div>
   </ng-template>
+
   <div
     class="details d-flex justify-content-between align-items-end mb-4 text-dark"
   >
@@ -44,9 +45,13 @@
     </div>
   </div>
   <ng-template pTemplate="footer" id="footer">
-    @if(!isCardComponent(trip._id)){
+    @if(isBook){
 
-      <p-button label="Book" class="book-button" (onClick)="goToBookingPage(trip._id)"></p-button>
+    <p-button
+      label="Book"
+      class="book-button"
+      (onClick)="goToBookingPage(trip._id)"
+    ></p-button>
     }
   </ng-template>
 </p-card>

@@ -1,22 +1,15 @@
-import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import { UserService } from "./../../services/user/user.service";
+import { CommonModule } from "@angular/common";
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { RatingModule } from 'primeng/rating';
+import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { RatingModule } from "primeng/rating";
 
-import { TripsService } from '../../services/trips/trips.service';
+import { TripsService } from "../../services/trips/trips.service";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-card",
@@ -28,8 +21,8 @@ import { TripsService } from '../../services/trips/trips.service';
     ButtonModule,
     CardModule,
     RatingModule,
-
   ],
+  providers: [MessageService],
   templateUrl: "./card.component.html",
   styleUrl: "./card.component.css",
   encapsulation: ViewEncapsulation.None,
@@ -37,23 +30,27 @@ import { TripsService } from '../../services/trips/trips.service';
 export class CardComponent implements OnInit {
   @Input() trip!: any;
   @Input() isTrip!: boolean;
+  @Input() isBook: boolean = true;
 
-  constructor(private router: Router, private _TripsService: TripsService) {
-
-  }
+  constructor(
+    private router: Router,
+    private _TripsService: TripsService,
+    private _UserService: UserService,
+    private messageService: MessageService
+  ) {}
   ngOnInit(): void {
     let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
     let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
     if (findTrip) this.trip = findTrip;
+    console.log("first -<<<<<<<<<<<<< CArd", this.trip);
   }
   showDetails(id: any) {
     this.router.navigate([`trip/${id}`]);
   }
   goToBookingPage(id: any) {
-    this.router.navigate([`pay/${id}`])
-  .then(() => {
-    window.location.reload();
-  });
+    this.router.navigate([`pay/${id}`]).then(() => {
+      window.location.reload();
+    });
   }
 
   isHovered: boolean = false;
@@ -62,33 +59,37 @@ export class CardComponent implements OnInit {
   addedToFav() {
     console.log("added to fav");
   }
-
+  showWarn() {
+    this.messageService.add({
+      severity: "warn",
+      summary: "Warn",
+      detail: "Message Content",
+    });
+  }
   toggleFavourite() {
     // get from local
-    let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
-    // find
-    let foundTripInLocalStrg = locStrg.find(
-      (favTrip: any) => this.trip._id == favTrip._id
-    );
+    if (this._UserService.isLoggedin) {
+      let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
+      // find
+      let foundTripInLocalStrg = locStrg.find(
+        (favTrip: any) => this.trip._id == favTrip._id
+      );
 
-    if (!foundTripInLocalStrg) {
-      this.trip.isFavourite = true;
-      locStrg.push(this.trip);
-      localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
+      if (!foundTripInLocalStrg) {
+        this.trip.isFavourite = true;
+        locStrg.push(this.trip);
+        localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
+      } else {
+        this.trip.isFavourite = false;
+        locStrg = locStrg.filter((fav: any) => {
+          return fav._id != this.trip._id;
+        });
+
+        localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
+        this._TripsService.toggleFavoriteEvent.emit(this.trip);
+      }
     } else {
-      this.trip.isFavourite = false;
-      locStrg = locStrg.filter((fav: any) => {
-        return fav._id != this.trip._id;
-      });
-
-      localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
-      this._TripsService.toggleFavoriteEvent.emit(this.trip);
+      // this.showWarn();
     }
-  }
-
-  isCardComponent(id:any):boolean {
-    console.log(this.trip.id)
- return this.router.url===`/pay/${id}`
-
   }
 }
