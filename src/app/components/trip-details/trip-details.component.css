@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  font-family: 'cabin',sans-serif;
+}
+
 .trip-details-page main {
   margin-top: 120px;
 }
@@ -140,12 +146,32 @@ textarea {
   color: #fff;
 }
 
+h1.text-center {
+  color: var(--main-color);
+}
+
 .hotel-desc {
   color: #66606b;
+}
+.main-img {
+  height: 300px;
+  margin-bottom: 10px;
+  transition: 0.3s all linear;
+}
+
+.main-img img {
+  height: 100%;
+  transition: 0.3s all linear;
+}
+
+.other-imgs{
+  height: 60px;
+  margin-bottom: 10px;
 }
 
 .other-imgs img{
   width: 80px;
+  height: 100%;
   cursor: pointer;
 }
 

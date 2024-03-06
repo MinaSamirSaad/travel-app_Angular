@@ -9,7 +9,7 @@
     <div class="container-lg">
       <div class="row">
         <div class="col-md-4">
-          <h1 class="text-center">More About Hotel</h1>
+          <h1 class="text-center">{{hotelData.hotelName}}</h1>
           <div class="hotel-imgs">
             <div class="main-img">
               <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-3" alt="" />
@@ -33,7 +33,7 @@
             <div class="text-center mt-3"></div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 ps-5">
           <div class="overview mb-4">
             <h3 class="h2 mb-5">{{ trip.name }}</h3>
             <p class="text-secondary fs-5">
