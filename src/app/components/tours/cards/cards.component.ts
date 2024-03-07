@@ -1,9 +1,5 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-
-import { ButtonModule } from "primeng/button";
-import { RatingModule } from "primeng/rating";
 import { Subscription } from "rxjs";
 import { FilterService } from "../../../services/trips/filter.service";
 import { TripsService } from "../../../services/trips/trips.service";
@@ -23,10 +19,14 @@ export class CardsComponent implements OnInit {
   // search functionality
   trips!: any;
   isTrip: boolean = true;
-
+  category: string = "";
   searchTerm: string = "";
   private subscription!: Subscription;
-  constructor(private _TripsService: TripsService) {}
+  private categorySubscription!: Subscription;
+  constructor(
+    private _TripsService: TripsService,
+    private _FilterService: FilterService
+  ) {}
 
   ngOnInit(): void {
     // if (!localStorage.getItem("favouriteTrips"))
@@ -37,6 +37,12 @@ export class CardsComponent implements OnInit {
         this.searchTerm = term;
       },
     });
+    this.categorySubscription = this._TripsService.category.subscribe({
+      next: (category: any) => {
+        console.log({ category });
+        this.category = category.code;
+      },
+    });
     // ------------------
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
@@ -44,8 +50,8 @@ export class CardsComponent implements OnInit {
       },
     });
   }
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.categorySubscription.unsubscribe();
   }
 }

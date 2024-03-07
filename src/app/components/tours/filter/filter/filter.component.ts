@@ -13,31 +13,25 @@ import { DropdownModule } from "primeng/dropdown";
   encapsulation: ViewEncapsulation.None,
 })
 export class FilterComponent implements OnInit {
-  selectedCountry: string = "";
-  filteredCountries: any;
-  categories: any;
-  selectedCategory: any;
-  filterCountry(event: any) {}
-
-  value = 2;
   cities: any[] | undefined;
+  selectedCity: any | undefined = "";
 
-  selectedCity: any | undefined;
-
+  constructor(private _TripsService: TripsService) {}
   ngOnInit() {
     this.cities = [
       { name: "Domestic", code: "domestic" },
       { name: "Outgoing", code: "outgoing" },
-      { name: "Honeymoon", code: "honeymoon" },
-      { name: "Nile cruise", code: "nileCruise" },
+      { name: "Honeymoon", code: "Honeymoon" },
+      { name: "Nile cruise", code: "nile cruise" },
     ];
   }
 
   // search functionality
 
   searchTerm: string = "";
-  constructor(private _TripsService: TripsService) {}
   sendSearch() {
     this._TripsService.search.next(this.searchTerm);
+    if (!this.selectedCity) this._TripsService.category.next("");
+    else this._TripsService.category.next(this.selectedCity);
   }
 }
