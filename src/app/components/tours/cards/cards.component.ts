@@ -45,7 +45,11 @@ export class CardsComponent implements OnInit {
   displayedTrips: any[] = [];
 
   private subscription!: Subscription;
-  constructor(private _TripsService: TripsService) {}
+  private categorySubscription!: Subscription;
+  constructor(
+    private _TripsService: TripsService,
+    private _FilterService: FilterService
+  ) {}
 
   ngOnInit(): void {
     // if (!localStorage.getItem("favouriteTrips"))
@@ -54,6 +58,12 @@ export class CardsComponent implements OnInit {
       next: (term) => {
         console.log({ term });
         this.searchTerm = term;
+      },
+    });
+    this.categorySubscription = this._TripsService.category.subscribe({
+      next: (category: any) => {
+        console.log({ category });
+        this.category = category.code;
       },
     });
     // ------------------
@@ -76,6 +86,7 @@ export class CardsComponent implements OnInit {
       },
     });
   }
+
   // show more pagination
   // updateDisplayedProducts(): void {
   //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -93,7 +104,9 @@ export class CardsComponent implements OnInit {
     this.rows = event.rows;
     this.displayedTrips = this.trips.slice(this.first, this.first + this.rows);
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.categorySubscription.unsubscribe();
   }
 }
