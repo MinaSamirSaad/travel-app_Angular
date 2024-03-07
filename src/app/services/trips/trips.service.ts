@@ -10,6 +10,8 @@ export class TripsService {
   constructor(private http: HttpClient) {}
   // search in trip page
   public search = new BehaviorSubject<string>("");
+  public category = new BehaviorSubject<string>("");
+
   getTrips(): Observable<any> {
     return this.http.get<any>("https://travel-app-8glz.onrender.com/trips");
   }
@@ -24,7 +26,9 @@ export class TripsService {
   getCountries(): Observable<any> {
     return this.http.get<any>("https://travel-app-8glz.onrender.com/hotels");
   }
-  bookTrip(id: number){
-    return this.http.get<any>(`https://travel-app-8glz.onrender.com/trips/book/${id}`)
+  bookTrip(id: number) {
+    return this.http.get<any>(
+      `https://travel-app-8glz.onrender.com/trips/book/${id}`
+    );
   }
 }

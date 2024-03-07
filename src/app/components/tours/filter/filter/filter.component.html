@@ -17,22 +17,12 @@
         <i class="bi bi-search icon-location text-secondary"></i>
       </div>
     </div>
-    <!-- <div class="mb-2 mb-md-0 col-md-3 p-0">
-      <div class="position-relative">
-        <input
-          type="text"
-          placeholder="where"
-          class="form-control where-input"
-        />
-        <i class="bi bi-geo-alt-fill icon-location text-secondary"></i>
-      </div>
-    </div> -->
     <div class="mb-2 mb-md-0 col-md-4 p-0">
       <p-dropdown
         [options]="cities"
         [(ngModel)]="selectedCity"
         optionLabel="name"
-        [showClear]="false"
+        [showClear]="true"
         placeholder="Select a trip category"
         class="h-100 select-input"
       ></p-dropdown>

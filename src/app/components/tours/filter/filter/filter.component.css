@@ -181,7 +181,7 @@ div.p-inputwrapper {
   height: 18px;
 }
 .p-dropdown-clear-icon {
-  right: 5rem;
+  right: 4rem;
   transform: translateY(-50%);
   color: var(--main-color);
 }
