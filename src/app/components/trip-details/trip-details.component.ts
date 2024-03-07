@@ -16,6 +16,7 @@ import { RatingModule } from 'primeng/rating';
 
 import { HotelsService } from '../../services/hotels/hotels.service';
 import { TripsService } from '../../services/trips/trips.service';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: "app-trip-details",
@@ -26,6 +27,7 @@ import { TripsService } from '../../services/trips/trips.service';
     HttpClientModule,
     FormsModule,
     DropdownModule,
+    CardComponent
   ],
   providers: [TripsService , HotelsService ],
   templateUrl: "./trip-details.component.html",
@@ -46,6 +48,8 @@ export class TripDetailsComponent {
   hotelID : any;
   hotel : any;
   selectedCity: any | undefined;
+  crusieData : any;
+
   hotelData : any;  ngOnInit() {
 
 
@@ -59,13 +63,16 @@ export class TripDetailsComponent {
       next: ({ data }) => {
         this.trip = data.trip;
         this.hotelID = data.trip.hotel.id
-        console.log(this.hotelID)
+        this.crusieData = data.trip.crusie
+        // if(data.trip.crusie){ this.crusieData = data.trip}
+        // console.log("hhhh" , this.crusieData)
+        // console.log(data.trip?.crusie)
 
         this._HotelsService.getHotel(this.hotelID).subscribe({
           next: (data) => {
             this.hotel = data
             this.hotelData = this.hotel.data.hotel
-            console.log(this.hotelData)
+            // console.log(this.hotelData)
           }
         })
 

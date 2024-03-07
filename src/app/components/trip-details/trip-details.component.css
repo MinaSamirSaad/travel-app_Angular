@@ -215,6 +215,91 @@ h1.text-center {
     font-size: 0.7rem !important;
   }
 }
+
+@media (max-width: 1300px) {
+  .other-imgs img {
+    width: 68px;
+    height: 100%;
+    cursor: pointer;
+  }
+  h1.text-center {
+    color: var(--main-color);
+    font-size: 39px;
+}
+}
+@media (max-width: 1200px) {
+  .other-imgs img {
+    width: 57px;
+    height: 90%;
+    cursor: pointer;
+  }
+  h1.text-center {
+    color: var(--main-color);
+    font-size: 33px;
+  }
+  .main-img {
+    height: 250px;
+    }
+  }
+@media (max-width: 991px) {
+  .other-imgs img {
+    width: 50px;
+  }
+  h1.text-center {
+    font-size: 26px;
+  }
+  .main-img {
+    height: 250px;
+    }
+  }
+@media (max-width: 868px) {
+  .other-imgs img {
+    width: 50px;
+  }
+  h1.text-center {
+    font-size: 45px;
+  }
+  .main-img {
+    height: 210px !important;
+    }
+  }
+@media (max-width: 851px) {
+  .other-imgs img {
+    width: 45px;
+  }
+  h1.text-center {
+    font-size: 28px;
+  }
+  .main-img {
+    height: 210px !important;
+    }
+  }
+@media (max-width: 851px) {
+  .other-imgs img {
+    width: 45px;
+  }
+  h1.text-center {
+    font-size: 27px;
+  }
+  .main-img {
+    height: 210px !important;
+    }
+  }
+@media (max-width: 768px) {
+  .other-imgs img {
+    width: 45px;
+  }
+  h1.text-center {
+    font-size: 27px;
+  }
+  .main-img {
+    height: 210px !important;
+    }
+
+  }
+
+
+
 .booking-btn::after {
   content: "";
   background-color: #313041;

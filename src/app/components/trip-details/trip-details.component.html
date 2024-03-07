@@ -9,15 +9,17 @@
     <div class="container-lg">
       <div class="row">
         <div class="col-md-4">
-          <h1 class="text-center">{{hotelData.hotelName}}</h1>
+
+            <h1 class="text-center">{{hotelData.hotelName}}</h1>
+
           <div class="hotel-imgs">
             <div class="main-img">
               <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-3" alt="" />
             </div>
             <div class="other-imgs d-flex justify-content-between">
-              @for(image of hotelData.hotelImages ; track hotelData.hotelImages){
-                <img [src]="image" class="rounded shadow mb-3" alt="" (click)="changeHotelImg(image)" />
-              }
+                @for(image of (hotelData.hotel_imgs || hotelData.hotelImages) ; track hotelData.hotelImages){
+                  <img [src]="image" class="rounded shadow mb-3" alt="" (click)="changeHotelImg(image)" />
+                }
             </div>
           </div>
 
