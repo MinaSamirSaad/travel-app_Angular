@@ -1,6 +1,6 @@
 declare var google: any;
 
-import { Component, inject } from "@angular/core";
+import { Component, NgZone, inject } from "@angular/core";
 import {
   FormControl,
   FormGroup,
@@ -25,7 +25,7 @@ import { HttpClientModule } from "@angular/common/http";
   styleUrl: "./login.component.css",
 })
 export class LoginComponent {
-  constructor(private user: UserService) {}
+  constructor(private user: UserService , private zone:NgZone) {}
   private router = inject(Router);
   //google intialize
   ngOnInit(): void {
@@ -80,9 +80,13 @@ export class LoginComponent {
             JSON.stringify(data.data.bookedTrips)
           );
           this.user.isLoggedin = true;
-          const previousUrl = this.user.getPreviousUrl() || "/";
-          this.router.navigate([previousUrl]);
-          this.user.clearPreviousUrl();
+          const previousUrl =  this.user.getPreviousUrl() || "/";
+          this.zone.run(()=>{       
+            this.router.navigate([previousUrl]);
+            this.user.clearPreviousUrl();
+          }
+            )
+
         },
         error: (error) => {
           console.log(error);
