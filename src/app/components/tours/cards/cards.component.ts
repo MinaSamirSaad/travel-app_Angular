@@ -36,16 +36,11 @@ export class CardsComponent implements OnInit {
   isTrip: boolean = true;
   category: string = "";
   searchTerm: string = "";
-  // displayedTrips: any[] = [];
-  // itemsPerPage = 9;
-  // currentPage = 1;
-  // totalPages = 0;
-  //pagination
-  first: number = 0;
-  rows: number = 9;
-  totalRecords: number = 0;
   displayedTrips: any[] = [];
-
+  itemsPerPage = 9;
+  currentPage = 1;
+  totalPages = 0;
+  //pagination
   private subscription!: Subscription;
   private categorySubscription!: Subscription;
   constructor(
@@ -69,43 +64,26 @@ export class CardsComponent implements OnInit {
       },
     });
     // ------------------
-    // this._TripsService.getTrips().subscribe({
-    //   next: ({ data }) => {
-    //     // this.trips = data;
-    //     // this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
-    //     // this.updateDisplayedProducts();
-
-    //   },
-    // });
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
-        this.totalRecords = data.length;
         this.trips = data;
-        this.displayedTrips = this.trips.slice(
-          this.first,
-          this.first + this.rows
-        );
+        this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
+        this.updateDisplayedProducts();
       },
     });
   }
 
   // show more pagination
-  // updateDisplayedProducts(): void {
-  //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-  //   const endIndex = startIndex + this.itemsPerPage;
-  //   this.displayedTrips = this.trips.slice(0, endIndex);
-  // }
-  // loadNextPage(): void {
-  //   this.currentPage++;
-  //   this.updateDisplayedProducts();
-  // }
-  //paginaion
-
-  onPageChange(event: any) {
-    this.first = event.first;
-    this.rows = event.rows;
-    this.displayedTrips = this.trips.slice(this.first, this.first + this.rows);
+  updateDisplayedProducts(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.displayedTrips = this.trips.slice(0, endIndex);
   }
+  loadNextPage(): void {
+    this.currentPage++;
+    this.updateDisplayedProducts();
+  }
+  //paginaion
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
