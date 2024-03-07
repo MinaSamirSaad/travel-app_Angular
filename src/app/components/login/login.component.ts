@@ -80,7 +80,9 @@ export class LoginComponent {
             JSON.stringify(data.data.bookedTrips)
           );
           this.user.isLoggedin = true;
-          this.router.navigate(["/home"]);
+          const previousUrl = this.user.getPreviousUrl() || "/";
+          this.router.navigate([previousUrl]);
+          this.user.clearPreviousUrl();
         },
         error: (error) => {
           console.log(error);
@@ -130,18 +132,15 @@ export class LoginComponent {
               "bookedTrips",
               JSON.stringify(data.data.bookedTrips)
             );
-            this.navigateToHome();
             this.user.isLoggedin = true;
-            console.log(this.user.isLoggedin);
+            const previousUrl = this.user.getPreviousUrl() || "/";
+            this.router.navigate([previousUrl]);
+            this.user.clearPreviousUrl();
           },
           error: (error) => {
             console.log(error);
           },
         });
     }
-  }
-
-  navigateToHome() {
-    this.router.navigate(["/home"]);
   }
 }

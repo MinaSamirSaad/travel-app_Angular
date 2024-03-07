@@ -20,7 +20,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
   private readonly URL_DB = "https://travel-app-8glz.onrender.com/users";
   isLoggedin: boolean = false;
-
+  private previousUrl: string | null = null;
   login(data: loginData) {
     return this.http.post(`${this.URL_DB}/login`, data);
   }
@@ -42,5 +42,15 @@ export class UserService {
   }
   addFavoriteTrips(data: any) {
     return this.http.post(`${this.URL_DB}/addFavoriteTrips`, data);
+  }
+  //store prev page before going to login page
+  setPreviousUrl(url: string): void {
+    this.previousUrl = url;
+  }
+  getPreviousUrl(): string | null {
+    return this.previousUrl;
+  }
+  clearPreviousUrl(): void {
+    this.previousUrl = null;
   }
 }
