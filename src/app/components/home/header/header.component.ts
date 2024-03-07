@@ -102,13 +102,7 @@ export class HeaderComponent {
       },
     });
   }
-  // load session user data if there is a user in local storage
-
-  // userPicture:any;
-
-  // if(localStorage.getItem('user')){
-  //   const userPicture = JSON.parse(localStorage.getItem('user')?).picture;
-  // }
-  // userPicture:any= JSON.parse(localStorage.getItem('user')!).picture;
-  // name= JSON.parse(localStorage.getItem('user')!).name;
+  storePreviousRoute(): void {
+    this.user.setPreviousUrl(this.router.url);
+  }
 }

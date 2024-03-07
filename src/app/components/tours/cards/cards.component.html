@@ -1,8 +1,10 @@
 @if(trips) {
 
-<div class="container-lg tours ">
+<div class="container-lg tours">
   <div class="row px-0">
-    @for (item of trips | filter:searchTerm : category; track $index) {
+
+    @for (item of displayedTrips | filter:searchTerm; track $index) {
+
 
     <div class="col-sm-6 col-md-4 p-3">
       <div class="item">
@@ -20,6 +22,21 @@
       </div>
     </div>
     }
+  </div>
+  <!-- @if(currentPage < totalPages) {
+
+  <div class="my-3 text-center" (click)="loadNextPage()">
+    <p-button label="Show More" class="book-button"></p-button>
+  </div>
+  } -->
+  <div class="card flex justify-content-center">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="totalRecords"
+      [rowsPerPageOptions]="[10, 20, 30]"
+    ></p-paginator>
   </div>
 </div>
 

@@ -84,6 +84,7 @@
       </a>
       }@else {
       <a
+        (click)="storePreviousRoute()"
         routerLink="login"
         class="login-button"
         [ngClass]="{ 'nav-link-color': isScrolled }"
