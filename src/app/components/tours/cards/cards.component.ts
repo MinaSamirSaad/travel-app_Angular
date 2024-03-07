@@ -7,6 +7,7 @@ import { TripsService } from "../../../services/trips/trips.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "../../../pipes/filter.pipe";
 import { CardComponent } from "../../card/card.component";
+import { FilterService } from "../../../services/trips/filter.service";
 
 interface PageEvent {
   first: number;
@@ -33,6 +34,7 @@ export class CardsComponent implements OnInit {
   // search functionality
   trips!: any;
   isTrip: boolean = true;
+  category: string = "";
   searchTerm: string = "";
   // displayedTrips: any[] = [];
   // itemsPerPage = 9;
