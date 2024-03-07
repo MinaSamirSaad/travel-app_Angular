@@ -1,20 +1,30 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-
+import { PaginatorModule } from "primeng/paginator";
 import { ButtonModule } from "primeng/button";
-import { RatingModule } from "primeng/rating";
 import { Subscription } from "rxjs";
-import { FilterService } from "../../../services/trips/filter.service";
 import { TripsService } from "../../../services/trips/trips.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "../../../pipes/filter.pipe";
 import { CardComponent } from "../../card/card.component";
 
+interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+}
 @Component({
   selector: "app-cards",
   standalone: true,
-  imports: [CommonModule, CardComponent, HttpClientModule, FilterPipe],
+  imports: [
+    CommonModule,
+    CardComponent,
+    HttpClientModule,
+    FilterPipe,
+    ButtonModule,
+    PaginatorModule,
+  ],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.css",
   encapsulation: ViewEncapsulation.None,
@@ -23,8 +33,17 @@ export class CardsComponent implements OnInit {
   // search functionality
   trips!: any;
   isTrip: boolean = true;
-
   searchTerm: string = "";
+  // displayedTrips: any[] = [];
+  // itemsPerPage = 9;
+  // currentPage = 1;
+  // totalPages = 0;
+  //pagination
+  first: number = 0;
+  rows: number = 9;
+  totalRecords: number = 0;
+  displayedTrips: any[] = [];
+
   private subscription!: Subscription;
   constructor(private _TripsService: TripsService) {}
 
@@ -38,13 +57,42 @@ export class CardsComponent implements OnInit {
       },
     });
     // ------------------
+    // this._TripsService.getTrips().subscribe({
+    //   next: ({ data }) => {
+    //     // this.trips = data;
+    //     // this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
+    //     // this.updateDisplayedProducts();
+
+    //   },
+    // });
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
+        this.totalRecords = data.length;
         this.trips = data;
+        this.displayedTrips = this.trips.slice(
+          this.first,
+          this.first + this.rows
+        );
       },
     });
   }
+  // show more pagination
+  // updateDisplayedProducts(): void {
+  //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  //   const endIndex = startIndex + this.itemsPerPage;
+  //   this.displayedTrips = this.trips.slice(0, endIndex);
+  // }
+  // loadNextPage(): void {
+  //   this.currentPage++;
+  //   this.updateDisplayedProducts();
+  // }
+  //paginaion
 
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+    this.displayedTrips = this.trips.slice(this.first, this.first + this.rows);
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
