@@ -13,7 +13,7 @@ import { RatingModule } from "primeng/rating";
 import { CardComponent } from "../card/card.component";
 import { render } from "creditcardpayments/creditCardPayments";
 import { TripsService } from "../../services/trips/trips.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-pay",
@@ -26,6 +26,7 @@ import { ActivatedRoute, Router } from "@angular/router";
     CardModule,
     RatingModule,
     CardComponent,
+    RouterModule
   ],
   templateUrl: "./pay.component.html",
   styleUrl: "./pay.component.css",
