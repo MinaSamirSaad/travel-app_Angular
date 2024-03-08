@@ -2,7 +2,7 @@
 
 <div class="container-lg tours">
   <div class="row px-0">
-    @for (item of displayedTrips | filter:searchTerm:category; track $index) {
+    @for (item of displayedTrips | filter:searchTerm; track $index) {
 
     <div class="col-sm-6 col-md-4 p-3">
       <div class="item">
@@ -21,10 +21,29 @@
     </div>
     }
   </div>
-  @if(currentPage < totalPages) {
+  @if(!this.searchTerm) {
 
-  <div class="my-3 text-center" (click)="loadNextPage()">
-    <p-button label="Show More" class="book-button"></p-button>
+  <div class="d-flex justify-content-between align-items-center">
+    <div
+      class="my-3 text-center"
+      [ngClass]="{ ' visibility-hidden': !(currentPage > 1) }"
+      (click)="loadPrevPage()"
+    >
+      <p-button label="Go Back" class="book-button"></p-button>
+    </div>
+
+    <span>
+      <strong>{{ currentPage }}</strong
+      >/
+      <strong class="color-main">{{ totalPages }}</strong>
+    </span>
+    <div
+      class="my-3 text-center"
+      [ngClass]="{ ' visibility-hidden': !(currentPage < totalPages) }"
+      (click)="loadNextPage()"
+    >
+      <p-button label="Show More" class="book-button"></p-button>
+    </div>
   </div>
   }
 </div>

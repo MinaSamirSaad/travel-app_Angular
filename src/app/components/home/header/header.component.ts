@@ -8,11 +8,12 @@ import {
   RouterModule,
 } from "@angular/router";
 import { UserService } from "../../../services/user/user.service";
-
+import { BadgeModule } from "primeng/badge";
+import { TripsService } from "../../../services/trips/trips.service";
 @Component({
   selector: "app-header",
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BadgeModule],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
@@ -21,12 +22,12 @@ export class HeaderComponent {
     private router: Router,
     private user: UserService,
     private activatedRoute: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private _TripsService: TripsService
   ) {}
   isScrolled: boolean = false;
   isFavouriteActive: boolean = false;
   bgNavbar: boolean = false;
-
+  countFavourites: any = 0;
   @HostListener("window:scroll", [])
   onScroll(): void {
     // this.isScrolled = window.scrollY > 300;
@@ -42,6 +43,14 @@ export class HeaderComponent {
 
   userPicture: any;
   ngOnInit() {
+    this._TripsService.favoriteTripsCount$.subscribe((count) => {
+      this.countFavourites = count;
+    });
+    if (localStorage.getItem("isLoggedIn")) {
+      this.countFavourites = JSON.parse(
+        localStorage.getItem("favouriteTrips") || "[]"
+      ).length;
+    }
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const options: IsActiveMatchOptions = {
@@ -89,7 +98,7 @@ export class HeaderComponent {
           next: () => {
             localStorage.clear();
             this.userPicture = null; //here
-            this.user.isLoggedin = false;
+            localStorage.removeItem("isLoggedIn");
             window.location.reload();
           },
           error: (err) => {

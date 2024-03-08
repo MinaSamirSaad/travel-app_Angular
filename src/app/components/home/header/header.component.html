@@ -98,7 +98,13 @@
         [class.active]="isFavouriteActive"
         [ngClass]="{ 'nav-link-color': isScrolled }"
       >
-        <i class="bi bi-heart" *ngIf="!isFavouriteActive"></i>
+        <i
+          class="bi bi-heart"
+          *ngIf="!isFavouriteActive"
+          pBadge
+          [value]="countFavourites"
+          severity="warning"
+        ></i>
         <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
       </a>
 

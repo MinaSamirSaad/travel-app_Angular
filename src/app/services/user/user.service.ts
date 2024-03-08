@@ -19,7 +19,7 @@ type loginWithGoogleData = {
 export class UserService {
   constructor(private http: HttpClient) {}
   private readonly URL_DB = "https://travel-app-8glz.onrender.com/users";
-  isLoggedin: boolean = false;
+  static isLoggedin: boolean = false;
   private previousUrl: string | null = null;
   login(data: loginData) {
     return this.http.post(`${this.URL_DB}/login`, data);

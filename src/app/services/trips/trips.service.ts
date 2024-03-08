@@ -11,7 +11,12 @@ export class TripsService {
   // search in trip page
   public search = new BehaviorSubject<string>("");
   public category = new BehaviorSubject<string>("");
+  //favourite count
+  public favoriteTripsCount = new BehaviorSubject<number>(0);
 
+  get favoriteTripsCount$() {
+    return this.favoriteTripsCount.asObservable();
+  }
   getTrips(): Observable<any> {
     return this.http.get<any>("https://travel-app-8glz.onrender.com/trips");
   }
