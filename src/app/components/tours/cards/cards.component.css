@@ -1,4 +1,4 @@
-.tours{
+.tours {
   background-color: #fff;
 }
 .padding-20 {
@@ -149,4 +149,7 @@ button.p-ripple:hover {
 
 .load-more:hover {
   background-color: #e8604c;
+}
+.visibility-hidden {
+  visibility: hidden;
 }
