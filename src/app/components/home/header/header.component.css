@@ -150,3 +150,6 @@
 .favourite-active i.bi-heart-fill {
   display: inline;
 }
+.p-overlay-badge .p-badge {
+  background: red;
+}

@@ -32,6 +32,7 @@ errorMessages!:Message[];
 
   constructor(private user: UserService , private zone:NgZone) {}
   private router = inject(Router);
+  isLoading: boolean = false;
   //google intialize
   ngOnInit(): void {
     google.accounts.id.initialize({
@@ -70,6 +71,7 @@ errorMessages!:Message[];
         googleId: payload.sub,
         image: payload.picture,
       };
+      this.isLoading = true;
       this.user.loginWithGoogle(loginData).subscribe({
         next: (data: any) => {
           localStorage.setItem("token", data.data.token);
@@ -86,6 +88,7 @@ errorMessages!:Message[];
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
+
           this.user.isLoggedin = true;
           const previousUrl =  this.user.getPreviousUrl() || "/";
           this.zone.run(()=>{       
@@ -93,6 +96,13 @@ errorMessages!:Message[];
             this.user.clearPreviousUrl();
           }
             )
+
+
+          this.fireLoggedIn()
+          const previousUrl = this.user.getPreviousUrl() || "/";
+          this.router.navigate([previousUrl]);
+          this.user.clearPreviousUrl();
+          this.isLoading = false;
 
         },
         error: (error) => {
@@ -119,6 +129,7 @@ errorMessages!:Message[];
 
   getData() {
     if (this.LoginForm.valid) {
+      this.isLoading = true;
       this.user
         .login({
           email: this.LoginForm.controls["email"].value || "",
@@ -142,15 +153,20 @@ errorMessages!:Message[];
               "bookedTrips",
               JSON.stringify(data.data.bookedTrips)
             );
-            this.user.isLoggedin = true;
+           this.fireLoggedIn()
             const previousUrl = this.user.getPreviousUrl() || "/";
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
+            this.isLoading = false;
           },
           error: (error) => {
            this.errorLogin = true;
           },
         });
     }
+  }
+
+   fireLoggedIn() {
+    localStorage.setItem("isLoggedIn","true")
   }
 }

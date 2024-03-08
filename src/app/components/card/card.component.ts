@@ -69,8 +69,7 @@ export class CardComponent implements OnInit {
   }
   toggleFavourite() {
     // get from local
-    if (this._UserService.isLoggedin) {
-      console.log("Logged in =====================");
+    if (localStorage.getItem("isLoggedIn")) {
       let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
       // find
       let foundTripInLocalStrg = locStrg.find(
@@ -90,6 +89,8 @@ export class CardComponent implements OnInit {
         localStorage.setItem("favouriteTrips", JSON.stringify(locStrg));
         this._TripsService.toggleFavoriteEvent.emit(this.trip);
       }
+
+      this._TripsService.favoriteTripsCount.next(locStrg.length);
     } else {
       this.showBottomCenter();
     }

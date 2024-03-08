@@ -46,12 +46,17 @@
         </div>
 
         <div class="text-center">
-          <a (click)="getData()" class="mb-3">
+          <a (click)="getData()" class="mb-3" style="width: 110px">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Login
+            @if(!isLoading) { Login }@else {
+
+            <div class="spinner-border color-main" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            }
           </a>
         </div>
       </div>

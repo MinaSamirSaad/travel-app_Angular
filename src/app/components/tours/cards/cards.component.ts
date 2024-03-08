@@ -7,7 +7,6 @@ import { TripsService } from "../../../services/trips/trips.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "../../../pipes/filter.pipe";
 import { CardComponent } from "../../card/card.component";
-import { FilterService } from "../../../services/trips/filter.service";
 
 interface PageEvent {
   first: number;
@@ -43,24 +42,36 @@ export class CardsComponent implements OnInit {
   //pagination
   private subscription!: Subscription;
   private categorySubscription!: Subscription;
-  constructor(
-    private _TripsService: TripsService,
-    private _FilterService: FilterService
-  ) {}
+  constructor(private _TripsService: TripsService) {}
 
   ngOnInit(): void {
-    // if (!localStorage.getItem("favouriteTrips"))
-    //   localStorage.setItem("favouriteTrips", "[]");
     this.subscription = this._TripsService.search.subscribe({
       next: (term) => {
-        console.log({ term });
         this.searchTerm = term;
+        this.updateDisplayedProducts();
       },
     });
     this.categorySubscription = this._TripsService.category.subscribe({
       next: (category: any) => {
-        console.log({ category });
         this.category = category.code;
+        if (this.category) {
+          this.currentPage = 1;
+
+          const displayedTrips = this.trips.filter((item: any) =>
+            item.categoryName
+              .toLowerCase()
+              .includes(this.category.toLowerCase())
+          );
+
+          this.totalPages = Math.ceil(
+            displayedTrips.length / this.itemsPerPage
+          );
+
+          this.updateDisplayedProducts();
+        } else {
+          this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
+          this.updateDisplayedProducts();
+        }
       },
     });
     // ------------------
@@ -75,12 +86,37 @@ export class CardsComponent implements OnInit {
 
   // show more pagination
   updateDisplayedProducts(): void {
+    if (!this.trips) return;
+    if (this.searchTerm) {
+      if (!this.category) this.displayedTrips = this.trips;
+      else
+        this.displayedTrips = this.trips.filter((item: any) =>
+          item.categoryName.toLowerCase().includes(this.category.toLowerCase())
+        );
+      console.log(this.displayedTrips);
+      return;
+    }
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.displayedTrips = this.trips.slice(0, endIndex);
+    if (!this.category)
+      this.displayedTrips = this.trips.slice(startIndex, endIndex);
+    else
+      this.displayedTrips = this.trips
+        .filter((item: any) =>
+          item.categoryName.toLowerCase().includes(this.category.toLowerCase())
+        )
+        .slice(startIndex, endIndex);
+
+    console.log(this.displayedTrips);
+    console.log("current page", this.currentPage);
+    console.log("totalPages", this.totalPages);
   }
   loadNextPage(): void {
     this.currentPage++;
+    this.updateDisplayedProducts();
+  }
+  loadPrevPage(): void {
+    this.currentPage--;
     this.updateDisplayedProducts();
   }
   //paginaion
