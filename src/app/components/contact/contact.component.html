@@ -1,5 +1,12 @@
 <div class="container-fluid  " >
-    
+    @if (isSent) {
+        <div class="d-flex align-items-center justify-content-center pt-3 ">
+
+            <div class="errorMSG  "  >
+              <p-messages  [(value)]="successMessage" [enableService]="false" [closable]="false"></p-messages>
+            </div>
+          </div>
+    }
     <div class="row   ">
         
         <div class="col-4 vh-100  d-none d-lg-block "   >

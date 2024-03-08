@@ -1,4 +1,12 @@
 <body>
+  @if(errorLogin){
+    <div class="d-flex align-items-center justify-content-center pt-3 ">
+
+      <div class="errorMSG  "  >
+        <p-messages  [(value)]="errorMessages" [enableService]="false" [closable]="false"  ></p-messages>
+      </div>
+    </div>
+  }
   <div class="login-box">
     <img
       routerLink="/"
@@ -58,3 +66,4 @@
     </div>
   </div>
 </body>
+

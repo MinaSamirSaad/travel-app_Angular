@@ -1,20 +1,30 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MessagesModule } from 'primeng/messages';
-
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,MessagesModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
+  isSent: boolean = false;
+successMessage : Message[] = [];
+
+ngOnInit(): void {
+  this.successMessage = [
+    { severity: 'success', summary: 'Success :', detail: 'Your message sent successfully' },
+];
+}
+
 
 router = inject(Router);
+
 
 
   // form validation
@@ -48,11 +58,11 @@ public sendEmail(e: Event) {
     })
     .then(
       () => {
-       alert('Email sent successfully!'); 
+       this.isSent = true;
        this.contact.reset();
       },
       (error) => {
-        alert('Email failed to send! :' + error.text);
+        alert('Email failed to send! :');
       },
     );
 }

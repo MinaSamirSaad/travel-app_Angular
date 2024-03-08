@@ -1,5 +1,4 @@
 declare var google: any;
-
 import { Component, NgZone, inject } from "@angular/core";
 import {
   FormControl,
@@ -11,6 +10,8 @@ import { Router, RouterModule } from "@angular/router";
 import { HeaderComponent } from "../home/header/header.component";
 import { UserService } from "../../services/user/user.service";
 import { HttpClientModule } from "@angular/common/http";
+import { MessagesModule } from 'primeng/messages';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: "app-login",
@@ -20,11 +21,15 @@ import { HttpClientModule } from "@angular/common/http";
     HeaderComponent,
     HttpClientModule,
     RouterModule,
+    MessagesModule
   ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
 export class LoginComponent {
+errorLogin!:boolean;
+errorMessages!:Message[];
+
   constructor(private user: UserService , private zone:NgZone) {}
   private router = inject(Router);
   //google intialize
@@ -41,6 +46,9 @@ export class LoginComponent {
       text: "continue with google",
       width: 300,
     });
+    this.errorMessages = [
+      { severity: 'error', summary: 'Error :', detail: 'Invalid email or password' },
+  ];
   }
 
   // decode token
@@ -64,7 +72,6 @@ export class LoginComponent {
       };
       this.user.loginWithGoogle(loginData).subscribe({
         next: (data: any) => {
-          console.log(data);
           localStorage.setItem("token", data.data.token);
           localStorage.setItem("provider", "google");
           data.data.FavoriteTrips = data.data.FavoriteTrips.map((fav: any) => {
@@ -119,7 +126,6 @@ export class LoginComponent {
         })
         .subscribe({
           next: (data: any) => {
-            console.log(data);
             localStorage.setItem("token", data.data.token);
             localStorage.setItem("user", JSON.stringify(data.data.user));
             data.data.FavoriteTrips = data.data.FavoriteTrips.map(
@@ -142,7 +148,7 @@ export class LoginComponent {
             this.user.clearPreviousUrl();
           },
           error: (error) => {
-            console.log(error);
+           this.errorLogin = true;
           },
         });
     }
