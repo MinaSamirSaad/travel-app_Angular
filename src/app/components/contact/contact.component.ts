@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { MessagesModule } from 'primeng/messages';
+
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +13,7 @@ import { Router } from "@angular/router";
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+
 router = inject(Router);
 
 
@@ -27,17 +31,30 @@ get messageValid(){
   return this.contact.controls["message"];
 }
 
-getData(){
-  if(this.contact.valid){
-    //push
-  }
-  this.contact.reset();
-    console.log("email: ",this.contact.controls["email"].value);
-    console.log("message: ",this.contact.controls["message"].value);
-}
 
 navigateToHome() {
   this.router.navigate(["/home"]);
+}
+
+
+// EmailJS code
+
+public sendEmail(e: Event) {
+  e.preventDefault();
+
+  emailjs
+    .sendForm('service_jp47jgo', 'template_7prb66t', e.target as HTMLFormElement, {
+      publicKey: 'xYFJLbZvj_biToKdL',
+    })
+    .then(
+      () => {
+       alert('Email sent successfully!'); 
+       this.contact.reset();
+      },
+      (error) => {
+        alert('Email failed to send! :' + error.text);
+      },
+    );
 }
 
 }
