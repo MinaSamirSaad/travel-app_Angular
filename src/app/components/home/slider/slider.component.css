@@ -1,3 +1,5 @@
+@import url(https://db.onlinewebfonts.com/c/12ece9d4b11e224fbbd0b5ca246bb213?family=Reey+Regular);
+
 .element:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     transform: scale(1.02);
@@ -22,13 +24,13 @@ height: 3rem!important;
 }
 
 .popular{
-    font-family: sans-serif;
-    /* background-color:#FAF5EE ; */
-margin-bottom: -4px;
-margin-top: 10px;
-    padding: 20px;
-    padding-top: 100px;
-color: #595A5A;
+margin-top: 50px ;
+font-weight: 700;
+    color: #313041;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -.02em;
+    font-family: "DM Sans", sans-serif;
 }
 .slider{
     margin-top: -50px;
