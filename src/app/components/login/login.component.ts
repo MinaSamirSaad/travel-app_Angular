@@ -27,6 +27,7 @@ import { HttpClientModule } from "@angular/common/http";
 export class LoginComponent {
   constructor(private user: UserService) {}
   private router = inject(Router);
+  isLoading: boolean = false;
   //google intialize
   ngOnInit(): void {
     google.accounts.id.initialize({
@@ -62,6 +63,7 @@ export class LoginComponent {
         googleId: payload.sub,
         image: payload.picture,
       };
+      this.isLoading = true;
       this.user.loginWithGoogle(loginData).subscribe({
         next: (data: any) => {
           console.log(data);
@@ -83,6 +85,7 @@ export class LoginComponent {
           const previousUrl = this.user.getPreviousUrl() || "/";
           this.router.navigate([previousUrl]);
           this.user.clearPreviousUrl();
+          this.isLoading = false;
         },
         error: (error) => {
           console.log(error);
@@ -108,6 +111,7 @@ export class LoginComponent {
 
   getData() {
     if (this.LoginForm.valid) {
+      this.isLoading = true;
       this.user
         .login({
           email: this.LoginForm.controls["email"].value || "",
@@ -136,6 +140,7 @@ export class LoginComponent {
             const previousUrl = this.user.getPreviousUrl() || "/";
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
+            this.isLoading = false;
           },
           error: (error) => {
             console.log(error);
