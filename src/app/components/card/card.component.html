@@ -20,7 +20,7 @@
         >
         </i>
       </span>
-      <span *ngIf="!isTrip" class="category">{{ trip.name }}</span>
+      <span  class="category">{{ trip.categoryName }}</span>
       <button class="read-more" (click)="showDetails(trip._id)">
         Read More
       </button>
@@ -28,7 +28,6 @@
     </div>
   </ng-template>
   <div class="card toastContainer flex justify-content-center gap-2">
-    <!-- <p-toast position="top-left" key="tl"></p-toast> -->
     <p-toast position="center"   key="bc"></p-toast>
   </div>
   <div

@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './exotic-places.component.css'
 })
 export class ExoticPlacesComponent {
-  constructor(private router : Router) {
-
-    }
+  constructor(private router : Router) {}
     goMaldives() {
       this.router.navigate([`countries/Maldives`])
     }

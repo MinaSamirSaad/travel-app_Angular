@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 
-
 .cover {
     position: relative;
     height: 550px;
     overflow: hidden;
 }
-
-
 
 .cover img {
     width: 100%;
@@ -33,4 +30,24 @@
     text-transform: uppercase;
     padding-top: 20px;
     border-top: 4px solid var(--main-color);
+}
+
+@media (max-width: 768px) {
+    .cover {
+        height: 350px; /* Adjust the height for smaller screens */
+    }
+
+    .overlay h1 {
+        font-size: 30px; /* Adjust the font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .cover {
+        height: 250px; /* Further adjust the height for even smaller screens */
+    }
+
+    .overlay h1 {
+        font-size: 20px; /* Further adjust the font size for even smaller screens */
+    }
 }
