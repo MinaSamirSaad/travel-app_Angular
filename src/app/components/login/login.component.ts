@@ -89,8 +89,8 @@ errorMessages!:Message[];
             JSON.stringify(data.data.bookedTrips)
           );
 
-          this.user.isLoggedin = true;
-          const previousUrl =  this.user.getPreviousUrl() || "/";
+          // this.user.isLoggedin = true;
+          // const previousUrl =  this.user.getPreviousUrl() || "/";
           this.zone.run(()=>{       
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
