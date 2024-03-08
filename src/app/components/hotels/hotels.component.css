@@ -290,3 +290,6 @@ a.grid_item .info h3 {
   color: #fff;
   font-size: 1.125rem;
 }
+img{
+height: 300px !important ;
+}
