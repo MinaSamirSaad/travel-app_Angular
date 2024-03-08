@@ -90,3 +90,20 @@ p {
   margin-bottom: 15px;
   color: #f8f8f8;
 }
+
+.btn-submit {
+  border: none;
+  background-color: #ED8E7E;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: fit-content;
+  height: 40px;
+  border-radius: 5px;
+font-size: 24px;
+  margin: 20px 0 20px 66px;
+}
+
+.btn-submit:hover {
+  background-color: hsla(9, 76%, 71%, 0.882);
+}

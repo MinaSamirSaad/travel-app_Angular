@@ -24,27 +24,13 @@
       </div>
       <div>
         <form method="post" name="New Form">
-          <div class="row flex-wrap my-5" style="height: 50px">
-            <input
-              type="email"
-              name="form_fields[email]"
-              placeholder="Your Email Address.."
-              required="required"
-              class="col-4"
-              style="width: 70%"
-            />
-            <button class="col-3" type="submit">SIGN UP NOW!</button>
+          <div class="row   m-5  " >
+            <input class="btn-submit" (click)="navigateToRegister()" type="submit" value="Register Now">
+
           </div>
         </form>
       </div>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque
-          adipiscing, luctus eleifend temporibus occaecat luctus eleifend
-          temporibus.
-        </p>
-      </div>
+
     </div>
   </div>
 </div>
