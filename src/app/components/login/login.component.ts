@@ -81,7 +81,7 @@ export class LoginComponent {
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
-          this.user.isLoggedin = true;
+          this.fireLoggedIn()
           const previousUrl = this.user.getPreviousUrl() || "/";
           this.router.navigate([previousUrl]);
           this.user.clearPreviousUrl();
@@ -136,7 +136,7 @@ export class LoginComponent {
               "bookedTrips",
               JSON.stringify(data.data.bookedTrips)
             );
-            this.user.isLoggedin = true;
+           this.fireLoggedIn()
             const previousUrl = this.user.getPreviousUrl() || "/";
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
@@ -147,5 +147,9 @@ export class LoginComponent {
           },
         });
     }
+  }
+
+   fireLoggedIn() {
+    localStorage.setItem("isLoggedIn","true")
   }
 }

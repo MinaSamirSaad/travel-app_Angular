@@ -49,8 +49,9 @@ export class RegisterComponent {
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
-          this.router.navigate(["/home"]);
-          this.user.isLoggedin = true;
+          const previousUrl = this.user.getPreviousUrl() || "/";
+          this.router.navigate([previousUrl]);
+          localStorage.setItem("isLoggedIn", "true");
         },
         error: (err) => {
           console.log(err);
@@ -60,8 +61,5 @@ export class RegisterComponent {
     console.log("name: ", this.myRegForm.controls["userName"].value);
     console.log("email: ", this.myRegForm.controls["email"].value);
     console.log("pass: ", this.myRegForm.controls["password"].value);
-  }
-  navigateToHome() {
-    this.router.navigate(["/home"]);
   }
 }
