@@ -28,6 +28,11 @@ export class OneCountryComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe({
       next:  (params) => {
+        this.CountriesService.getCountryByName(params).subscribe({
+          next: (data) => {
+            console.log(data)
+          }
+        })
         this.TripsService.getTrips().subscribe({
           next: (data) => {
             this.tripsData = data.data;

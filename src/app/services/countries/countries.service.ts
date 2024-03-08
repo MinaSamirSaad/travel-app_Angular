@@ -17,5 +17,8 @@ export class CountriesService {
     return this.http.get(`${this.URL_DB}/${id}`);
   }
 
+  getCountryByName(name:any){
+    return this.http.get(`${this.URL_DB}?countryName=${name}`);
+  }
 
 }
