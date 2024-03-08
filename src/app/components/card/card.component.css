@@ -156,6 +156,7 @@ button.p-ripple {
 .p-toast-detail ,.ng-tns-c3020094734-90 ,.p-toast-message-content{
   background-color: #e8604c;
   padding: 10px  ;
+  color: #fff;
   
 }
 
@@ -163,5 +164,6 @@ button.p-ripple {
   
   background-color: #e8604c;
   padding: 0 10px 10px 10px  ;
+  color: #fff;
 
 }
