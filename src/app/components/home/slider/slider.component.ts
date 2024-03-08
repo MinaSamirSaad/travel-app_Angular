@@ -29,8 +29,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.trips.getTrips().subscribe((data) => {
-      this.trip = data.data.slice(0, 12);
-      console.log(this.trip);
+      this.trip = data.data.slice(0, 9);
     });
   }
 

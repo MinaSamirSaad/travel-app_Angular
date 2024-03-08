@@ -137,3 +137,13 @@ font-size: 20px;
   left: 0;
   transform: translate(50%, 100%);
 }
+.errorMSG{
+  width: 25%;
+}
+/* make the with in small screen responsive fit the content  */
+@media (max-width: 1037px) {
+  .errorMSG{
+    width: fit-content!important;
+  }
+}
+

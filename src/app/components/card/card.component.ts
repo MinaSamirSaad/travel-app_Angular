@@ -64,7 +64,7 @@ export class CardComponent implements OnInit {
       key: "bc",
       severity: "Faild",
       summary: "Faild",
-      detail: "You must login first to add this trip to your favourite list.",
+      detail: "You must login first to add this trip to your favorite list.",
     });
   }
   toggleFavourite() {

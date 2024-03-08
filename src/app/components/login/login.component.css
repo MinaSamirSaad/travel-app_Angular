@@ -192,6 +192,19 @@ body {
 a {
   cursor: pointer;
 }
+
+.errorMSG{
+  width: 25%;
+}
+/* make the with in small screen responsive fit the content  */
+@media (max-width: 1037px) {
+  .errorMSG{
+    width: fit-content!important;
+  }
+}
+
+
 .spinner-border:hover {
   color: #fff;
 }
+
