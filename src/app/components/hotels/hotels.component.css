@@ -21,7 +21,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+a{
+  cursor: pointer;
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -86,6 +88,12 @@ body {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+.score[_ngcontent-ng-c3599704831] strong[_ngcontent-ng-c3599704831] {
+  background-color: var(--main-color) !important;
+  color: #fff;
+  display: inline-block;
 }
 
 a {
