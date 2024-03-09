@@ -106,7 +106,7 @@ export class CardComponent implements OnInit {
         this._TripsService.toggleFavoriteEvent.emit(this.trip);
       }
 
-      this._TripsService.favoriteTripsCount.next(locStrg.length);
+      this._TripsService.favoriteTripsCount.next(locStrg?.length);
     } else {
       this.showBottomCenter();
     }
