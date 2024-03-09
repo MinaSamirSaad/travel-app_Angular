@@ -91,9 +91,11 @@ errorMessages!:Message[];
           this.fireLoggedIn();
 
           const previousUrl = this.user.getPreviousUrl() || "/";
-          this.router.navigate([previousUrl]);
-          this.user.clearPreviousUrl();
-          this.isLoading = false;
+          this.zone.run(()=>{       
+            this.router.navigate([previousUrl]);
+            this.user.clearPreviousUrl();
+            this.isLoading = false;
+          })
 
         },
         error: (error) => {
@@ -147,9 +149,10 @@ errorMessages!:Message[];
             );
             this.fireLoggedIn();
             const previousUrl = this.user.getPreviousUrl() || "/";
-            this.router.navigate([previousUrl]);
-            this.user.clearPreviousUrl();
-            this.isLoading = false;
+
+              this.router.navigate([previousUrl]);
+              this.user.clearPreviousUrl();
+              this.isLoading = false;
           },
           error: (error) => {
 
