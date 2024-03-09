@@ -7,12 +7,12 @@
       <!--img---->
       <div class="profile-img">
         <img
-          src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+          src="{{review.reviewOwnerImage}}"
         />
       </div>
       <!--name-and-username-->
       <div class="name-user">
-        <strong>{{ review.name }}</strong>
+        <strong>{{ review.reviewOwnerName }}</strong>
         <span>liammendes</span>
       </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="reviews">
       <p-rating
         class="m-0 p-0"
-        [(ngModel)]="review.rating"
+        [(ngModel)]="review.rate"
         [cancel]="false"
         [readonly]="true"
       ></p-rating>
@@ -29,7 +29,7 @@
   <!--Comments---------------------------------------->
   <div class="client-comment">
     <p>
-      {{ review.desc }}
+      {{ review.review }}
     </p>
   </div>
 </div>

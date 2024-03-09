@@ -29,7 +29,7 @@ import { LoadingComponent } from "../loading/loading.component";
     LoadingComponent,
     ToastModule,
   ],
-  providers: [TripsService, HotelsService, MessageService],
+  providers: [HotelsService, MessageService],
   templateUrl: "./trip-details.component.html",
   styleUrl: "./trip-details.component.css",
   encapsulation: ViewEncapsulation.None,
@@ -63,26 +63,32 @@ export class TripDetailsComponent {
       },
     });
 
+    this.reloadPage();
+    // this.reviews = this._TripsService.reviews;
+  }
+  reloadPage(){
     this._TripsService.getTripById(this.id).subscribe({
       next: ({ data }) => {
+        console.log(data);
+        this.reviews = data.reviews;
         this.trip = data.trip;
         this.hotelID = data.trip.hotel.id;
         this.crusieData = data.trip.crusie;
+        this.hotelData = data.hotelData[0];
         // if(data.trip.crusie){ this.crusieData = data.trip}
         // console.log("hhhh" , this.crusieData)
         // console.log(data.trip?.crusie)
 
-        this._HotelsService.getHotel(this.hotelID).subscribe({
-          next: (data) => {
-            this.hotel = data;
-            this.hotelData = this.hotel.data.hotel;
+        // this._HotelsService.getHotel(this.hotelID).subscribe({
+        //   next: (data) => {
+        //     this.hotel = data;
+        //     this.hotelData = this.hotel.data.hotel;
 
-            // console.log(this.hotelData)
-          },
-        });
+        //     // console.log(this.hotelData)
+        //   },
+        // });
       },
     });
-    this.reviews = this._TripsService.reviews;
   }
   goToBookingPage(id: any) {
     this.router.navigate([`pay/${id}`]).then(() => {
@@ -106,25 +112,33 @@ export class TripDetailsComponent {
   addReview() {
     if (localStorage.getItem("isLoggedIn")) {
       if (this.reviewValue) {
-        let name = "";
+        // let name = "";
 
-        if (
-          localStorage.getItem("provider") &&
-          localStorage.getItem("provider") === "google"
-        ) {
-          name = JSON.parse(localStorage.getItem("user")!).name;
-        } else {
-          name = JSON.parse(localStorage.getItem("user")!).userName;
-          // this.userPicture = JSON.parse(localStorage.getItem("user")!).image;
-        }
+        // if (
+        //   localStorage.getItem("provider") &&
+        //   localStorage.getItem("provider") === "google"
+        // ) {
+        //   name = JSON.parse(localStorage.getItem("user")!).name;
+        // } else {
+        //   name = JSON.parse(localStorage.getItem("user")!).userName;
+        //   // this.userPicture = JSON.parse(localStorage.getItem("user")!).image;
+        // }
 
-        this._TripsService.addReview({
-          name,
-          rating: this.rateValue,
-          desc: this.reviewValue,
-        });
-        this.showBottomCenter("Review added successfully", "Success");
-        this.hasSubmittedReview = true;
+        // this._TripsService.addReview({
+        //   name,
+        //   rating: this.rateValue,
+        //   desc: this.reviewValue,
+        // });
+        this._TripsService.review({review:this.reviewValue, rate: this.rateValue, reviewTrip: this.id}).subscribe({
+          next: (data) => {
+            this.showBottomCenter("Review added successfully", "Success");
+            this.hasSubmittedReview = true;
+            this.reloadPage();
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })  
       } else {
         this.showBottomCenter("You must write a review first", "warn");
       }
