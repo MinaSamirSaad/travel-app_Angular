@@ -25,6 +25,11 @@ export class ExoticPlacesComponent {
       this.router.navigate([`countries/Vietnam`])
     }
 
+    goSychelle(){
+      this.router.navigate([`countries/Seychelles Islands`])
+
+    }
+
     // goSeychelles(){
     //   this.router.navigate([`country/Seychelles`])
     // }
