@@ -1,0 +1,77 @@
+<div class="container-fluid  " >
+    @if (isSent) {
+        <div class="d-flex align-items-center justify-content-center pt-3 ">
+
+            <div class="errorMSG  "  >
+              <p-messages  [(value)]="successMessage" [enableService]="false" [closable]="false"></p-messages>
+            </div>
+          </div>
+    }
+    <div class="row   ">
+        
+        <div class="col-4 vh-100  d-none d-lg-block "   >
+            <img
+            (click)="navigateToHome()"
+            class="logoImg"
+            src="assets/images/Logo.png"
+            alt="logo image"
+          />
+
+            <img  class="img-fluid phoneImg h-75   " src="assets/images/contact.png" alt="log in iamge">
+        </div>
+    <div class=" form-all-countainer col-lg-5 col-12  " >
+
+        <div class="form-container  w-75  " >
+
+        <form [formGroup]="contact" class="contact-form" (submit)="sendEmail($event)">
+            <div class="label-input mb-5">
+                <label for="exampleInputName" >Full Name</label>
+                <input formControlName="userName" class="form-control" name="user_name" placeholder="Your name"  id="exampleInputName" type="text">
+            <i class="pi pi-user icon position-absolute  "></i>
+
+            </div>
+            <div class="label-input  ">
+                <label for="exampleInputEmail1" >Email</label>
+                <input formControlName="email" name="user_email" class="form-control" placeholder="Email address"  id="exampleInputEmail1" type="text">
+               <i class="pi pi-user icon position-absolute  "></i>
+               
+                <div id="emailHelp" class="form-text">
+              
+                @if(!emailValid.valid&&emailValid.value){
+                    <div>
+                        <p ><i class="pi pi-times-circle" ></i>  Email not valid</p>
+                    </div>
+                }@if(emailValid.valid&&emailValid.value){<div><span class="mt-1  " ></span></div>}
+            </div>
+            </div>
+            <div class="label-input position-relative  ">
+                <textarea   formControlName="message" placeholder="Enter your message" id="exampleInputPassword1" name="message" rows="3" cols="30">
+                </textarea>
+                <i class="pi pi-envelope icon-1  position-absolute  "></i>
+                  
+                <div id="emailHelp" class="form-text">   
+                   
+                @if(!messageValid.valid&&messageValid.value){
+                    <div>
+                        <p > <i class="pi pi-times-circle" ></i>  message not valid</p>
+                    </div>
+                } @if(messageValid.valid&&messageValid.value){<div><span class="m-5 " ></span></div>} </div>
+            </div>
+            <input   class="btn-submit" type="submit" value="Send">
+        </form>
+        <hr class="w-100 " >
+
+    </div>
+    </div>
+    <div class="col-3 form-all-countainer d-flex flex-column   align-items-start    ">
+<h5>Contact</h5>
+<p class="mb-4 ">Roamify&#64;gamil.com</p>
+<h5>Based in </h5>
+<p class=" ">Cairo, Egypt</p>
+    </div>
+    </div>
+
+    </div>
+
+
+

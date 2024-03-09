@@ -1,0 +1,53 @@
+@if(trips) {
+
+<div class="container-lg tours">
+  <div class="row px-0">
+    @for (item of displayedTrips | filter:searchTerm; track $index) {
+
+    <div class="col-sm-6 col-md-4 p-3">
+      <div class="item">
+        <app-card [trip]="item" [isTrip]="true"></app-card>
+      </div>
+    </div>
+    }@empty {
+
+    <div class="container-lg">
+      <div class="row px-0">
+        <div class="col-12 text-center d-flex flex-column p-5">
+          <i class="bi bi-heartbreak fs-1 color-main"></i>
+          <p class="fs-4 fw-semibold color-title">No trips with this name</p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  @if(!this.searchTerm) {
+
+  <div class="d-flex justify-content-between align-items-center">
+    <div
+      class="my-3 text-center"
+      [ngClass]="{ ' visibility-hidden': !(currentPage > 1) }"
+      (click)="loadPrevPage()"
+    >
+      <p-button label="Go Back" class="book-button"></p-button>
+    </div>
+
+    <span>
+      <strong>{{ currentPage }}</strong
+      >/
+      <strong class="color-main">{{ totalPages }}</strong>
+    </span>
+    <div
+      class="my-3 text-center"
+      [ngClass]="{ ' visibility-hidden': !(currentPage < totalPages) }"
+      (click)="loadNextPage()"
+    >
+      <p-button label="Show More" class="book-button"></p-button>
+    </div>
+  </div>
+  }
+</div>
+
+}@else {
+<app-loading></app-loading>
+}

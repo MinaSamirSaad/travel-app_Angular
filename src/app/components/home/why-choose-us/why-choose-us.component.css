@@ -1,0 +1,268 @@
+@import url(https://db.onlinewebfonts.com/c/12ece9d4b11e224fbbd0b5ca246bb213?family=Reey+Regular);
+/* @import "~@fortawesome/fontawesome-free/css/all.css"; */
+
+*{
+    line-height: 34px;
+    font-size: 18px;
+    line-height: 34px;
+    font-weight: 400;
+    font-family: "DM Sans",sans-serif;
+}
+.why-choose, .why-choose__container {
+    position: relative;
+    display: block;
+    background-color: rgba(250, 245, 238, 0.5);
+
+}
+
+.why-choose__container {
+    transform: scale(.94);
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 5px 2px rgba(21,29,42,.5);
+
+}
+
+.why-choose__left {
+    position: relative;
+    display: block;
+    float: left;
+    width: 47%;
+}
+
+.why-choose__left-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    min-height: 900px;
+    height: 100%;
+}
+
+.why-choose__toggle {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    height: 171px;
+    width: 171px;
+    background-color: #e8604c;
+    box-shadow: 0 20px 20px 0 rgba(21,29,42,.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-animation: fa-spin 5s ease infinite;
+    animation: fa-spin 5s ease infinite;
+    z-index: 1;
+}
+
+.why-choose__toggle:before {
+    position: absolute;
+    height: 11px;
+    width: 25px;
+    right: 32px;
+    bottom: 0;
+    content: "";
+    background-image: url(https://tevily-nextjs.vercel.app/_next/static/media/why-choo-toggle-shape.1f24a0c5.png);
+    background-repeat: no-repeat;
+    transform: rotate(-27deg);
+    z-index: -1;
+}
+
+.why-choose__toggle p {
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+    line-height: 39px;
+    text-align: center;
+    font-family: 'Reey Regular', sans-serif !important;
+    position: relative;
+    top: 8px;
+}
+
+.why-choose__right {
+    position: relative;
+    display: block;
+    float: right;
+    width: 53%;
+    background-color: #313041;
+    padding: 123px 0 92px 120px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .why-choose__right {
+        padding-left: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .why-choose__left, .why-choose__right {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .why-choose__right {
+        float: none;
+        width: 100%;
+        padding-left: 30px;
+    }
+}
+
+.why-choose__right:before {
+    position: absolute;
+    top: 120px;
+    bottom: 120px;
+    background-color: #e8604c;
+    width: 12px;
+    left: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    content: "";
+}
+
+.why-choose__right-map {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 500px;
+    width: 434px;
+    opacity: .1;
+}
+
+.why-choose__right-content {
+    position: relative;
+    display: block;
+    max-width: 520px;
+    width: 100%;
+}
+
+.section-title {
+    margin-top: 5px;
+    margin-bottom: 47px;
+}
+
+.why-choose__right .section-title {
+    margin-bottom: 37px;
+}
+
+.section-title__tagline {
+    display: block;
+    color: #e8604c;
+    font-size: 20px;
+    align-items: center;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: 'Reey Regular', sans-serif;
+}
+
+.section-title__title {
+    margin: 0;
+    font-weight: 700;
+    color: #313041;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -.02em;
+}
+
+.why-choose__right .section-title__title {
+    color: #fff;
+}
+
+.why-choose__right-text {
+    color: #a9a8b6;
+    margin: 0;
+}
+
+.why-choose__list {
+    position: relative;
+    display: block;
+    margin-top: 41px;
+}
+
+.list-inline, .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.why-choose__list li {
+    position: relative;
+    display: flex;
+}
+
+.why-choose__list li .icon {
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    transition: all .5s ease;
+}
+
+.why-choose__list li .icon span {
+    font-size: 63px;
+    color:#e8604c;
+}
+
+.icon-travel:before {
+    content: "\e90c";
+}
+
+.why-choose__list li .text {
+    margin-left: 40px;
+}
+
+.why-choose__list li .text h4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 11px;
+    color: #fff;
+}
+
+.why-choose__list li .text p {
+    font-size: 16px;
+    color: #a9a8b6;
+    font-weight: 500 !important;
+    margin: 0;
+}
+
+.why-choose__list li+li {
+    margin-top: 40px;
+}
+
+.icon-travel-map:before {
+    content: "\e909";
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .why-choose__left {
+        min-height: 900px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .why-choose__left {
+        width: 100%;
+        float: none;
+        min-height: 900px;
+    }
+    .section-title__title {
+        font-size: 35px;
+        line-height: 45px;
+    }
+}
+
+
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

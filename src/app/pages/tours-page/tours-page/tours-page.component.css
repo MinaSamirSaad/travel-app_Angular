@@ -1,0 +1,11 @@
+@import "primeicons/primeicons.css";
+
+.body{
+    padding-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+    .cover-img {
+        height: 300px;
+    }
+}
+/* Media query for smaller screens */

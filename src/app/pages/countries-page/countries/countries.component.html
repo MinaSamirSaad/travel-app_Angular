@@ -1,0 +1,41 @@
+<div class="cover-img">
+  <div class="overlay w-100"></div>
+  <img style="object-fit:cover;" src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+</div>
+
+<section class="countries">
+  <div class="section-head">
+    <h1 class="heading">Top Travelling Destinations</h1>
+    <p>Travelling across the world is now much easier and fun.</p>
+  </div>
+
+  @if (countries) {
+
+  <div>
+    <div class="d-flex flex-wrap justify-content-center">
+      @for(country of countries ; track country._id){
+      <div class="card m-2">
+        <img class="card-img-top" [src]="country.countryImg" />
+        <a (click)="countryTrips(country)">
+          <div class="card-body">
+            <div class="text mt-5">
+              <h5 class="card-title">{{ country.countryName }}</h5>
+              <p class="card-text">
+                {{
+                  country.countryDescription?.slice(
+                    0,
+                    country.countryDescription?.indexOf(".")
+                  )
+                }}.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+  }@else {
+  <app-loading></app-loading>
+  }
+</section>

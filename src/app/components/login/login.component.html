@@ -1,0 +1,74 @@
+<body>
+  @if(errorLogin){
+    <div class="d-flex align-items-center justify-content-center pt-3 ">
+
+      <div class="errorMSG  "  >
+        <p-messages  [(value)]="errorMessages" [enableService]="false" [closable]="false"  ></p-messages>
+      </div>
+    </div>
+  }
+  <div class="login-box">
+    <img
+      routerLink="/"
+      class="logoImg"
+      src="assets/images/Logo.png"
+      alt="logo image"
+    />
+    <h2>Login</h2>
+    <form [formGroup]="LoginForm" (keyup.enter)="getData()">
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="email" />
+        <label>Email</label>
+
+        <div id="emailHelp" class="form-text">
+          @if(!emailValid.valid&&emailValid.value){
+          <div>
+            <p class="text-danger">
+              <i class="pi pi-times-circle mb-5"></i> Email not valid
+            </p>
+          </div>
+          }
+        </div>
+        <div class="user-box mt-4">
+          <input type="password" name="" formControlName="pass" required="" />
+          <label>Password</label>
+          <div id="passHelp" class="form-text">
+            @if(!passValid.valid&&passValid.value){
+            <div>
+              <p class="text-danger">
+                <i class="pi pi-times-circle"></i> Password not valid
+              </p>
+            </div>
+            } @if(passValid.valid&&passValid.value){
+            <div><span class="m-5"></span></div>
+            }
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a (click)="getData()" class="mb-3" style="width: 110px">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            @if(!isLoading) { Login }@else {
+
+            <div class="spinner-border color-main" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            }
+          </a>
+        </div>
+      </div>
+    </form>
+    <div class="text-center">
+      <p class="m-0" id="google-btn"></p>
+      <p class="my-3 text-white">Or</p>
+      <p class="text-white">
+        Don't have an Account?
+        <span routerLink="/register" class="btnReg">Register</span>
+      </p>
+    </div>
+  </div>
+</body>
+

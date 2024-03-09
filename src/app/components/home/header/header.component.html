@@ -1,0 +1,131 @@
+<nav
+  [ngClass]="{ 'bg-main nav-link-color': isScrolled }"
+  class="navbar navbar-expand-lg bg-main fixed-top"
+>
+  <div class="container-fluid">
+    <div class="logo-div mt-3">
+      <img class="logo" src="../../../../assets/images/Logo.png" />
+    </div>
+
+    <div
+      class="offcanvas offcanvas-end bg-main"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <img class="logo" src="../../../../assets/images/Logo.png" />
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link mx-lg-2"
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              aria-current="page"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLinkActive="active"
+              routerLink="home"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="nav-link mx-lg-2"
+              routerLinkActive="active"
+              routerLink="tours"
+              >Tours</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="nav-link mx-lg-2"
+              routerLinkActive="active"
+              routerLink="countries"
+              >Outgoing</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="nav-link mx-lg-2"
+              routerLinkActive="active"
+              routerLink="domestic"
+              >Domestic</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="nav-link mx-lg-2"
+              routerLink="/contact"
+              routerLinkActive="active"
+              >Contacts</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="right-nav-bar d-flex justify-content-between">
+      @if(userPicture){
+      <a class="userProfile-container">
+        <img class="userProfile" [src]="userPicture" />
+      </a>
+      }@else {
+      <a
+        (click)="storePreviousRoute()"
+        routerLink="login"
+        class="login-button"
+        [ngClass]="{ 'nav-link-color': isScrolled }"
+        ><i class="bi bi-person-circle"></i
+      ></a>
+
+      }
+      <a
+        routerLink="favourite"
+        class="login-button"
+        [class.active]="isFavouriteActive"
+        [ngClass]="{ 'nav-link-color': isScrolled }"
+      >
+        <i
+          class="bi bi-heart"
+          *ngIf="!isFavouriteActive"
+          pBadge
+          [value]="countFavourites"
+          severity="warning"
+        ></i>
+        <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
+      </a>
+
+      @if (userPicture) {
+      <a
+        [ngClass]="{ 'nav-link-color': isScrolled }"
+        class="login-button"
+        (click)="logout()"
+      >
+        <i class="bi bi-box-arrow-left"></i>
+      </a>
+      }
+      <button
+        class="navbar-toggler pe-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,39 @@
+<section class="trip-details">
+  <dir class="caption">
+    <h2 class="h1">Our Trips</h2>
+  </dir>
+</section>
+<div class="container-lg bg- my-5">
+  <div class="row p-0 p-3">
+    <div class="mb-2 mb-md-0 col-md-6 p-0">
+      <div class="position-relative">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (input)="sendSearch()"
+        />
+        <i class="bi bi-search icon-location text-secondary"></i>
+      </div>
+    </div>
+    <div class="mb-2 mb-md-0 col-md-4 p-0">
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        [showClear]="true"
+        placeholder="Select a trip category"
+        class="h-100 select-input"
+      ></p-dropdown>
+    </div>
+    <div class="mb-2 mb-md-0 col-md-2 p-0 bg-">
+      <div
+        class="btn-search w-100 text-center text-white fw-semibold"
+        (click)="sendSearch()"
+      >
+        search
+      </div>
+    </div>
+  </div>
+</div>

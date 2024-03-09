@@ -1,0 +1,112 @@
+@if(trip){
+  <div class="trip-details-page">
+    <main class="mb-5 mainSection">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col-md-4">
+            
+                <h1 class="text-center">{{trip.hotel.name}}</h1>
+  
+  
+            <div class="hotel-imgs">
+              <div class="main-img">
+                <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-3" alt="" />
+              </div>
+              <div class="other-imgs d-flex justify-content-between">
+                  @for(image of (hotelData ? hotelData.hotelImages : trip.hotel.imgs) ; track (hotelData ? hotelData.hotelImages : trip.hotel.imgs)){
+                    <img [src]="image" class="rounded shadow mb-3" alt="" (click)="changeHotelImg(image)" />
+                  }
+              </div>
+            </div>
+  
+            <p class="hotel-desc">{{hotelData ? hotelData.hotelDescription : trip.hotel.amenetis}}</p>
+            <div class="booking">
+  
+              <button
+                class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-4 px-xl-3"
+                (click)="goToBookingPage(trip._id)"
+              >
+                Book Now
+              </button>
+              <div class="text-center mt-3"></div>
+            </div>
+          </div>
+          <div class="col-md-8 ps-5">
+            <div class="overview mb-4">
+              <h3 class="h2 mb-5">{{ trip.name }}</h3>
+              <p class="text-secondary fs-5">
+                {{ trip.description }}
+              </p>
+            </div>
+            <div class="inc-exc mb-4">
+              <h3 class="h2 mb-4">Include/Exclude</h3>
+              <div class="row">
+                <div class="col-lg-7">
+                  <ul class="list-unstyled fw-semibold text-black-50 mb-4">
+                    @for (item of trip.include; track $index) {
+  
+                    <li class="d-flex">
+                      <i class="bi bi-check-lg"></i> <span>{{ item }}</span>
+                    </li>
+                    }
+                  </ul>
+                </div>
+                <div class="col-lg-5">
+                  <ul class="list-unstyled fw-semibold text-black-50">
+                    @for (item of trip.exclude; track $index) {
+  
+                    <li class="d-flex">
+                      <i class="bi bi-x-lg"></i> <span>{{ item }}</span>
+                    </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr />
+            @if(hotelData){
+  
+              <div class="tour-plan my-4">
+                <h3 class="h2 mb-4">Tour plan</h3>
+                <div class="container-lg">
+                  <div class="outer">
+                    <div class="progress">
+                      <div class="left">
+                        <div
+                          *ngFor="let item of trip.tourPlan; let i = index"
+                          class="fw-semibold fs-6"
+                        >
+                          {{ i + 1 == trip.tourPlan.length ? "End" : "" }}
+                          {{ i == 0 ? "Start" : "" }}
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div
+                          class="current fw-semibold"
+                          *ngFor="let item of trip.tourPlan; let i = index"
+                        >
+                          {{ item }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  }@else {
+    <div class="container-lg m-5 ">
+      <div class="row px-0">
+        <div class="col-12 text-center d-flex flex-column p-5">
+          <div class="spinner-border color-main m-auto p-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="fs-3 fw-semibold color-title">Loading....</p>
+        </div>
+      </div>
+    </div>
+    }

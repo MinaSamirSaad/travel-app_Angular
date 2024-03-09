@@ -1,0 +1,49 @@
+@import url(https://db.onlinewebfonts.com/c/12ece9d4b11e224fbbd0b5ca246bb213?family=Reey+Regular);
+
+.element:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+.p-carousel-prev ,.p-carousel-next {
+    margin: 20px !important;
+background-color: #fff;
+border-radius: 50% !important;
+width: 3rem !important;
+height: 3rem!important;
+}
+.p-carousel-next {
+    margin: 20px !important;
+
+}
+.p-carousel-prev:hover,.p-carousel-next:hover{
+    background-color: rgb(232, 159, 148);
+    border-radius: 50% !important ;
+    color: #fff;
+}
+
+.popular{
+margin-top: 90px ;
+font-weight: 700;
+    color: #313041;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -.02em;
+    font-family: "DM Sans", sans-serif;
+}
+.slider{
+    margin-top: -50px;
+    transform: scale(0.9);
+    font-family: sans-serif;
+
+}
+.product-item-content{
+transform: scale(0.9);
+
+}
+
+.p-carousel-indicator.p-highlight button {
+background-color: #ed8e7e;
+
+}

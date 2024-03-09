@@ -1,0 +1,224 @@
+.trip-details-page {
+  background-color: var(--bg-secondary-color);
+}
+section.trip-details {
+  /* background; */
+  height: 65vh;
+  position: relative;
+  background-color: grey;
+}
+section.trip-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: url("../../../../../assets/images/home/carousel/carousel1.jpeg")
+    center center/cover no-repeat;
+  background-position: 50% 70%;
+}
+section.trip-details::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.trip-details .caption {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 20px;
+}
+.trip-details .caption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gold;
+  height: 4px;
+  width: 20%;
+}
+
+.cover-img {
+  position: relative;
+  height: 450px;
+}
+.container .row {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cover-img img {
+  width: 100%;
+  height: 100%;
+}
+
+#search {
+  width: 80%;
+  height: 106px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 87%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  border: 2px solid rgba(250, 250, 250, 02);
+  /* backdrop-filter: blur(7px); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  /* background-color: transparent; */
+}
+
+/* p-element p-inputwrapper ng-untouched ng-pristine ng-valid{
+
+} */
+
+/* p-autocomplete.p-element , p-dropdown.p-element {
+    padding: 10px !important;
+    width: 40%;
+}
+input.p-element , .p-autocomplete{
+    width: 100% !important;
+} */
+
+.p-rating-icon-active {
+  color: gold;
+}
+/*
+p-dropdown.p-element{
+    margin-left: 0px !important;
+}
+span.p-element{
+    margin: 10px 41px 10px 10px!important;
+    padding: 0 !important;
+}
+
+
+
+ */
+.search-btn {
+  padding: 8px 2rem;
+  border: none;
+  color: #fff;
+  background: #ed8e7e;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background: #e8604c;
+}
+
+input.p-inputtext {
+  padding: 0.5rem;
+  backdrop-filter: blur(7px);
+  background: transparent;
+}
+
+/* input.p-inputtext::placeholder{
+    color: #fff;
+/* } */
+
+div.p-inputwrapper {
+  padding: 0.5rem;
+}
+
+/* dropdown */
+
+/* Dropdown */
+
+.p-dropdown {
+  width: 100%;
+  padding: 24px;
+  border-radius: 0;
+  border: none;
+}
+div.p-inputwrapper {
+  padding: 0.7rem;
+}
+
+.p-inputwrapper-focus {
+  box-shadow: none;
+  border: none;
+}
+
+.p-dropdown-items {
+  padding: 0px;
+}
+.p-dropdown-items li {
+  padding: 15px;
+}
+.p-dropdown-items li:hover:not(.p-highlight) {
+  background-color: var(--bg-secondary-color);
+  color: #66606b;
+}
+.p-highlight {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.p-dropdown-clear-icon {
+  width: 17px;
+  height: 18px;
+}
+.p-dropdown-clear-icon {
+  right: 4rem;
+  transform: translateY(-50%);
+  color: var(--main-color);
+}
+
+.p-dropdown-trigger-icon {
+  width: 25px;
+  height: 21px;
+}
+/* class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled" */
+
+/* where input */
+.icon-location {
+  position: absolute;
+  right: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form-control {
+  padding: 0.7rem;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .select-input {
+    border-right: 1px solid #d2d8dd !important;
+    border-left: 1px solid #d2d8dd !important;
+  }
+}
+.btn-search {
+  background-color: var(--main-color);
+  padding: 0.5rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn-search:hover {
+  background-color: var(--main-color-hover);
+}
