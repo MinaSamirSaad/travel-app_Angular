@@ -83,8 +83,11 @@ section.trip-details::after {
   border: 2px solid rgba(250, 250, 250, 02);
   /* backdrop-filter: blur(7px); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: #f9f4ed !important;
   /* background-color: transparent; */
+}
+.form-control {
+  background-color: #f9f4ed !important;
 }
 
 /* p-element p-inputwrapper ng-untouched ng-pristine ng-valid{
@@ -206,9 +209,11 @@ div.p-inputwrapper {
   box-shadow: none !important;
   border-radius: 0;
 }
-
+.p-dropdown {
+  background-color: #f9f4ed !important;
+}
 @media (min-width: 768px) {
-  .select-input {
+  .p-dropdown {
     border-right: 1px solid #d2d8dd !important;
     border-left: 1px solid #d2d8dd !important;
   }
@@ -221,4 +226,7 @@ div.p-inputwrapper {
 }
 .btn-search:hover {
   background-color: var(--main-color-hover);
+}
+.bg-main-50 {
+  background: #fcfaf6 !important;
 }
