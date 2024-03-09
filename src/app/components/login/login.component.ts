@@ -88,17 +88,8 @@ errorMessages!:Message[];
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
+          this.fireLoggedIn();
 
-          // this.user.isLoggedin = true;
-          // const previousUrl =  this.user.getPreviousUrl() || "/";
-          this.zone.run(()=>{       
-            this.router.navigate([previousUrl]);
-            this.user.clearPreviousUrl();
-          }
-            )
-
-
-          this.fireLoggedIn()
           const previousUrl = this.user.getPreviousUrl() || "/";
           this.router.navigate([previousUrl]);
           this.user.clearPreviousUrl();
@@ -106,6 +97,7 @@ errorMessages!:Message[];
 
         },
         error: (error) => {
+          this.isLoading = false;
           console.log(error);
         },
       });
@@ -153,20 +145,23 @@ errorMessages!:Message[];
               "bookedTrips",
               JSON.stringify(data.data.bookedTrips)
             );
-           this.fireLoggedIn()
+            this.fireLoggedIn();
             const previousUrl = this.user.getPreviousUrl() || "/";
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
             this.isLoading = false;
           },
           error: (error) => {
-           this.errorLogin = true;
+
+            this.isLoading = false;
+            console.log(error);
+
           },
         });
     }
   }
 
-   fireLoggedIn() {
-    localStorage.setItem("isLoggedIn","true")
+  fireLoggedIn() {
+    localStorage.setItem("isLoggedIn", "true");
   }
 }

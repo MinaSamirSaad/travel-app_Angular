@@ -1,116 +1,72 @@
-<!-- 
-<div class="container-fluid  " >
-    
-    <img class="logoImg" src="../../../assets/images/Logo.png" alt="logo image">
-    <div class="row ">
-        
-        <div class=" form-all-countainer  col-12  " >
-            
-            <div class="form-container  " >
-            <h2>Register</h2>
-            
-        <form   [formGroup]="myRegForm"  >
-            <div class="label-input mb-3    ">
-                <label for="exampleInputName" >Full Name</label>
-                <input formControlName="userName" class="form-control" placeholder="Your name"  id="exampleInputName" type="text">
-                <i class="pi pi-user icon    "></i>
-            </div>
-            <div class="label-input   ">
-                <label for="exampleInputEmail1" >Email</label>
-                <input 
-                formControlName="email" 
-                class="form-control   " 
-                placeholder="Email address"  
-                id="exampleInputEmail1" 
-                type="text">
-                <i class="pi pi-user icon    "></i>
-                
-                <div id="emailHelp" class="form-text">  @if(!emailValid.valid&&emailValid.value){
-                    <div>
-                        <p class="m-9 "  ><i class="pi pi-times-circle" ></i>  Email not valid</p>
-                    </div>
-                }@if(emailValid.valid&&emailValid.value){<div><span class="m-4 " ></span></div>}
-            </div>
-            </div>
-            <div class="label-input ">
-                <label for="exampleInputPassword1" >Password</label>
-                <input formControlName="password" placeholder="Password" class="form-control" id="exampleInputPassword1" type="password">
-            <i class="pi pi-lock icon   "></i>
 
-                <div id="emailHelp" class="form-text">  @if(!passValid.valid&&passValid.value){
-                    <div>
-                        <p class="m-9 " > <i class="pi pi-times-circle" ></i>  Password not valid</p>
-                    </div>
-                } @if(passValid.valid&&passValid.value){<div><span class="m-5 " ></span></div>} </div>
-            </div>
-            <input (click)="getData()" class="btn-submit" type="submit" value="Sign up">
-        </form>
+<body>
+  <div class="login-box">
+    <img
+      routerLink="/home"
+      class="logoImg"
+      src="assets/images/Logo.png"
+      alt="logo image"
+    />
+    <h2>Register</h2>
+    <form [formGroup]="myRegForm">
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="userName" />
+        <label>Full Name</label>
+        <div class="user-box">
+          <input type="text" name="" required="" formControlName="email" />
+          <label>Email</label>
 
-        <p class="text-end " >Already have an Account? <span  routerLink="/login" >Login</span>  </p>
-    
-    </div>
-    </div>
-    </div>
-    
-    </div>
-     -->
-     <body >
+          <div id="emailHelp" class="form-text">
+            @if(!emailValid.valid&&emailValid.value){
+            <div>
+              <p class="m-9 text-danger">
+                <i class="pi pi-times-circle"></i> Email not valid
+              </p>
 
-        <div class="login-box">
-          <img
-          routerLink="/home"
-          class="logoImg"
-          src="assets/images/Logo.png"
-          alt="logo image"
-        />
-          <h2>Register</h2>
-        <form [formGroup]="myRegForm" >
-          <div class="user-box">
-            <input type="text" name="" required="" formControlName="userName" >
-            <label  >Full Name</label>
-            <div class="user-box">
-            <input type="text" name="" required="" formControlName="email" >
-            <label>Email</label>
-      
-            <div id="emailHelp"   class="form-text"   >
-             @if(!emailValid.valid&&emailValid.value){
-                    <div>
-                        <p class="m-9 text-danger "  ><i class="pi pi-times-circle" ></i>  Email not valid</p>
-                    </div>
-                }
-              
-          </div>
-          </div>
-          <div class="user-box mt-4 ">
-            <input type="password" name=""  formControlName="password"  required="">
-            <label>Password</label>
-            <div id="passHelp" class="form-text"  >
-                @if(!passValid.valid&&passValid.value){
-                    <div>
-                        <p class="m-9 text-danger  " > <i class="pi pi-times-circle" ></i>  Password not valid</p>
-                    </div>
-                } @if(passValid.valid&&passValid.value){<div><span class="m-5 " ></span></div>}
             </div>
-          </div>
-      
-          <div class="text-center  " >
-      
-            <a  (click)="getData()"class='mb-3 ' >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Register
-            </a>
+            }
           </div>
         </div>
-        </form>
-      <div class="  text-center " >
-      
-        <p class="m-0" id="google-btn"></p>
-        <p class="my-3  text-white  ">Or</p>
-        <p class=" text-white  " >Already have an Account?<span routerLink="/login"  class="btnReg"  >Login</span></p>
+        <div class="user-box mt-4">
+          <input
+            type="password"
+            name=""
+            formControlName="password"
+            required=""
+          />
+          <label>Password</label>
+          <div id="passHelp" class="form-text">
+            @if(!passValid.valid&&passValid.value){
+            <div>
+              <p class="m-9 text-danger">
+                <i class="pi pi-times-circle"></i> Password not valid
+              </p>
+            </div>
+            } @if(passValid.valid&&passValid.value){
+            <div><span class="m-5"></span></div>
+            }
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a (click)="getData()" class="mb-3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Register
+          </a>
+        </div>
       </div>
-      
-      </div>
-            </body>
+    </form>
+    <div class="text-center">
+      <p class="m-0" id="google-btn"></p>
+      <p class="my-3 text-white">Or</p>
+      <p class="text-white">
+        Already have an Account?<span routerLink="/login" class="btnReg"
+          >Login</span
+        >
+      </p>
+    </div>
+  </div>
+</body>

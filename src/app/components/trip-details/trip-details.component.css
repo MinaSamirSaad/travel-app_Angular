@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
 
 * {
-  font-family: 'cabin',sans-serif;
+  font-family: "cabin", sans-serif;
 }
 
 .trip-details-page main {
@@ -79,7 +79,7 @@ main ul li i.bi-x-lg {
 .review input:focus,
 textarea:focus,
 textarea {
-  background-color: var(--bg-primary-color);
+  background-color: #f9f4ed !important;
 }
 .review .form-control,
 textarea {
@@ -115,6 +115,15 @@ textarea {
   border: none !important;
 }
 /* === */
+/* .p-rating-item:hover,
+.p-rating-icon:hover,
+.p-icon:hover,
+.p-icon:hover,
+.p-element:hover, */
+
+.p-rating-item:hover .p-rating-icon {
+  color: #f1c40f;
+}
 .p-rating-icon-active {
   color: #f1c40f;
 }
@@ -148,31 +157,6 @@ textarea {
 
 h1.text-center {
   color: var(--main-color);
-}
-
-.hotel-desc {
-  color: #66606b;
-}
-.main-img {
-  height: 300px;
-  margin-bottom: 10px;
-  transition: 0.3s all linear;
-}
-
-.main-img img {
-  height: 100%;
-  transition: 0.3s all linear;
-}
-
-.other-imgs{
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.other-imgs img{
-  width: 80px;
-  height: 100%;
-  cursor: pointer;
 }
 
 .p-dropdown-clear-icon {
@@ -210,95 +194,75 @@ h1.text-center {
   overflow: hidden;
   letter-spacing: 0.1em;
 }
+
+.hotel-desc {
+  color: #66606b;
+}
+.main-img {
+  height: 300px;
+  margin-bottom: 10px;
+  transition: 0.3s all linear;
+}
+
+.main-img img {
+  height: 100%;
+  transition: 0.3s all linear;
+}
+
+.other-imgs {
+  /* height: 60px; */
+  height: 100%;
+  /* margin-bottom: 10px; */
+}
+
+.other-imgs img {
+  /* height: 60px; */
+  /* width: ; */
+  height: 100%;
+  cursor: pointer;
+  /* flex-basis: 100%; */
+}
+
+.other-imgs .subImg:not(:first-child):not(:last-child) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.other-imgs .subImg:last-child {
+  margin-left: 10px;
+}
+.other-imgs .subImg:first-child {
+  margin-right: 10px;
+}
 @media (min-width: 768px) and (max-width: 991.98px) {
   .booking-btn {
     font-size: 0.7rem !important;
   }
+  .main-img {
+    height: 250px;
+    margin-bottom: 10px;
+    transition: 0.3s all linear;
+  }
 }
 
-@media (max-width: 1300px) {
-  .other-imgs img {
-    width: 68px;
-    height: 100%;
-    cursor: pointer;
-  }
-  h1.text-center {
-    color: var(--main-color);
-    font-size: 39px;
-}
-}
-@media (max-width: 1200px) {
-  .other-imgs img {
-    width: 57px;
-    height: 90%;
-    cursor: pointer;
-  }
-  h1.text-center {
-    color: var(--main-color);
-    font-size: 33px;
-  }
-  .main-img {
-    height: 250px;
-    }
-  }
-@media (max-width: 991px) {
-  .other-imgs img {
-    width: 50px;
-  }
-  h1.text-center {
-    font-size: 26px;
-  }
-  .main-img {
-    height: 250px;
-    }
-  }
-@media (max-width: 868px) {
-  .other-imgs img {
-    width: 50px;
-  }
-  h1.text-center {
-    font-size: 45px;
-  }
-  .main-img {
-    height: 210px !important;
-    }
-  }
-@media (max-width: 851px) {
-  .other-imgs img {
-    width: 45px;
-  }
-  h1.text-center {
-    font-size: 28px;
-  }
-  .main-img {
-    height: 210px !important;
-    }
-  }
-@media (max-width: 851px) {
-  .other-imgs img {
-    width: 45px;
-  }
-  h1.text-center {
-    font-size: 27px;
-  }
-  .main-img {
-    height: 210px !important;
-    }
-  }
 @media (max-width: 768px) {
-  .other-imgs img {
-    width: 45px;
+  .main-img img {
+    height: auto; /*fix it */
+    transition: 0.3s all linear;
+  }
+  .other-imgs .subImg {
+    margin: 0 !important;
+    padding-bottom: 10px;
+    /* flex-basis: 100%; */
+    height: 100%;
   }
   h1.text-center {
     font-size: 27px;
   }
-  .main-img {
-    height: 210px !important;
-    }
-
-  }
-
-
+}
+/* .other-imgs img {
+  width: 100%;
+} */
 
 .booking-btn::after {
   content: "";
@@ -368,7 +332,7 @@ h1.text-center {
 /* Test days */
 
 .outer {
-  height: 100vh;
+  height: 60vh;
   min-width: 20vw;
   flex: 1;
 }
@@ -507,4 +471,27 @@ h1.text-center {
 
 .progress.dark > div.right div.current ~ div {
   color: #666;
+}
+
+.p-toast-summary,
+.ng-tns-c3020094734-88 {
+  padding: 10px;
+}
+
+.p-toast-detail,
+.ng-tns-c3020094734-90 {
+  padding: 0 10px 10px 10px;
+}
+.ng-trigger {
+  padding-left: 10px;
+}
+.bg-main-50 {
+  background: #fcfaf6;
+}
+.alert-review {
+  border: 1px solid var(--main-color);
+  padding: 20px;
+  border-radius: 12px;
+  width: 50%;
+  margin: 50px auto;
 }

@@ -7,6 +7,7 @@ import { TripsService } from "../../../services/trips/trips.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "../../../pipes/filter.pipe";
 import { CardComponent } from "../../card/card.component";
+import { LoadingComponent } from "../../loading/loading.component";
 
 interface PageEvent {
   first: number;
@@ -24,6 +25,7 @@ interface PageEvent {
     FilterPipe,
     ButtonModule,
     PaginatorModule,
+    LoadingComponent,
   ],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.css",
