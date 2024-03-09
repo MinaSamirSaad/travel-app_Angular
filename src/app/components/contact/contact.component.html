@@ -22,7 +22,16 @@
     <div class=" form-all-countainer col-lg-5 col-12  " >
 
         <div class="form-container  w-75  " >
+            <div class="d-block d-lg-none  " >
 
+                <img
+                (click)="navigateToHome()"
+                routerLink="/"
+                class="logoImgs"
+                src="assets/images/Logo.png"
+                alt="logo image"
+                />
+            </div>
         <form [formGroup]="contact" class="contact-form" (submit)="sendEmail($event)">
             <div class="label-input mb-5">
                 <label for="exampleInputName" >Full Name</label>
