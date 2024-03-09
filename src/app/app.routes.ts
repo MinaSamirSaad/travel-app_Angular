@@ -2,13 +2,15 @@ import { Routes } from '@angular/router';
 
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
-import { OfferComponent } from './components/offer/offer.component';
 import {
   TripDetailsComponent,
 } from './components/trip-details/trip-details.component';
 import {
   CountriesComponent,
 } from './pages/countries-page/countries/countries.component';
+import {
+  DomesticComponent,
+} from './pages/domestic-page/domestic/domestic.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import {
   FavoriteTripsComponent,
@@ -29,7 +31,7 @@ export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomePageComponent, data: { hideNavbar: false } },
   { path: "tours", component: ToursPageComponent, data: { hideNavbar: false } },
-  { path: "offer", component: OfferComponent, data: { hideNavbar: false } },
+  { path: "domestic", component: DomesticComponent, data: { hideNavbar: false } },
   {
     path: "countries",
     component: CountriesComponent,
@@ -54,6 +56,7 @@ export const routes: Routes = [
     data: { hideNavbar: false },
   },
   { path: "countries/:id", component: OneCountryComponent},
+  { path: "domestic/:id", component: OneCountryComponent},
 
   { path: "contact", component: ContactComponent, data: { hideNavbar: true } },
   { path: "**", component: ErrorPageComponent, data: { hideNavbar: true } }

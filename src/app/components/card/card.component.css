@@ -147,17 +147,23 @@ button.p-ripple {
 
 
 
-/* .ng-star-inserted{
-  
-  padding: 20px ;
-} */
 
 .p-toast-summary ,.ng-tns-c3020094734-88{
   padding: 10px ;
   
 }
 
-.p-toast-detail ,.ng-tns-c3020094734-90{
+.p-toast-detail ,.ng-tns-c3020094734-90 ,.p-toast-message-content{
+  background-color: #e8604c;
+  padding: 10px  ;
+  color: #fff;
+  
+}
+
+.p-ripple , .p-toast-icon-close , .p-link , .ng-tns-c3020094734-9 {
+  
+  background-color: #e8604c;
   padding: 0 10px 10px 10px  ;
+  color: #fff;
 
 }

@@ -123,6 +123,7 @@ span.p-element{
   font-weight: 500;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 .search-btn:hover {
   background: #e8604c;
@@ -216,6 +217,7 @@ div.p-inputwrapper {
   background-color: var(--main-color);
   padding: 0.5rem;
   font-size: 20px;
+  cursor: pointer;
 }
 .btn-search:hover {
   background-color: var(--main-color-hover);

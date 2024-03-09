@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-offer',
   standalone: true,
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './offer.component.css'
 })
 export class OfferComponent {
+  router = inject(Router);
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
 
 }
