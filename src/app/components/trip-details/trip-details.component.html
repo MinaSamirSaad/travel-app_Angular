@@ -1,10 +1,10 @@
-@if(hotelData){
+@if(trip){
 <div class="trip-details-page">
   <main class="mb-5 mainSection">
     <div class="container-lg">
       <div class="row">
         <div class="col-md-4">
-          <h1 class="text-center">{{ hotelData.hotelName }}</h1>
+          <h1 class="text-center">{{ trip.hotel.name }}</h1>
 
           <div class="hotel-imgs">
             <div class="row">
@@ -21,8 +21,9 @@
                 <div
                   class="other-imgs d-flex flex-column flex-md-row justify-content-between"
                 >
-                  @for(image of (hotelData.hotel_imgs || hotelData.hotelImages)
-                  ; track hotelData.hotelImages){
+                  @for(image of (hotelData ? hotelData.hotelImages :
+                  trip.hotel.imgs) ; track (hotelData ? hotelData.hotelImages :
+                  trip.hotel.imgs)){
                   <div class="flex-grow-1 subImg">
                     <img
                       [src]="image"
@@ -37,7 +38,9 @@
             </div>
           </div>
 
-          <p class="hotel-desc">{{ hotelData.hotelDescription }}</p>
+          <p class="hotel-desc">
+            {{ hotelData ? hotelData.hotelDescription : trip.hotel.amenetis }}
+          </p>
           <div class="booking">
             <button
               class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-4 px-xl-3"
@@ -85,6 +88,8 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-8 offset-0 offset-md-4">
+          @if(hotelData){
+
           <div class="tour-plan my-4">
             <h3 class="h2 mb-4">Tour plan</h3>
             <div class="container-lg">
@@ -111,6 +116,7 @@
               </div>
             </div>
           </div>
+          }
         </div>
       </div>
       <div class="row">
@@ -145,16 +151,16 @@
               </button>
               <div class="text-center mt-3"></div>
             </div>
-            <div class="card toastContainer flex justify-content-center gap-2">
-              <!-- <p-toast position="top-left" key="tl"></p-toast> -->
-              <p-toast position="center" key="bc"></p-toast>
-            </div>
           </div>
           }@else {
           <div class="bg-main-50 alert-review text-center">
             <h3 class="color-main">Thank you for your review</h3>
           </div>
           }
+          <div class="card toastContainer flex justify-content-center gap-2">
+            <!-- <p-toast position="top-left" key="tl"></p-toast> -->
+            <p-toast position="center" key="bc"></p-toast>
+          </div>
         </div>
       </div>
 
@@ -170,56 +176,7 @@
   </main>
 </div>
 }@else {
-<div class="container-lg m-5">
-  <div class="row px-0">
-    <div class="col-12 text-center d-flex flex-column p-5">
-      <div class="spinner-border color-main m-auto p-3" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <p class="fs-3 fw-semibold color-title">Loading....</p>
-    </div>
-  </div>
+<div class="mt-5 pt-5">
+  <app-loading></app-loading>
 </div>
 }
-
-<!-- <hr /> -->
-
-<!-- <div class="review my-4">
-              <h3 class="h2 mb-4">Write a Review</h3>
-              <div class="form">
-                <div class="row">
-                  <div class="col-lg-7">
-                    <input
-                      type="text "
-                      class="form-control mb-3 p-4"
-                      placeholder="Your name"
-                    />
-                    <input
-                      type="text "
-                      class="form-control mb-3 p-4"
-                      placeholder="Email Address"
-                    />
-                  </div>
-                  <div class="col-lg-5">
-                    <div class="stars">
-                      <div
-                        class="star-group d-flex justify-content-between align-items-center mb-3"
-                      >
-                        <p class="fs-5 text-muted mb-1">Rating</p>
-                        <p-rating
-                          class="m-0 p-0"
-                          [(ngModel)]="value"
-                          [iconOnStyle]="{ color: 'red !important' }"
-                          [cancel]="false"
-                        ></p-rating>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">
-                    <textarea class="w-100 form-control"></textarea>
-                  </div>
-                </div>
-              </div>
-            </div> -->

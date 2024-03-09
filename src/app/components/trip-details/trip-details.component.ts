@@ -13,6 +13,7 @@ import { CardComponent } from "../card/card.component";
 import { ReviewItemComponent } from "./review-item/review-item.component";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
+import { LoadingComponent } from "../loading/loading.component";
 
 @Component({
   selector: "app-trip-details",
@@ -25,7 +26,7 @@ import { MessageService } from "primeng/api";
     DropdownModule,
     CardComponent,
     ReviewItemComponent,
-
+    LoadingComponent,
     ToastModule,
   ],
   providers: [TripsService, HotelsService, MessageService],
@@ -75,6 +76,7 @@ export class TripDetailsComponent {
           next: (data) => {
             this.hotel = data;
             this.hotelData = this.hotel.data.hotel;
+
             // console.log(this.hotelData)
           },
         });
@@ -121,8 +123,8 @@ export class TripDetailsComponent {
           rating: this.rateValue,
           desc: this.reviewValue,
         });
-        this.hasSubmittedReview = true;
         this.showBottomCenter("Review added successfully", "Success");
+        this.hasSubmittedReview = true;
       } else {
         this.showBottomCenter("You must write a review first", "warn");
       }
