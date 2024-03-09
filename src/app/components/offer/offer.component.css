@@ -5,6 +5,7 @@
   padding: 10% 0;
   background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: overlay;
+  height: 100vh;
 }
 
 .container {
@@ -98,12 +99,17 @@ p {
   cursor: pointer;
   transition: background-color 0.3s;
   width: fit-content;
+  height: fit-content;
   height: 40px;
   border-radius: 5px;
 font-size: 24px;
-  margin: 20px 0 20px 66px;
+margin-left: 15px;
 }
 
 .btn-submit:hover {
   background-color: hsla(9, 76%, 71%, 0.882);
+}
+
+.btn-container{
+  height: 50px;
 }

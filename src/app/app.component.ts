@@ -40,6 +40,7 @@ import { filter } from "rxjs";
     SystemLayoutComponent,
     ContactComponent,
     ErrorPageComponent,
+    ReviewsComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
