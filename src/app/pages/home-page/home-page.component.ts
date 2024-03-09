@@ -9,6 +9,7 @@ import { HotelsComponent } from "../../components/hotels/hotels.component";
 import { Router ,NavigationEnd} from "@angular/router";
 
 import { filter } from 'rxjs/operators';
+import { ReviewsComponent } from "../../components/reviews/reviews.component";
 
 @Component({
   selector: "app-home-page",
@@ -20,6 +21,8 @@ import { filter } from 'rxjs/operators';
     SliderComponent,
     OfferComponent,
     HotelsComponent,
+    ReviewsComponent
+
   ],
   templateUrl: "./home-page.component.html",
   styleUrl: "./home-page.component.css",
