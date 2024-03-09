@@ -1,13 +1,19 @@
-import { CommonModule } from "@angular/common";
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { PaginatorModule } from "primeng/paginator";
-import { ButtonModule } from "primeng/button";
-import { Subscription } from "rxjs";
-import { TripsService } from "../../../services/trips/trips.service";
-import { HttpClientModule } from "@angular/common/http";
-import { FilterPipe } from "../../../pipes/filter.pipe";
-import { CardComponent } from "../../card/card.component";
-import { LoadingComponent } from "../../loading/loading.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+
+import { ButtonModule } from 'primeng/button';
+import { PaginatorModule } from 'primeng/paginator';
+import { Subscription } from 'rxjs';
+
+import { FilterPipe } from '../../../pipes/filter.pipe';
+import { TripsService } from '../../../services/trips/trips.service';
+import { CardComponent } from '../../card/card.component';
+import { LoadingComponent } from '../../loading/loading.component';
 
 interface PageEvent {
   first: number;
@@ -66,12 +72,12 @@ export class CardsComponent implements OnInit {
           );
 
           this.totalPages = Math.ceil(
-            displayedTrips.length / this.itemsPerPage
+            displayedTrips?.length / this.itemsPerPage
           );
 
           this.updateDisplayedProducts();
         } else {
-          this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
+          this.totalPages = Math.ceil(this.trips?.length / this.itemsPerPage);
           this.updateDisplayedProducts();
         }
       },
@@ -80,7 +86,7 @@ export class CardsComponent implements OnInit {
     this._TripsService.getTrips().subscribe({
       next: ({ data }) => {
         this.trips = data;
-        this.totalPages = Math.ceil(this.trips.length / this.itemsPerPage);
+        this.totalPages = Math.ceil(this.trips?.length / this.itemsPerPage);
         this.updateDisplayedProducts();
       },
     });
