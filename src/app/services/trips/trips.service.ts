@@ -36,4 +36,38 @@ export class TripsService {
       `https://travel-app-8glz.onrender.com/trips/book/${id}`
     );
   }
+  //review
+  reviews: any[] = [
+    {
+      name: "mounir",
+      rating: 3,
+      desc: "lorem lorem lorem loremlorem loremlorem lorem",
+    },
+    {
+      name: "samir",
+      rating: 2,
+      desc: "lorem lorem lorem loremlorem loremlorem lorem",
+    },
+    {
+      name: "ahmed",
+      rating: 4,
+      desc: "lorem lorem lorem loremlorem loremlorem lorem",
+    },
+    {
+      name: "bayo",
+      rating: 5,
+      desc: "lorem lorem lorem loremlorem loremlorem lorem",
+    },
+  ];
+
+  addReview(data: any) {
+    this.reviews.push(data);
+  }
+
+  review(data: any) {
+    return this.http.post(
+      `https://travel-app-8glz.onrender.com/reviews/addReview`,
+      data
+    );
+  }
 }

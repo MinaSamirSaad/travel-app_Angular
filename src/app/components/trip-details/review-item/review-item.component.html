@@ -1,0 +1,36 @@
+<!--BOX-1-------------->
+<div class="testimonial-box">
+  <!--top------------------------->
+  <div class="box-top">
+    <!--profile----->
+    <div class="profile">
+      <!--img---->
+      <div class="profile-img">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+        />
+      </div>
+      <!--name-and-username-->
+      <div class="name-user">
+        <strong>{{ review.name }}</strong>
+        <span>liammendes</span>
+      </div>
+    </div>
+    <!--reviews------>
+    <div class="reviews">
+      <p-rating
+        class="m-0 p-0"
+        [(ngModel)]="review.rating"
+        [cancel]="false"
+        [readonly]="true"
+      ></p-rating>
+    </div>
+  </div>
+  <!--Comments---------------------------------------->
+  <div class="client-comment">
+    <p>
+      {{ review.desc }}
+    </p>
+  </div>
+</div>
+<hr />

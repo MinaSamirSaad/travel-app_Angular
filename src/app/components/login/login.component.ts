@@ -81,13 +81,14 @@ export class LoginComponent {
             "bookedTrips",
             JSON.stringify(data.data.bookedTrips)
           );
-          this.fireLoggedIn()
+          this.fireLoggedIn();
           const previousUrl = this.user.getPreviousUrl() || "/";
           this.router.navigate([previousUrl]);
           this.user.clearPreviousUrl();
           this.isLoading = false;
         },
         error: (error) => {
+          this.isLoading = false;
           console.log(error);
         },
       });
@@ -136,20 +137,21 @@ export class LoginComponent {
               "bookedTrips",
               JSON.stringify(data.data.bookedTrips)
             );
-           this.fireLoggedIn()
+            this.fireLoggedIn();
             const previousUrl = this.user.getPreviousUrl() || "/";
             this.router.navigate([previousUrl]);
             this.user.clearPreviousUrl();
             this.isLoading = false;
           },
           error: (error) => {
+            this.isLoading = false;
             console.log(error);
           },
         });
     }
   }
 
-   fireLoggedIn() {
-    localStorage.setItem("isLoggedIn","true")
+  fireLoggedIn() {
+    localStorage.setItem("isLoggedIn", "true");
   }
 }
