@@ -14,7 +14,7 @@ import { DropdownModule } from "primeng/dropdown";
 })
 export class FilterComponent implements OnInit {
   cities: any[] | undefined;
-  selectedCity: any | undefined = "";
+  selectedCity: any | undefined;
 
   constructor(private _TripsService: TripsService) {}
   ngOnInit() {
