@@ -197,11 +197,9 @@ h1.text-center {
   transition: 0.3s all linear;
 }
 
-
 .other-imgs img {
   cursor: pointer;
 }
-
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .booking-btn {
@@ -225,7 +223,7 @@ h1.text-center {
   }
 }
 
-.booking-btn{
+.booking-btn {
   padding: 10px 30px;
   width: auto;
   font-weight: 300;
@@ -245,55 +243,7 @@ h1.text-center {
 .booking-btn:hover::after {
   top: 0;
 }
-/* accordion */
 
-.accordion-item {
-  border-radius: 8px;
-}
-.accordion-header {
-  padding: 23px 27px 24px 40px;
-  transition: all 0.15s ease-in-out;
-  border-radius: 8px;
-}
-.accordion-item:has(.show) .accordion-header {
-  background-color: var(--main-color);
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-/* .accordion-header, */
-.accordion-button {
-  font-size: 20px;
-  display: flex;
-  align-items: flex-end;
-}
-.accordion-item:has(.show) .accordion-button {
-  color: var(--bg-primary-color) !important;
-}
-
-.accordion-button:not(.collapsed),
-.accordion-button:focus {
-  box-shadow: none;
-}
-
-.accordion-day {
-  font-size: 22px;
-  /* line-height: ; */
-  color: var(--main-color);
-  transition: all 0.15s ease-in-out;
-  margin-right: 5px;
-}
-.accordion-item:has(.show) .accordion-day {
-  color: var(--bg-secondary-color);
-}
-.accordion-collapse {
-  transition-property: alls;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
-}
-
-.list-group-item-striped {
-  background-color: #f9f4ed;
-}
 /* Test days */
 
 .outer {

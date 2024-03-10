@@ -1,19 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 
-import { ButtonModule } from 'primeng/button';
-import { PaginatorModule } from 'primeng/paginator';
-import { Subscription } from 'rxjs';
+import { ButtonModule } from "primeng/button";
+import { PaginatorModule } from "primeng/paginator";
+import { Subscription } from "rxjs";
 
-import { FilterPipe } from '../../../pipes/filter.pipe';
-import { TripsService } from '../../../services/trips/trips.service';
-import { CardComponent } from '../../card/card.component';
-import { LoadingComponent } from '../../loading/loading.component';
+import { FilterPipe } from "../../../pipes/filter.pipe";
+import { TripsService } from "../../../services/trips/trips.service";
+import { CardComponent } from "../../card/card.component";
+import { LoadingComponent } from "../../loading/loading.component";
 
 interface PageEvent {
   first: number;
@@ -122,13 +118,17 @@ export class CardsComponent implements OnInit {
   loadNextPage(): void {
     this.currentPage++;
     this.updateDisplayedProducts();
+    this.scrollToTop();
   }
   loadPrevPage(): void {
     this.currentPage--;
     this.updateDisplayedProducts();
+    this.scrollToTop();
   }
   //paginaion
-
+  scrollToTop(): void {
+    window.scrollTo(0, 380);
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.categorySubscription.unsubscribe();
