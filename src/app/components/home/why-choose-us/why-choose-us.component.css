@@ -15,6 +15,11 @@
 
 }
 
+i {
+    color: #e8604c;
+    font-size: 45px;
+}
+
 .why-choose__container {
     transform: scale(.94);
     width: 100%;

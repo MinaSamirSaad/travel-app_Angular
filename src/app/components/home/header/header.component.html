@@ -74,6 +74,39 @@
               >Contacts</a
             >
           </li>
+
+        </ul>
+        <ul class="d-flex list-unstyled head-icons">
+          <li>
+            <a
+            routerLink="favourite"
+            class="login-button"
+            [class.active]="isFavouriteActive"
+            [ngClass]="{ 'nav-link-color': isScrolled }"
+          >
+            <i
+              class="bi bi-heart"
+              *ngIf="!isFavouriteActive"
+              pBadge
+              [value]="countFavourites"
+              severity="warning"
+            ></i>
+            <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
+          </a>
+
+          </li>
+          <li>
+            @if (userPicture) {
+            <a
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+              class="login-button"
+              (click)="logout()"
+            >
+              <i class="bi bi-box-arrow-left"></i>
+            </a>
+            }
+
+          </li>
         </ul>
       </div>
     </div>
@@ -92,31 +125,7 @@
       ></a>
 
       }
-      <a
-        routerLink="favourite"
-        class="login-button"
-        [class.active]="isFavouriteActive"
-        [ngClass]="{ 'nav-link-color': isScrolled }"
-      >
-        <i
-          class="bi bi-heart"
-          *ngIf="!isFavouriteActive"
-          pBadge
-          [value]="countFavourites"
-          severity="warning"
-        ></i>
-        <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
-      </a>
 
-      @if (userPicture) {
-      <a
-        [ngClass]="{ 'nav-link-color': isScrolled }"
-        class="login-button"
-        (click)="logout()"
-      >
-        <i class="bi bi-box-arrow-left"></i>
-      </a>
-      }
       <button
         class="navbar-toggler pe-0"
         type="button"

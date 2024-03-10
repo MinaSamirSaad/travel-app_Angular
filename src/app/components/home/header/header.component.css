@@ -17,7 +17,7 @@
   /* background-color: var(--main-color); */
   color: var(--bg-primary-color) !important;
   font-size: 14px;
-  padding: 8px 20px;
+  padding: 8px 5px;
   border-radius: 50px;
   text-decoration: none;
   transition: 0.3s background-color;
@@ -40,7 +40,7 @@
   margin-top: 10px;
 }
 .userProfile-container {
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
 
 .navbar-toggler {
@@ -77,6 +77,17 @@
   /* color: var(--dark-grey-color); */
   /* color: red; */
 }
+
+.offcanvas-body{
+  display: flex;
+  align-items: center;
+}
+
+.head-icons{
+  margin-top: 30px;
+  gap: 10px;
+  margin-right: 10px;
+}
 @media (min-width: 991px) {
 }
 
@@ -108,10 +119,19 @@
   }
 }
 
+
+
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
   .navbar {
     padding: 0px !important;
+  }
+
+  nav a , nav i {
+    color: black;
+  }
+  .offcanvas-body{
+    display: block;
   }
   .logo-div {
     margin-top: 10px !important;
@@ -119,6 +139,17 @@
   .logo-div img {
     width: 163px;
   }
+  .head-icons {
+    justify-content: center;
+    gap: 80px;
+  }
+  .offcanvas-end{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 340px;
+    height: 67%;
+    margin-top: 20%;
+}
 }
 @media (min-width: 992px) {
   /* Add styles for large devices here */
