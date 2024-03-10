@@ -3,34 +3,44 @@
   <main class="mb-5 mainSection">
     <div class="container-lg">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5 col-lg-4">
           <h1 class="text-center">{{ trip.hotel.name }}</h1>
 
-          <div class="hotel-imgs">
+          <!-- <div class="hotel-imgs">
             <div class="row">
-              <div class="col-9 col-md-12">
+              <div class="col-12 ">
                 <div class="main-img">
-                  <img
-                    [src]="trip.imgUrl"
-                    class="w-100 rounded shadow mb-3"
-                    alt=""
-                  />
+                  <img [src]="trip.imgUrl" class="w-100 rounded shadow mb-3" alt="" />
                 </div>
               </div>
-              <div class="col-3 col-md-12">
-                <div
-                  class="other-imgs d-flex flex-column flex-md-row justify-content-between"
-                >
+              <div class="col-12">
+                <div class="other-imgs row">
                   @for(image of (hotelData ? hotelData.hotelImages :
                   trip.hotel.imgs) ; track (hotelData ? hotelData.hotelImages :
                   trip.hotel.imgs)){
-                  <div class="flex-grow-1 subImg">
-                    <img
-                      [src]="image"
-                      class="w-100 rounded shadow mb-3"
-                      alt=""
-                      (click)="changeHotelImg(image)"
-                    />
+                  <div class=" subImg col">
+                    <img [src]="image" class="w-100 rounded shadow mb-3" alt="" (click)="changeHotelImg(image)" />
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="hotel-imgs">
+            <div class="row">
+              <div class="col-12">
+                <div class="main-img">
+                  <img [src]="trip.imgUrl" style="height: 15rem; object-fit: cover;" class="w-100 rounded shadow mb-3"
+                    alt="" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="other-imgs row">
+                  @for(image of (hotelData ? hotelData.hotelImages : trip.hotel.imgs) ; track (hotelData ?
+                  hotelData.hotelImages : trip.hotel.imgs)){
+                  <div class="subImg col-4 ">
+                    <img style="height: 5rem; object-fit: cover;" [src]="image" class="w-100 rounded shadow mb-3" alt=""
+                      (click)="changeHotelImg(image)" />
                   </div>
                   }
                 </div>
@@ -38,20 +48,19 @@
             </div>
           </div>
 
+
           <p class="hotel-desc">
             {{ hotelData ? hotelData.hotelDescription : trip.hotel.amenetis }}
           </p>
           <div class="booking">
-            <button
-              class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-4 px-xl-3"
-              (click)="goToBookingPage(trip._id)"
-            >
+            <button class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-3 px-xl-3"
+              (click)="goToBookingPage(trip._id)">
               Book Now
             </button>
             <div class="text-center mt-3"></div>
           </div>
         </div>
-        <div class="col-md-8 ps-5">
+        <div class="col-md-7 col-lg-8 ps-4">
           <div class="overview mb-4">
             <h3 class="h2 mb-5">{{ trip.name }}</h3>
             <p class="text-secondary fs-5">
@@ -87,7 +96,7 @@
       </div>
       <!-- <hr /> -->
       <div class="row">
-        <div class="col-md-8 offset-0 offset-md-4">
+        <div class="col-md-7 col-lg-8 offset-0 offset-md-5">
           @if(hotelData){
 
           <div class="tour-plan my-4">
@@ -96,19 +105,13 @@
               <div class="outer">
                 <div class="progress">
                   <div class="left">
-                    <div
-                      *ngFor="let item of trip.tourPlan; let i = index"
-                      class="fw-semibold fs-6"
-                    >
+                    <div *ngFor="let item of trip.tourPlan; let i = index" class="fw-semibold fs-6">
                       {{ i + 1 == trip.tourPlan.length ? "End" : "" }}
                       {{ i == 0 ? "Start" : "" }}
                     </div>
                   </div>
                   <div class="right">
-                    <div
-                      class="current fw-semibold"
-                      *ngFor="let item of trip.tourPlan; let i = index"
-                    >
+                    <div class="current fw-semibold" *ngFor="let item of trip.tourPlan; let i = index">
                       {{ item }}
                     </div>
                   </div>
@@ -120,33 +123,21 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8 offset-0 offset-md-4">
+        <div class="col-md-7 col-lg-8 offset-0 offset-md-5">
           @if(!hasSubmittedReview) {
 
           <div class="review my-4">
             <h3 class="h2 mb-4">Write a Review</h3>
             <div class="stars">
-              <div
-                class="star-group d-flex justify-content-between align-items-center mb-3"
-              >
+              <div class="star-group d-flex justify-content-between align-items-center mb-3">
                 <p class="fs-5 text-muted mb-1">Rating</p>
-                <p-rating
-                  class="m-0 p-0"
-                  [(ngModel)]="rateValue"
-                  [iconOnStyle]="{ color: 'red !important' }"
-                  [cancel]="false"
-                ></p-rating>
+                <p-rating class="m-0 p-0" [(ngModel)]="rateValue" [iconOnStyle]="{ color: 'red !important' }"
+                  [cancel]="false"></p-rating>
               </div>
             </div>
-            <textarea
-              [(ngModel)]="reviewValue"
-              class="w-100 form-control"
-            ></textarea>
+            <textarea [(ngModel)]="reviewValue" class="w-100 form-control"></textarea>
             <div class="booking">
-              <button
-                class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-4 px-xl-3"
-                (click)="addReview()"
-              >
+              <button class="booking-btn d-block mx-auto mt-3 fs-6 w-50 py-md-3 py-3 px-xl-3" (click)="addReview()">
                 SUBMIT REVIEW
               </button>
               <div class="text-center mt-3"></div>
@@ -167,7 +158,7 @@
       <div class="row">
         @for (review of reviews; track $index) {
 
-        <div class="col-md-8 offset-0 offset-md-4">
+        <div class="col-md-7 col-lg-8 offset-0 offset-md-5">
           <app-review-item [review]="review"></app-review-item>
         </div>
         }
