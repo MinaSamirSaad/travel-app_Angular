@@ -1,14 +1,14 @@
-<div class="container-fluid  " >
-    @if (isSent) {
-        <div class="d-flex align-items-center justify-content-center pt-3 ">
-
-            <div class="errorMSG  "  >
-              <p-messages  [(value)]="successMessage" [enableService]="false" [closable]="false"></p-messages>
-            </div>
-          </div>
-    }
-    <div class="row   ">
+<div class="container-fluid   " >
+    <div class="row position-relative  ">
         
+        @if (isSent) {
+            <div class="d-flex align-items-center justify-content-center pt-3  position-absolute  ">
+    
+                <div class="errorMSG  "  >
+                  <p-messages  [(value)]="successMessage" [enableService]="false" [closable]="false"></p-messages>
+                </div>
+              </div>
+        }
         <div class="col-4 vh-100  d-none d-lg-block "   >
             <img
             (click)="navigateToHome()"
