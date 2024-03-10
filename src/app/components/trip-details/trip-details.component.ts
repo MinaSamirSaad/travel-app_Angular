@@ -57,6 +57,7 @@ export class TripDetailsComponent {
   hasSubmittedReview: boolean = false;
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.route.params.subscribe({
       next: (params) => {
         this.id = params["id"];
@@ -66,7 +67,7 @@ export class TripDetailsComponent {
     this.reloadPage();
     // this.reviews = this._TripsService.reviews;
   }
-  reloadPage(){
+  reloadPage() {
     this._TripsService.getTripById(this.id).subscribe({
       next: ({ data }) => {
         console.log(data);
@@ -129,16 +130,22 @@ export class TripDetailsComponent {
         //   rating: this.rateValue,
         //   desc: this.reviewValue,
         // });
-        this._TripsService.review({review:this.reviewValue, rate: this.rateValue, reviewTrip: this.id}).subscribe({
-          next: (data) => {
-            this.showBottomCenter("Review added successfully", "Success");
-            this.hasSubmittedReview = true;
-            this.reloadPage();
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        })  
+        this._TripsService
+          .review({
+            review: this.reviewValue,
+            rate: this.rateValue,
+            reviewTrip: this.id,
+          })
+          .subscribe({
+            next: (data) => {
+              this.showBottomCenter("Review added successfully", "success");
+              this.hasSubmittedReview = true;
+              this.reloadPage();
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });
       } else {
         this.showBottomCenter("You must write a review first", "warn");
       }
