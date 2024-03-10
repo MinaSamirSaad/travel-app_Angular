@@ -1,9 +1,34 @@
 .logoImg {
-  margin: 30px 60px;
+  margin: 0;
   width: 200px;
   cursor: pointer;
 }
-.logoContainer{
-    left: 0;
 
+.pay-imgs-container {
+  width: 220px;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .card-container {
+    width: 75% !important;
   }
+}
+@media (max-width: 768px) {
+  .pay-imgs-container {
+    width: 150px;
+  }
+  .logoImg {
+    width: 150px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 576px) {
+  .card-container {
+    width: 100% !important;
+  }
+  #myPaymentButtons {
+    width: 100% !important;
+  }
+}
+.pay-imgs-container .pay-img {
+}
