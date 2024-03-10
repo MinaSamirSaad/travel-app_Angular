@@ -1,25 +1,17 @@
-import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
-import {
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
-import { MessageService } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { RatingModule } from 'primeng/rating';
-import { ToastModule } from 'primeng/toast';
+import { MessageService } from "primeng/api";
+import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { RatingModule } from "primeng/rating";
+import { ToastModule } from "primeng/toast";
 
-import { HotelsService } from '../../services/hotels/hotels.service';
-import { TripsService } from '../../services/trips/trips.service';
-import { UserService } from '../../services/user/user.service';
+import { HotelsService } from "../../services/hotels/hotels.service";
+import { TripsService } from "../../services/trips/trips.service";
+import { UserService } from "../../services/user/user.service";
 
 @Component({
   selector: "app-card",
@@ -42,8 +34,8 @@ export class CardComponent implements OnInit {
   @Input() trip!: any;
   @Input() isTrip!: boolean;
   @Input() isBook: boolean = true;
-  hotel : any ;
-  rate : number = 4;
+  hotel: any;
+  rate: number = 4;
   constructor(
     private router: Router,
     private _TripsService: TripsService,
@@ -55,10 +47,10 @@ export class CardComponent implements OnInit {
     let locStrg = JSON.parse(localStorage.getItem("favouriteTrips") || "[]");
     let findTrip = locStrg.find((fav: any) => fav._id == this.trip._id);
     if (findTrip) this.trip = findTrip;
-    this._hotelService.getHotel(this.trip.hotel.id).subscribe((data : any)=> {
-      this.hotel = data.data.hotel
-      this.rate = this.hotel.hotelRate
-    })
+    this._hotelService.getHotel(this.trip.hotel.id).subscribe((data: any) => {
+      this.hotel = data.data.hotel;
+      this.rate = this.hotel.hotelRate;
+    });
   }
   showDetails(id: any) {
     this.router.navigate([`trip/${id}`]);
@@ -78,8 +70,8 @@ export class CardComponent implements OnInit {
   showBottomCenter() {
     this.messageService.add({
       key: "bc",
-      severity: "Faild",
-      summary: "Faild",
+      severity: "Failed",
+      summary: "Failed",
       detail: "You must login first to add this trip to your favorite list.",
     });
   }
