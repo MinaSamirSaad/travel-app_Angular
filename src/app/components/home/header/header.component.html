@@ -76,6 +76,20 @@
           </li>
         </ul>
         <ul class="d-flex list-unstyled head-icons">
+          @if(userPicture){
+          <a class="userProfile-container d-none d-lg-block">
+            <img class="userProfile" [src]="userPicture" />
+          </a>
+          }@else {
+          <a
+            (click)="storePreviousRoute()"
+            routerLink="login"
+            class="login-button d-none d-lg-block"
+            [ngClass]="{ 'nav-link-color': isScrolled }"
+            ><i class="bi bi-person-circle"></i
+          ></a>
+
+          }
           <li>
             @if(isLoggedIn) {
 
@@ -113,16 +127,18 @@
         </ul>
       </div>
     </div>
-    <div class="right-nav-bar d-flex justify-content-between">
+    <div
+      class="right-nav-bar d-flex justify-content-between align-items-center"
+    >
       @if(userPicture){
-      <a class="userProfile-container">
+      <a class="userProfile-container d-block d-lg-none">
         <img class="userProfile" [src]="userPicture" />
       </a>
       }@else {
       <a
         (click)="storePreviousRoute()"
         routerLink="login"
-        class="login-button"
+        class="login-button d-block d-lg-none"
         [ngClass]="{ 'nav-link-color': isScrolled }"
         ><i class="bi bi-person-circle"></i
       ></a>
