@@ -74,26 +74,30 @@
               >Contacts</a
             >
           </li>
-
         </ul>
         <ul class="d-flex list-unstyled head-icons">
           <li>
-            <a
-            routerLink="favourite"
-            class="login-button"
-            [class.active]="isFavouriteActive"
-            [ngClass]="{ 'nav-link-color': isScrolled }"
-          >
-            <i
-              class="bi bi-heart"
-              *ngIf="!isFavouriteActive"
-              pBadge
-              [value]="countFavourites"
-              severity="warning"
-            ></i>
-            <i class="bi bi-heart-fill color-main" *ngIf="isFavouriteActive"></i>
-          </a>
+            @if(isLoggedIn) {
 
+            <a
+              routerLink="favourite"
+              class="login-button"
+              [class.active]="isFavouriteActive"
+              [ngClass]="{ 'nav-link-color': isScrolled }"
+            >
+              <i
+                class="bi bi-heart"
+                *ngIf="!isFavouriteActive"
+                pBadge
+                [value]="countFavourites"
+                severity="warning"
+              ></i>
+              <i
+                class="bi bi-heart-fill color-main"
+                *ngIf="isFavouriteActive"
+              ></i>
+            </a>
+            }
           </li>
           <li>
             @if (userPicture) {
@@ -105,7 +109,6 @@
               <i class="bi bi-box-arrow-left"></i>
             </a>
             }
-
           </li>
         </ul>
       </div>
