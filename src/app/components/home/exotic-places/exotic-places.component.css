@@ -12,11 +12,15 @@
     max-width: 1200px;
  }
 
+ img {
+    object-fit: cover
+ }
 
  @media (min-width: 576px){
      .container, .container-sm {
          max-width: 540px;
         }
+
     }
     @media (min-width: 768px){
        .container, .container-md, .container-sm {
@@ -32,6 +36,12 @@
    .container,.container-xl,.container-lg,.container-md,.container-sm {
            max-width: 1200px;
        }
+    }
+
+    @media (max-width: 576px){
+        .section-title__title {
+            font-size: 45px !important;
+        }
     }
 
 

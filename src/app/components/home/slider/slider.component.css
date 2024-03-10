@@ -47,3 +47,22 @@ transform: scale(0.9);
 background-color: #ed8e7e;
 
 }
+
+
+
+@media (max-width: 510px) {
+    .p-carousel-container {
+        display: block !important;
+    }
+    .p-carousel-prev , .p-carousel-next {
+        display: none !important;;
+    }
+    .details {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    .popular {
+        font-size: 45px !important;
+    }
+
+}

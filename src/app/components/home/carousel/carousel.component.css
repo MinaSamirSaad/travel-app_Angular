@@ -143,14 +143,20 @@ text-indent: 0px;
 @media (max-width: 676px) {
   /* Add styles for extra large devices here */
   .country-slider {
-    font-size: 30px !important;
+    font-size: 25px !important;
     letter-spacing: 0;
+    line-height: 1;
+    margin-top: 12%;
   }
   p.next-country {
     margin-bottom: 0px;
   }
 
-  .book-carousel{
+  .book-carousel[_ngcontent-ng-c4199457284] {
     margin-top: 0px !important;
-  }
+    padding: 10px 17px;
+
+    font-size: 11px;
+
+}
 }
