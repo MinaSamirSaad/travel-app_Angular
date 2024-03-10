@@ -51,7 +51,7 @@ h2,
 h5,
 h1 {
   color: #fff;
-  font-family: Raleway, sans-serif;
+  font-family: 'cabin', sans-serif;
   font-weight: bolder;
 }
 h1 {
@@ -112,4 +112,17 @@ margin-left: 15px;
 
 .btn-container{
   height: 50px;
+}
+
+@media (max-width: 576px) {
+  .container[_ngcontent-ng-c994421465] {
+    width: 100%;
+    margin-right: auto;
+    margin-left: 0%;
+    /* margin: auto; */
+    margin-top: 54%;
+}
+h5[_ngcontent-ng-c994421465]{
+  font-weight: lighter;
+}
 }

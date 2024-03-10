@@ -28,6 +28,7 @@ export class HeaderComponent {
   isFavouriteActive: boolean = false;
   bgNavbar: boolean = false;
   countFavourites: any = 0;
+  isLoggedIn: boolean = false;
   @HostListener("window:scroll", [])
   onScroll(): void {
     // this.isScrolled = window.scrollY > 300;
@@ -46,6 +47,7 @@ export class HeaderComponent {
     this._TripsService.favoriteTripsCount$.subscribe((count) => {
       this.countFavourites = count;
     });
+    this.isLoggedIn = !!localStorage.getItem("isLoggedIn");
     if (localStorage.getItem("isLoggedIn")) {
       this.countFavourites = JSON.parse(
         localStorage.getItem("favouriteTrips") || "[]"

@@ -100,8 +100,7 @@ textarea {
   height: 185px;
 }
 /* Booking Section */
-.booking {
-}
+
 .booking .form-control {
   outline: none !important;
   border: none !important;
@@ -114,12 +113,6 @@ textarea {
   outline: none !important;
   border: none !important;
 }
-/* === */
-/* .p-rating-item:hover,
-.p-rating-icon:hover,
-.p-icon:hover,
-.p-icon:hover,
-.p-element:hover, */
 
 .p-rating-item:hover .p-rating-icon {
   color: #f1c40f;
@@ -173,16 +166,13 @@ h1.text-center {
   width: 25px;
   height: 21px;
 }
-/* booking-btn */
+
 .booking-btn {
-  /* font-size: 15px; */
-  /* padding: 17px 87px; */
   text-align: center;
   z-index: 1;
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  -webkit-appearance: none;
   border: none;
   outline: none !important;
   background-color: var(--main-color);
@@ -199,47 +189,26 @@ h1.text-center {
   color: #66606b;
 }
 .main-img {
-  height: 300px;
   margin-bottom: 10px;
   transition: 0.3s all linear;
 }
 
 .main-img img {
-  height: 100%;
   transition: 0.3s all linear;
 }
 
-.other-imgs {
-  /* height: 60px; */
-  height: 100%;
-  /* margin-bottom: 10px; */
-}
 
 .other-imgs img {
-  /* height: 60px; */
-  /* width: ; */
-  height: 100%;
   cursor: pointer;
-  /* flex-basis: 100%; */
 }
 
-.other-imgs .subImg:not(:first-child):not(:last-child) {
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
-.other-imgs .subImg:last-child {
-  margin-left: 10px;
-}
-.other-imgs .subImg:first-child {
-  margin-right: 10px;
-}
 @media (min-width: 768px) and (max-width: 991.98px) {
   .booking-btn {
     font-size: 0.7rem !important;
   }
   .main-img {
-    height: 250px;
+    /* height: 250px; */
     margin-bottom: 10px;
     transition: 0.3s all linear;
   }
@@ -250,19 +219,17 @@ h1.text-center {
     height: auto; /*fix it */
     transition: 0.3s all linear;
   }
-  .other-imgs .subImg {
-    margin: 0 !important;
-    padding-bottom: 10px;
-    /* flex-basis: 100%; */
-    height: 100%;
-  }
+
   h1.text-center {
     font-size: 27px;
   }
 }
-/* .other-imgs img {
-  width: 100%;
-} */
+
+.booking-btn{
+  padding: 10px 30px;
+  width: auto;
+  font-weight: 300;
+}
 
 .booking-btn::after {
   content: "";
@@ -281,11 +248,9 @@ h1.text-center {
 /* accordion */
 
 .accordion-item {
-  /* background-color: var(--main-color); */
   border-radius: 8px;
 }
 .accordion-header {
-  /* padding: 20px; */
   padding: 23px 27px 24px 40px;
   transition: all 0.15s ease-in-out;
   border-radius: 8px;
@@ -393,10 +358,6 @@ h1.text-center {
   height: 0%;
   transition: height 0.2s ease-out;
 }
-/*
-.progress > div.right div.current ~ div {
-  color: #666;
-} */
 
 .progress > div.right div::before {
   content: "";
