@@ -38,6 +38,19 @@
   /* object-fit: cover; */
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cover-img {
+    height: 400px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-img {
+    height: 300px; /* Further adjust height for even smaller screens */
+  }
+}
+
 .card-body {
   position: absolute;
   top: 0;

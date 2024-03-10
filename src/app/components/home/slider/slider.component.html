@@ -3,11 +3,11 @@
     <h1 class=" popular text-center  " >Our Popular Trips</h1>
     <p-carousel class="carousel_images " [value]="trip" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions">
         <ng-template  class="product-item-content" let-trip pTemplate="item">
-            <div class="     m-2  py-5 px-3">
+            <div class="     m-auto  py-5 px-3">
                 <div class="mb-3   ">
-       <app-card [trip]="trip"  [isTrip]="isTrip" ></app-card>
+                         <app-card [trip]="trip"  [isTrip]="isTrip" ></app-card>
+                </div>
             </div>
-        </div>
-    </ng-template>
-</p-carousel>
-            </div>
+        </ng-template>
+    </p-carousel>
+ </div>
