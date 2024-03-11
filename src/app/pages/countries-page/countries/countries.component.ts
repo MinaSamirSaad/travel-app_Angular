@@ -35,7 +35,6 @@ export class CountriesComponent implements OnInit {
 
 
   countryTrips(e: any) {
-    console.log(e);
     this.router.navigate([`countries/${e.countryName}`]);
 
   }

@@ -97,7 +97,6 @@ export class CardsComponent implements OnInit {
         this.displayedTrips = this.trips.filter((item: any) =>
           item.categoryName.toLowerCase().includes(this.category.toLowerCase())
         );
-      console.log(this.displayedTrips);
       return;
     }
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -110,10 +109,6 @@ export class CardsComponent implements OnInit {
           item.categoryName.toLowerCase().includes(this.category.toLowerCase())
         )
         .slice(startIndex, endIndex);
-
-    console.log(this.displayedTrips);
-    console.log("current page", this.currentPage);
-    console.log("totalPages", this.totalPages);
   }
   loadNextPage(): void {
     this.currentPage++;

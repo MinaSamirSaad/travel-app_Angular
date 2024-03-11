@@ -70,24 +70,11 @@ export class TripDetailsComponent {
   reloadPage() {
     this._TripsService.getTripById(this.id).subscribe({
       next: ({ data }) => {
-        console.log(data);
         this.reviews = data.reviews;
         this.trip = data.trip;
         this.hotelID = data.trip.hotel.id;
         this.crusieData = data.trip.crusie;
         this.hotelData = data.hotelData[0];
-        // if(data.trip.crusie){ this.crusieData = data.trip}
-        // console.log("hhhh" , this.crusieData)
-        // console.log(data.trip?.crusie)
-
-        // this._HotelsService.getHotel(this.hotelID).subscribe({
-        //   next: (data) => {
-        //     this.hotel = data;
-        //     this.hotelData = this.hotel.data.hotel;
-
-        //     // console.log(this.hotelData)
-        //   },
-        // });
       },
     });
   }

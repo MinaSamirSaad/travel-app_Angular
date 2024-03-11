@@ -58,8 +58,6 @@ export class RegisterComponent {
         },
       });
     }
-    console.log("name: ", this.myRegForm.controls["userName"].value);
-    console.log("email: ", this.myRegForm.controls["email"].value);
-    console.log("pass: ", this.myRegForm.controls["password"].value);
+
   }
 }

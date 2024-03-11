@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class CarouselComponent {
   constructor(private router : Router) {}
   goFrance() {
-    console.log("hereee")
     this.router.navigate([`countries/France`])
   }
 

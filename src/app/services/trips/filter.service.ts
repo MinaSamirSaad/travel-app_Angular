@@ -14,8 +14,6 @@ export class FilterService {
   search$: Observable<string> = this.searchSubject.asObservable();
 
   sendSearch(searchTerm: string) {
-    console.log("filter service = ", searchTerm);
-
     this.searchSubject.next(searchTerm);
   }
 }

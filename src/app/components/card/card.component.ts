@@ -65,7 +65,6 @@ export class CardComponent implements OnInit {
   isClicked: boolean = false;
 
   addedToFav() {
-    console.log("added to fav");
   }
   showBottomCenter() {
     this.messageService.add({
