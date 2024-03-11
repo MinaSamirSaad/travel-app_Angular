@@ -31,19 +31,15 @@ export class OneCountryComponent implements OnInit {
       next: (params) => {
         this.CountriesService.getCountryByName(params).subscribe({
           next: (data) => {
-            console.log(data);
           },
         });
         this.TripsService.getTrips().subscribe({
           next: (data) => {
             this.tripsData = data.data;
-            console.log(this.tripsData);
             this.countryName = params["id"];
-            console.log(this.countryName);
             this.filterdTrips = this.tripsData.filter(
               (trip: any) => trip.name === this.countryName
             );
-            console.log(this.filterdTrips);
           },
         });
       },

@@ -74,14 +74,12 @@ export class HeaderComponent {
         localStorage.getItem("provider") === "google"
       ) {
         this.userPicture = JSON.parse(localStorage.getItem("user")!).picture;
-        console.log("=========> ", this.userPicture);
       } else {
         this.userPicture = JSON.parse(localStorage.getItem("user")!).image;
       }
     }
   }
   logout() {
-    console.log("logout mounir");
     // if (localStorage.getItem("provider") === "google") {
     //   // add logout from google here
     //   localStorage.removeItem("provider");
@@ -92,8 +90,6 @@ export class HeaderComponent {
     ).map((fav: any) => {
       return { tripId: fav._id };
     });
-    console.log(JSON.parse(localStorage.getItem("favouriteTrips") || "[]"));
-    console.log(favoriteTrips);
     this.user.addFavoriteTrips(favoriteTrips).subscribe({
       next: () => {
         this.user.logout().subscribe({

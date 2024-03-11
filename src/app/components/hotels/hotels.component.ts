@@ -24,7 +24,6 @@ hotelID: any ;
 trip : any = [];
  check = (id : any) => {
    this.hotelID = id ;
-   console.log(this.hotelID)
    this.trips.getTrips().subscribe((data : any)=> {
      this.trip = data.data
      let filtered = this.trip.filter((tri : any) => {
@@ -37,7 +36,6 @@ trip : any = [];
 ngOnInit() {
   this.hotelsService.getHotels().subscribe((data:any) => {
     this.hotels = data.data
-    console.log(this.hotels)
     this.popularHotels = this.hotels.filter((hotel : any)=> hotel.hotelRate === 5).slice(2,6)
   });
 

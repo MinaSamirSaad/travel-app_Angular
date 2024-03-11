@@ -54,7 +54,6 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.showNavbar = !this.isNavbarHidden(this.activatedRoute);
-        console.log(this.showNavbar);
       }
     });
   }

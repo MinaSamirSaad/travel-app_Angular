@@ -64,10 +64,8 @@ export class PayComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.id = params["id"];
     });
-    console.log(this.id);
     this.trips.getTripById(this.id).subscribe({
       next: (data: any) => {
-        console.log(data);
         this.trip = data.data.trip;
       },
       error: (err) => {
@@ -83,7 +81,6 @@ export class PayComponent implements OnInit {
   isClicked: boolean = false;
 
   addedToFav() {
-    console.log("added to fav");
   }
 
   toggleFavourite() {
@@ -129,7 +126,5 @@ export class PayComponent implements OnInit {
     if (this.myRegForm.valid) {
       //push
     }
-    console.log("email: ", this.myRegForm.controls["email"].value);
-    console.log("cNumber: ", this.myRegForm.controls["cNumber"].value);
   }
 }
